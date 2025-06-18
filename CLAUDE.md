@@ -32,9 +32,9 @@ This is an interactive map application that displays real-world locations associ
 ### BGG Integration Architecture
 The app uses BGG's structured "game families" metadata to extract location data:
 - **Location Family Types**: Cities, Country, Regions, States, Provinces
-- **Format**: "Cities: Bordeaux (France)" → parsed to {primary: "Bordeaux", secondary: "France"}
-- **Geocoding Strategy**: Try primary location first, then full string, then secondary
-- **Confidence Scoring**: Based on type matching and name similarity
+- **Format**: "Cities: Venice (Veneto, Italy)" → parsed to {primary: "Venice", secondary: "Italy", region: "Veneto"}
+- **Geocoding Strategy**: 5-tier approach starting with structured queries
+- **Confidence Scoring**: Higher scores for structured queries, geographic validation
 
 ### Adding Games
 Use the admin interface to import games:
@@ -48,8 +48,31 @@ Use the admin interface to import games:
 - **Caching**: Geocoding results cached in-memory and IndexedDB
 - **Batch Processing**: Configurable delays between batches
 
+### Geocoding Pipeline
+The system uses a 5-tier geocoding strategy for maximum accuracy:
+
+1. **Structured Query** (Primary): `city=Tokyo&country=Japan`
+   - Uses Nominatim's structured search API
+   - Most accurate for city/country pairs
+   - Prevents geographic mismatches (e.g., Tokyo → Bangladesh)
+
+2. **Simple Text Query**: "Tokyo, Japan"
+   - Fallback if structured query fails
+   - Enhanced with geographic validation
+
+3. **Primary Only**: "Tokyo"
+   - When country context doesn't help
+
+4. **Full Location**: "Venice, Veneto, Italy"
+   - For complex regional data
+
+5. **Country Only**: "Japan"
+   - Last resort fallback
+
 ### Data Validation
-- **Confidence Scores**: Geocoding confidence (0-1) based on type/name matching
+- **Unit Tests**: Comprehensive test suite for parsing edge cases (`test-bgg-parsing.js`)
+- **Geographic Validation**: Prevents location mismatches using country consistency checks
+- **Confidence Scores**: Higher scores (0.9) for structured queries, lower for text searches
 - **Validation Tools**: `AdminTools.validateLocations()` identifies low-confidence results
 - **Export Formats**: JSON, CSV, GeoJSON for data analysis
 
@@ -94,3 +117,6 @@ Use the admin interface to import games:
 - Report location inaccuracies via GitHub issues
 - Follow rate limiting for API requests
 - Test changes with sample imports before committing
+
+## Memories
+- Update README.md and CLAUDE.md before committing

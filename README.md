@@ -22,10 +22,12 @@ An interactive map showing the real-world locations associated with board games.
 
 - **Dynamic BGG Integration**: Import games directly from BoardGameGeek
 - **Smart Location Detection**: Uses BGG's structured "family" metadata
-- **Intelligent Geocoding**: Confidence scoring and fallback strategies
+- **Precision Geocoding**: Structured queries prevent location mismatches
+- **Intelligent Fallbacks**: 5-tier geocoding strategy for maximum accuracy
 - **Local Database**: Data persists between sessions via IndexedDB
 - **Real-time Progress**: Live import tracking with error handling
 - **Data Export**: Download as JSON, CSV, or GeoJSON
+- **Unit Testing**: Comprehensive tests for location parsing edge cases
 - **Admin Tools**: Validation and quality assessment features
 
 ## Todo List
@@ -92,9 +94,12 @@ An interactive map showing the real-world locations associated with board games.
 - **Progress Tracking**: Real-time status updates
 
 ### Data Quality
-- **Confidence Scoring**: Geocoding accuracy (0-1)
+- **Structured Geocoding**: Uses Nominatim's structured search API for precise city/country matching
+- **Confidence Scoring**: Geocoding accuracy (0-1) with higher scores for structured queries
+- **Geographic Validation**: Prevents mismatches (e.g., Tokyo → Bangladesh)
+- **Fallback Strategies**: 5-tier approach from structured to text-based queries
 - **Type Matching**: Verify location type consistency
-- **Validation Tools**: Identify low-confidence results
+- **Validation Tools**: Identify low-confidence results with comprehensive unit tests
 - **Export Options**: JSON/CSV/GeoJSON for analysis
 
 ## Contributing

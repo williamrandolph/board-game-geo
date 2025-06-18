@@ -160,13 +160,36 @@ class BGGApi {
     }
 
     parseLocationString(locationString) {
-        // Handle formats like "Bordeaux (France)", "Brazil", "New York (United States)"
+        // Handle formats like "Bordeaux (France)", "Brazil", "Venice (Veneto, Italy)"
         const parenthesesMatch = locationString.match(/^(.+?)\s*\((.+?)\)$/);
         
         if (parenthesesMatch) {
+            const primary = parenthesesMatch[1].trim();
+            const parenthesesContent = parenthesesMatch[2].trim();
+            
+            // For complex parentheses like "Veneto, Italy", extract the country (last part)
+            const parts = parenthesesContent.split(',').map(part => part.trim());
+            let secondary;
+            
+            if (parts.length > 1) {
+                // Use the last part as the country/main location
+                secondary = parts[parts.length - 1];
+                
+                // Also store the full parentheses content for fallback
+                return {
+                    primary: primary,
+                    secondary: secondary,
+                    fullSecondary: parenthesesContent,
+                    region: parts.length > 1 ? parts[0] : null
+                };
+            } else {
+                secondary = parenthesesContent;
+            }
+            
             return {
-                primary: parenthesesMatch[1].trim(),
-                secondary: parenthesesMatch[2].trim()
+                primary: primary,
+                secondary: secondary,
+                fullSecondary: parenthesesContent
             };
         }
         

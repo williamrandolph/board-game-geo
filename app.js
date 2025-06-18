@@ -297,6 +297,22 @@ function showError(message) {
     }, 5000);
 }
 
+// Run parsing tests
+function runTests() {
+    console.clear();
+    try {
+        const results = runAllBGGTests();
+        if (results.failed === 0) {
+            showSuccess(`All ${results.passed} parsing tests passed! Check console for details.`);
+        } else {
+            showError(`${results.failed} tests failed. Check console for details.`);
+        }
+    } catch (error) {
+        console.error('Test execution failed:', error);
+        showError('Test execution failed: ' + error.message);
+    }
+}
+
 // Initialize everything when page loads
 document.addEventListener('DOMContentLoaded', async function() {
     initMap();
