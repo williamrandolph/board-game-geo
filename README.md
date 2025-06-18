@@ -13,18 +13,20 @@ An interactive map showing the real-world locations associated with board games.
 
 1. Clone the repository
 2. Open `index.html` in your web browser
-3. Wait for locations to load (respects rate limits)
-4. Click markers to see game details
+3. Use the admin panel (top-right) to import games:
+   - Click "Import Popular Games" for 20 curated games
+   - Or click "Import Specific Game" to search by name
+4. Explore the map by clicking markers to see game details
 
-## Current Games
+## Features
 
-- Carcassonne → Carcassonne, France
-- Ticket to Ride → United States
-- Santorini → Santorini, Greece
-- Pandemic → Atlanta, Georgia, USA
-- King of Tokyo → Tokyo, Japan
-- Splendor → Renaissance Europe
-- Azul → Portugal
+- **Dynamic BGG Integration**: Import games directly from BoardGameGeek
+- **Smart Location Detection**: Uses BGG's structured "family" metadata
+- **Intelligent Geocoding**: Confidence scoring and fallback strategies
+- **Local Database**: Data persists between sessions via IndexedDB
+- **Real-time Progress**: Live import tracking with error handling
+- **Data Export**: Download as JSON, CSV, or GeoJSON
+- **Admin Tools**: Validation and quality assessment features
 
 ## Todo List
 
@@ -35,12 +37,12 @@ An interactive map showing the real-world locations associated with board games.
 - [x] Interactive map markers
 - [x] Responsive styling
 
-### Phase 2: Data Integration
-- [ ] BoardGameGeek API integration
-- [ ] Automated game data scraping
-- [ ] Game location research and validation
-- [ ] Database setup for game storage
-- [ ] Bulk geocoding with caching
+### Phase 2: Data Integration ✅
+- [x] BoardGameGeek API integration
+- [x] BGG game families location parsing
+- [x] Game location research and validation
+- [x] Database setup for game storage (IndexedDB)
+- [x] Bulk geocoding with caching
 
 ### Phase 3: Enhanced Features
 - [ ] Search functionality for games
@@ -65,11 +67,35 @@ An interactive map showing the real-world locations associated with board games.
 
 ## Tech Stack
 
-- **Frontend**: HTML, CSS, JavaScript
+- **Frontend**: HTML, CSS, JavaScript (Vanilla)
 - **Maps**: Leaflet.js with OpenStreetMap tiles
-- **Geocoding**: Nominatim API (free)
-- **Data Source**: BoardGameGeek API
+- **Data Source**: BoardGameGeek XML API v2
+- **Geocoding**: Nominatim API (free, rate-limited)
+- **Database**: IndexedDB for local storage
+- **Import System**: Batch processing with progress tracking
+- **Admin Tools**: Data validation and export utilities
 - **Hosting**: Static site (Netlify/Vercel/GitHub Pages)
+
+## Architecture
+
+### BGG Integration Pipeline
+1. **Search/Fetch**: Query BGG API for games
+2. **Parse Families**: Extract location data from "Cities:", "Country:", etc. tags
+3. **Geocode**: Convert location strings to coordinates via Nominatim
+4. **Store**: Save to IndexedDB with relationships
+5. **Display**: Render markers on interactive map
+
+### Rate Limiting
+- **BGG API**: 2 requests/second (enforced)
+- **Nominatim**: 1 request/second (enforced)
+- **Batch Processing**: Configurable delays between batches
+- **Progress Tracking**: Real-time status updates
+
+### Data Quality
+- **Confidence Scoring**: Geocoding accuracy (0-1)
+- **Type Matching**: Verify location type consistency
+- **Validation Tools**: Identify low-confidence results
+- **Export Options**: JSON/CSV/GeoJSON for analysis
 
 ## Contributing
 
