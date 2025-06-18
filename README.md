@@ -70,6 +70,24 @@ An interactive map showing the real-world locations associated with board games.
 - [ ] Analytics and usage tracking
 - [ ] Internationalization support
 
+## Project Structure
+
+```
+/
+├── index.html              # Main application page
+├── src/                    # Source code directory
+│   ├── app.js              # Main application logic
+│   ├── bgg-api.js          # BoardGameGeek API integration
+│   ├── geocoding.js        # Nominatim geocoding pipeline
+│   ├── database.js         # IndexedDB storage layer
+│   ├── bulk-import.js      # Batch import system
+│   ├── admin.js            # Admin tools and validation
+│   └── test-bgg-parsing.js # Unit tests for parsing
+├── CLAUDE.md               # Development guidelines
+├── README.md               # Project documentation
+└── LICENSE                 # MIT License
+```
+
 ## Tech Stack
 
 - **Frontend**: HTML, CSS, JavaScript (Vanilla)

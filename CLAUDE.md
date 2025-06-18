@@ -11,15 +11,22 @@ This is an interactive map application that displays real-world locations associ
 - **Database**: IndexedDB for local storage
 - **Hosting**: Static files (can be served from any web server)
 
-## Key Files
-- `index.html` - Main application page with admin controls
-- `app.js` - Core application logic and UI management
-- `bgg-api.js` - BoardGameGeek XML API integration
-- `geocoding.js` - Nominatim geocoding pipeline with caching
-- `database.js` - IndexedDB schema and data management
-- `bulk-import.js` - Batch processing system for BGG data
-- `admin.js` - Validation tools and data export functionality
-- `README.md` - Project documentation and roadmap
+## Project Structure
+```
+/
+├── index.html              # Main application page with admin controls
+├── src/                    # Source code directory
+│   ├── app.js              # Core application logic and UI management
+│   ├── bgg-api.js          # BoardGameGeek XML API integration
+│   ├── geocoding.js        # Nominatim geocoding pipeline with caching
+│   ├── database.js         # IndexedDB schema and data management
+│   ├── bulk-import.js      # Batch processing system for BGG data
+│   ├── admin.js            # Validation tools and data export functionality
+│   └── test-bgg-parsing.js # Unit tests for location parsing
+├── CLAUDE.md               # Development guidelines (this file)
+├── README.md               # Project documentation and roadmap
+└── LICENSE                 # MIT License
+```
 
 ## Development Guidelines
 
