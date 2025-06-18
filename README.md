@@ -45,6 +45,9 @@ An interactive map showing the real-world locations associated with board games.
 - [x] Game location research and validation
 - [x] Database setup for game storage (IndexedDB)
 - [x] Bulk geocoding with caching
+- [ ] Use only the most specific locations for a game
+- [ ] Color-code the markers for different types of games
+- [ ] Add the "ancient" family
 
 ### Phase 3: Enhanced Features
 - [ ] Search functionality for games
