@@ -11,7 +11,6 @@ import time
 import os
 import json
 import gzip
-import hashlib
 from datetime import datetime, timedelta
 
 class BGGCache:

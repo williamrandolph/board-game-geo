@@ -7,7 +7,6 @@ import csv
 import sqlite3
 import sys
 import os
-import re
 from init_database import normalize_string
 
 def load_bgg_data(csv_path, db_path):

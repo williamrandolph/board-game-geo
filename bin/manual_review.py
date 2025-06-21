@@ -6,7 +6,6 @@ Creates a simple web interface for approving/rejecting matches.
 
 import sqlite3
 import json
-import os
 import sys
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 import urllib.parse

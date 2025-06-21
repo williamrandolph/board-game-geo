@@ -7,7 +7,6 @@ Uses multiple matching strategies and confidence scoring.
 import sqlite3
 import sys
 import os
-import re
 from difflib import SequenceMatcher
 
 def calculate_levenshtein_similarity(s1, s2):

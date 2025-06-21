@@ -4,7 +4,6 @@ Complete review workflow: BGG validation + manual review interface.
 """
 
 import sys
-import os
 import subprocess
 
 def run_workflow(db_path="data/processed/boardgames.db", validation_limit=None):
