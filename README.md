@@ -37,6 +37,9 @@ An interactive map showing the real-world locations associated with board games.
    # Process matches
    python bin/hybrid_match.py
    
+   # Pre-populate BGG cache (NEW - 20x faster!)
+   python bin/populate_cache.py --matches-only
+   
    # Validate and review (interactive)
    python bin/review_workflow.py
    
@@ -70,6 +73,8 @@ BGG CSV Data → SQLite Database ← GeoNames Cities
      ↓
 Hybrid Matching Algorithm (1K+ exact, 500K+ substring)
      ↓
+Batch BGG Cache Population (20x faster than individual requests)
+     ↓
 BGG API Validation (auto-approve slam dunks)
      ↓
 Manual Review Interface (web-based, keyboard shortcuts)
@@ -85,8 +90,10 @@ Clean JSON Export → Web Application
 - **Result**: ~2,891 total matches with optimal precision/recall balance
 
 ### BGG Validation System
+- **Batch Cache Population**: 20x faster using BGG's batch API (up to 20 games per request)
 - **Auto-Approval**: Very strict criteria (explicit "Cities: [city]" in BGG families)
 - **Auto-Rejection**: Abstract games with no geographical indicators
+- **Invalid Game Detection**: Automatically identifies deleted/unpublished games
 - **Manual Review**: Web interface for human validation of uncertain matches
 - **Historical Detection**: Flags ancient/medieval games to prevent modern city mismatches
 
@@ -187,9 +194,11 @@ python bin/print_matches.py --top 100
 
 ### Cache Management
 ```bash
-python bin/bgg_cache.py stats     # View statistics
-python bin/bgg_cache.py clear 7   # Clear files older than 7 days  
-python bin/bgg_cache.py test 1234 # Test specific BGG ID
+python bin/populate_cache.py --matches-only  # Pre-populate cache (recommended)
+python bin/bgg_cache.py stats               # View statistics
+python bin/bgg_cache.py clear 7             # Clear files older than 7 days  
+python bin/bgg_cache.py test 1234           # Test specific BGG ID
+python bin/clean_invalid_games.py --ids X   # Remove deleted/unpublished games
 ```
 
 ## 🚀 Deployment
@@ -201,7 +210,9 @@ python bin/bgg_cache.py test 1234 # Test specific BGG ID
 4. CDN recommended for global performance
 
 ### Performance Optimizations
-- Pre-processed data eliminates API rate limits
+- **Batch BGG API Caching**: 20x faster cache population (0.8 vs 24 minutes)
+- **Pre-processed data** eliminates API rate limits during validation
+- **Invalid game cleanup** removes deleted/unpublished games automatically
 - Compressed JSON for faster loading
 - Lazy loading for large datasets
 - Browser caching via IndexedDB
@@ -212,8 +223,9 @@ python bin/bgg_cache.py test 1234 # Test specific BGG ID
 - [x] Interactive map with Leaflet.js
 - [x] BoardGameGeek API integration
 - [x] Hybrid matching algorithm
-- [x] BGG validation system
+- [x] BGG validation system with batch caching
 - [x] Manual review interface
+- [x] Invalid game cleanup system
 - [x] Data export capabilities
 
 ### 🚧 Phase 2: Enhanced Features (In Progress) 

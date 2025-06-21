@@ -142,6 +142,84 @@ class BGGCache:
         
         return None
     
+    def _fetch_batch_from_api(self, bgg_ids, max_retries=3):
+        """Fetch multiple games from BGG API in a single request (up to 20 IDs)."""
+        
+        if len(bgg_ids) > 20:
+            raise ValueError("BGG API supports maximum 20 IDs per request")
+        
+        if not bgg_ids:
+            return {}
+        
+        ids_str = ','.join(str(id) for id in bgg_ids)
+        
+        for attempt in range(max_retries):
+            try:
+                # BGG API rate limit: 2 requests per second
+                time.sleep(0.6)  # 600ms delay to be safe
+                
+                url = f"https://boardgamegeek.com/xmlapi2/thing?id={ids_str}&stats=1"
+                
+                req = urllib.request.Request(url)
+                req.add_header('User-Agent', 'BoardGameGeography/1.0')
+                
+                with urllib.request.urlopen(req, timeout=15) as response:
+                    if response.status == 200:
+                        content = response.read()
+                        
+                        # Check if response is gzip-compressed
+                        if content.startswith(b'\x1f\x8b'):
+                            try:
+                                content = gzip.decompress(content)
+                            except Exception as e:
+                                print(f"  Gzip decompression error: {e}")
+                                continue
+                        
+                        # Validate XML
+                        if len(content) < 50:
+                            print(f"  Warning: Short response ({len(content)} bytes)")
+                            continue
+                        
+                        # Try to parse XML to ensure it's valid
+                        try:
+                            games = self._parse_batch_xml_response(content)
+                            if not games:
+                                print(f"  Warning: No valid games found in batch response")
+                                # Check if any games were actually invalid
+                                content_str = content.decode('utf-8') if isinstance(content, bytes) else content
+                                if 'This item has been deleted' in content_str or len(content_str) < 100:
+                                    print(f"  Some games in batch may be deleted or invalid")
+                            return games
+                                
+                        except ET.ParseError as e:
+                            print(f"  XML parse error: {e}")
+                            continue
+                    
+                    elif response.status == 429:  # Rate limited
+                        print(f"  Rate limited, waiting 5 seconds...")
+                        time.sleep(5)
+                        continue
+                    else:
+                        print(f"  BGG API error {response.status}")
+                        return {}
+                        
+            except urllib.error.HTTPError as e:
+                if e.code == 429:  # Rate limited
+                    print(f"  Rate limited, waiting 5 seconds...")
+                    time.sleep(5)
+                    continue
+                else:
+                    print(f"  BGG API error {e.code}")
+                    return {}
+            except Exception as e:
+                print(f"  Error fetching BGG batch data: {e}")
+                if attempt < max_retries - 1:
+                    time.sleep(2)
+                    continue
+                return {}
+        
+        return {}
+    
     def _parse_xml_response(self, xml_content):
         """Parse XML response and extract structured data."""
         root = ET.fromstring(xml_content)
@@ -171,6 +249,44 @@ class BGGCache:
             'cached_at': datetime.now().isoformat(),
             'raw_xml': xml_content.decode('utf-8')  # Store raw XML for debugging
         }
+    
+    def _parse_batch_xml_response(self, xml_content):
+        """Parse batch XML response and extract structured data for multiple games."""
+        root = ET.fromstring(xml_content)
+        items = root.findall('item')
+        
+        games = {}
+        cached_at = datetime.now().isoformat()
+        
+        for item in items:
+            try:
+                # Extract relevant metadata
+                name = item.find('.//name[@type="primary"]')
+                year = item.find('yearpublished')
+                description = item.find('description')
+                
+                # Categories and mechanics
+                categories = [link.get('value') for link in item.findall('.//link[@type="boardgamecategory"]')]
+                mechanics = [link.get('value') for link in item.findall('.//link[@type="boardgamemechanic"]')]
+                families = [link.get('value') for link in item.findall('.//link[@type="boardgamefamily"]')]
+                
+                bgg_id = int(item.get('id'))
+                games[bgg_id] = {
+                    'bgg_id': bgg_id,
+                    'name': name.get('value') if name is not None else '',
+                    'year': int(year.get('value')) if year is not None else None,
+                    'description': description.text if description is not None else '',
+                    'categories': categories,
+                    'mechanics': mechanics,
+                    'families': families,
+                    'cached_at': cached_at,
+                    'raw_xml': xml_content.decode('utf-8')  # Store raw XML for debugging
+                }
+            except Exception as e:
+                print(f"  Error parsing item {item.get('id', 'unknown')}: {e}")
+                continue
+        
+        return games
     
     def get_game_details(self, bgg_id):
         """
@@ -281,6 +397,106 @@ class BGGCache:
         print(f"Cleared {cleared} cache files")
         return cleared
     
+    def populate_cache_batch(self, bgg_ids, batch_size=20, remove_invalid=True):
+        """
+        Populate cache for multiple BGG IDs using batch API requests.
+        
+        Args:
+            bgg_ids: List of BGG IDs to cache
+            batch_size: Number of IDs per API request (max 20)
+            remove_invalid: If True, track invalid BGG IDs for removal
+        
+        Returns:
+            dict: Statistics about the operation
+        """
+        if batch_size > 20:
+            batch_size = 20
+            print("  Warning: BGG API supports max 20 IDs per request, using batch_size=20")
+        
+        # Filter out already cached IDs
+        uncached_ids = []
+        for bgg_id in bgg_ids:
+            cache_path = self._get_cache_path(bgg_id)
+            if not self._is_cache_valid(cache_path):
+                uncached_ids.append(bgg_id)
+        
+        if not uncached_ids:
+            print(f"  All {len(bgg_ids)} games already cached!")
+            return {'total_requested': len(bgg_ids), 'already_cached': len(bgg_ids), 'fetched': 0, 'errors': 0}
+        
+        print(f"  Need to fetch {len(uncached_ids)} games ({len(bgg_ids) - len(uncached_ids)} already cached)")
+        
+        stats = {
+            'total_requested': len(bgg_ids),
+            'already_cached': len(bgg_ids) - len(uncached_ids),
+            'fetched': 0,
+            'errors': 0,
+            'batches': 0,
+            'invalid_ids': []
+        }
+        
+        # Process in batches
+        for i in range(0, len(uncached_ids), batch_size):
+            batch = uncached_ids[i:i + batch_size]
+            stats['batches'] += 1
+            
+            print(f"  Batch {stats['batches']}: Fetching {len(batch)} games (IDs: {batch[0]}-{batch[-1]})")
+            
+            # Fetch batch from API
+            games_data = self._fetch_batch_from_api(batch)
+            
+            if games_data:
+                # Save each game to cache
+                for bgg_id, game_data in games_data.items():
+                    try:
+                        cache_path = self._get_cache_path(bgg_id)
+                        with open(cache_path, 'w', encoding='utf-8') as f:
+                            json.dump(game_data, f, indent=2, ensure_ascii=False)
+                        
+                        # Update metadata
+                        self.metadata["games"][str(bgg_id)] = {
+                            "name": game_data['name'],
+                            "cached_at": game_data['cached_at'],
+                            "cache_file": os.path.basename(cache_path)
+                        }
+                        
+                        stats['fetched'] += 1
+                        
+                    except Exception as e:
+                        print(f"    Error caching game {bgg_id}: {e}")
+                        stats['errors'] += 1
+                
+                # Check for invalid IDs (requested but not returned)
+                if remove_invalid:
+                    returned_ids = set(games_data.keys())
+                    requested_ids = set(batch)
+                    missing_ids = requested_ids - returned_ids
+                    
+                    if missing_ids:
+                        for missing_id in missing_ids:
+                            stats['invalid_ids'].append(missing_id)
+                            print(f"    ⚠️  BGG ID {missing_id} not found - likely deleted/unpublished")
+                
+                print(f"    ✅ Cached {len(games_data)} games from this batch")
+                
+                if len(games_data) < len(batch):
+                    missing_count = len(batch) - len(games_data)
+                    print(f"    ⚠️  {missing_count} games not found in BGG response")
+            else:
+                print(f"    ❌ Failed to fetch batch")
+                # If no games returned, all IDs in batch might be invalid
+                if remove_invalid:
+                    for bgg_id in batch:
+                        stats['invalid_ids'].append(bgg_id)
+                        print(f"    ⚠️  BGG ID {bgg_id} likely invalid (no response)")
+                stats['errors'] += len(batch)
+        
+        # Update API call statistics
+        self.metadata["stats"]["api_calls"] += stats['batches']
+        self.metadata["stats"]["total_requests"] += len(bgg_ids)
+        
+        return stats
+    
     def __del__(self):
         """Save metadata when cache object is destroyed."""
         try:
@@ -321,6 +537,15 @@ def clear_cache(older_than_days=None):
     
     return _bgg_cache.clear_cache(older_than_days)
 
+def populate_cache_batch(bgg_ids, batch_size=20):
+    """Populate cache for multiple BGG IDs using batch API requests."""
+    global _bgg_cache
+    
+    if _bgg_cache is None:
+        _bgg_cache = BGGCache()
+    
+    return _bgg_cache.populate_cache_batch(bgg_ids, batch_size)
+
 if __name__ == "__main__":
     # Command line interface for cache management
     import sys
@@ -331,6 +556,7 @@ if __name__ == "__main__":
         print("  python bgg_cache.py stats              - Show cache statistics")
         print("  python bgg_cache.py clear [days]       - Clear cache (optionally older than days)")
         print("  python bgg_cache.py test <bgg_id>      - Test fetching a specific game")
+        print("  python bgg_cache.py populate <db_path> - Populate cache from database BGG IDs")
         sys.exit(1)
     
     command = sys.argv[1]
@@ -370,6 +596,60 @@ if __name__ == "__main__":
         # Show stats
         stats = get_cache_stats()
         print(f"\n📊 Cache stats: {stats['cache_hits']}/{stats['total_requests']} hits ({stats['cache_hit_rate']:.1%})")
+    
+    elif command == "populate":
+        if len(sys.argv) < 3:
+            print("Usage: python bgg_cache.py populate <db_path>")
+            sys.exit(1)
+        
+        import sqlite3
+        
+        db_path = sys.argv[2]
+        print(f"🔄 Populating cache from database: {db_path}")
+        
+        if not os.path.exists(db_path):
+            print(f"❌ Database not found: {db_path}")
+            sys.exit(1)
+        
+        # Get all BGG IDs from database
+        conn = sqlite3.connect(db_path)
+        cursor = conn.cursor()
+        
+        cursor.execute("SELECT DISTINCT bgg_id FROM games WHERE bgg_id IS NOT NULL ORDER BY bgg_id")
+        rows = cursor.fetchall()
+        conn.close()
+        
+        bgg_ids = [row[0] for row in rows]
+        
+        if not bgg_ids:
+            print("❌ No BGG IDs found in database")
+            sys.exit(1)
+        
+        print(f"📊 Found {len(bgg_ids)} unique BGG IDs in database")
+        
+        # Estimate time savings
+        estimated_individual_time = len(bgg_ids) * 0.6 / 60  # 0.6 seconds per request
+        estimated_batch_time = (len(bgg_ids) / 20) * 0.6 / 60  # 20 per batch
+        time_saved = estimated_individual_time - estimated_batch_time
+        
+        print(f"⏱️  Estimated time with individual requests: {estimated_individual_time:.1f} minutes")
+        print(f"⚡ Estimated time with batch requests: {estimated_batch_time:.1f} minutes")
+        print(f"💾 Time saved: {time_saved:.1f} minutes ({time_saved/estimated_individual_time*100:.0f}% faster)")
+        print()
+        
+        # Populate cache
+        stats = populate_cache_batch(bgg_ids)
+        
+        print(f"\n📊 Cache Population Results:")
+        print(f"  Total requested: {stats['total_requested']}")
+        print(f"  Already cached: {stats['already_cached']}")
+        print(f"  Newly fetched: {stats['fetched']}")
+        print(f"  Errors: {stats['errors']}")
+        print(f"  API batches used: {stats['batches']}")
+        
+        # Show final stats
+        final_stats = get_cache_stats()
+        print(f"\n📊 Final cache stats: {final_stats['cached_games']} games cached")
     
     else:
         print(f"Unknown command: {command}")

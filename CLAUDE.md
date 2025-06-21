@@ -84,6 +84,7 @@ python bin/load_cities_data.py   # Import cities500.txt
 #### Step 3: Matching & Validation
 ```bash
 python bin/hybrid_match.py       # Find game/city matches
+python bin/populate_cache.py --matches-only  # Pre-populate BGG cache (NEW!)
 python bin/review_workflow.py    # BGG validation + manual review
 ```
 
@@ -103,6 +104,8 @@ python bin/export_web_data.py    # Generate JSON for web app
 - **Manual Review**: Web interface with keyboard shortcuts (A/R/S)
 - **Historical Detection**: Flags ancient/medieval games for review
 - **API Caching**: 30-day file-based cache to avoid repeated requests
+- **Batch Processing**: 20x faster cache population using BGG batch API
+- **Invalid Game Cleanup**: Automatic detection and removal of deleted/unpublished games
 
 ### Manual Review Interface
 - **Web Server**: Python HTTP server with JSON API
@@ -154,9 +157,11 @@ The web application maintains the 5-tier geocoding strategy:
 
 ### Cache Management
 ```bash
-python bin/bgg_cache.py stats     # View cache statistics
-python bin/bgg_cache.py clear     # Clear old cache files
-python bin/bgg_cache.py test 1234 # Test specific BGG ID
+python bin/populate_cache.py --matches-only  # Pre-populate cache (recommended)
+python bin/bgg_cache.py stats               # View cache statistics
+python bin/bgg_cache.py clear               # Clear old cache files
+python bin/bgg_cache.py test 1234           # Test specific BGG ID
+python bin/clean_invalid_games.py --ids X   # Remove invalid/deleted games
 ```
 
 ## Testing
@@ -187,7 +192,9 @@ python bin/bgg_cache.py test 1234 # Test specific BGG ID
 
 ## Important Commands
 - **Full Pipeline**: `python bin/review_workflow.py`
+- **Pre-populate Cache**: `python bin/populate_cache.py --matches-only`
 - **Database Reset**: `rm data/processed/boardgames.db && python bin/init_database.py`
 - **Quick Test**: `python bin/test_pipeline.py`
 - **Web Export**: `python bin/export_web_data.py`
 - **Cache Stats**: `python bin/bgg_cache.py stats`
+- **Clean Invalid Games**: `python bin/clean_invalid_games.py --ids X --execute`
