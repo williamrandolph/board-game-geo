@@ -2,6 +2,7 @@
 Shared utilities for pipeline scripts.
 """
 
+import re
 import subprocess
 import time
 
@@ -41,3 +42,24 @@ def run_command(command: str, description: str) -> bool:
             print(e.stderr)
         
         return False
+
+def normalize_string(text: str) -> str:
+    """Normalize string for matching."""
+    if not text:
+        return ""
+    
+    # Convert to lowercase
+    text = text.lower()
+    
+    # Remove common articles and prefixes
+    articles = ['the ', 'a ', 'an ', 'le ', 'la ', 'les ', 'el ', 'los ', 'las ']
+    for article in articles:
+        if text.startswith(article):
+            text = text[len(article):]
+            break
+    
+    # Remove punctuation and extra whitespace
+    text = re.sub(r'[^\w\s]', ' ', text)
+    text = re.sub(r'\s+', ' ', text).strip()
+    
+    return text

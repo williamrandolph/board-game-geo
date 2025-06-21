@@ -20,7 +20,8 @@ def create_database(db_path):
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     
-    # Create games table
+    # Create games table, based on information contained in bgg ranked 
+    # games dump
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS games (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -36,6 +37,8 @@ def create_database(db_path):
     ''')
     
     # Create cities table
+    # TODO: we can only match Medina if we are checking alternate names
+    #   * consider adding a lookup table for alternate names
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS cities (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -94,28 +97,6 @@ def create_database(db_path):
     
     conn.close()
     print("Database initialization complete!")
-
-def normalize_string(text):
-    """Normalize string for matching - used by other scripts."""
-    if not text:
-        return ""
-    
-    # Convert to lowercase
-    text = text.lower()
-    
-    # Remove common articles and prefixes
-    articles = ['the ', 'a ', 'an ', 'le ', 'la ', 'les ', 'el ', 'los ', 'las ']
-    for article in articles:
-        if text.startswith(article):
-            text = text[len(article):]
-            break
-    
-    # Remove punctuation and extra whitespace
-    import re
-    text = re.sub(r'[^\w\s]', ' ', text)
-    text = re.sub(r'\s+', ' ', text).strip()
-    
-    return text
 
 if __name__ == "__main__":
     # Default database path

@@ -6,7 +6,7 @@ Load GeoNames cities data from cities500.txt into SQLite database.
 import sqlite3
 import sys
 import os
-from init_database import normalize_string
+from util import normalize_string
 
 def get_country_name(country_code):
     """Convert country code to country name."""

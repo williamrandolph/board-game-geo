@@ -81,6 +81,7 @@ def test_pipeline():
     print("  2. Check if Birmingham matched correctly")
     print("  3. Verify Amalfi matched correctly") 
     print("  4. Confirm Gloomhaven didn't match anything")
+    print("  5. Confirm Medina didn't match anything (due to data issue)")
     
     return True
 

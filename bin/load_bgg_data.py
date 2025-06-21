@@ -7,7 +7,7 @@ import csv
 import sqlite3
 import sys
 import os
-from init_database import normalize_string
+from util import normalize_string
 
 def load_bgg_data(csv_path, db_path):
     """Load BGG data from CSV file into database."""
