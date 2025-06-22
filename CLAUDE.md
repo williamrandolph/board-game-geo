@@ -108,10 +108,12 @@ python bin/export_web_data.py    # Generate JSON for web app
 - **Invalid Game Cleanup**: Automatic detection and removal of deleted/unpublished games
 
 ### Manual Review Interface
-- **Web Server**: Python HTTP server with JSON API
-- **Keyboard Shortcuts**: A (approve), R (reject), S (skip)
+- **Game-Based Review**: One interface card per game with radio button city selection
+- **BGG Integration**: Full game descriptions, categories, families, and mechanics displayed
+- **Smart Selection**: Radio buttons for city choices plus "no match" option
+- **Keyboard Shortcuts**: 1-9 (select cities), 0 (no match), A (approve), S (skip)
 - **Progress Tracking**: Real-time statistics and completion percentage
-- **Data Display**: BGG metadata, categories, families, confidence scores
+- **Data Display**: Rich BGG metadata with geographical context and visual feedback
 
 ### Geocoding Pipeline (Web App)
 The web application maintains the 5-tier geocoding strategy:

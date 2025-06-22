@@ -4,14 +4,15 @@ Manual review interface for board game geography matches.
 Creates a simple web interface for approving/rejecting matches.
 """
 
-import sqlite3
-import json
-import sys
 from http.server import HTTPServer, SimpleHTTPRequestHandler
-import urllib.parse
-import webbrowser
+import json
+import os
+import sqlite3
+import sys
 import threading
 import time
+import urllib.parse
+import webbrowser
 
 class ReviewHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, db_path=None, **kwargs):
@@ -119,11 +120,90 @@ class ReviewHandler(SimpleHTTPRequestHandler):
             font-size: 14px;
         }
         
-        .location-match {
-            font-size: 18px;
-            color: #e74c3c;
+        .location-options {
             margin: 15px 0;
+        }
+        
+        .city-option {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fafafa;
+            transition: all 0.2s;
+        }
+        
+        .city-option:hover {
+            background: #f0f0f0;
+            border-color: #2196F3;
+        }
+        
+        .city-option.selected {
+            background: #e3f2fd;
+            border-color: #2196F3;
+        }
+        
+        .city-option input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+        
+        .city-info {
+            flex-grow: 1;
+        }
+        
+        .city-name {
+            font-size: 16px;
             font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .city-details {
+            font-size: 14px;
+            color: #666;
+            margin-top: 4px;
+        }
+        
+        .match-score {
+            font-size: 12px;
+            background: #e8f5e8;
+            color: #388e3c;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+        
+        .no-match-option {
+            background: #ffebee;
+            border-color: #f44336;
+        }
+        
+        .no-match-option:hover {
+            background: #ffcdd2;
+        }
+        
+        .no-match-option.selected {
+            background: #ffcdd2;
+            border-color: #f44336;
+        }
+        
+        .game-description {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-size: 14px;
+            line-height: 1.5;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .description-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
         }
         
         .bgg-data {
@@ -244,50 +324,52 @@ class ReviewHandler(SimpleHTTPRequestHandler):
     
     <div class="keyboard-help">
         <strong>Keyboard Shortcuts:</strong><br>
-        <kbd>A</kbd> Approve • <kbd>R</kbd> Reject • <kbd>S</kbd> Skip<br>
+        <kbd>1-9</kbd> Select city • <kbd>0</kbd> No match<br>
+        <kbd>A</kbd> Approve • <kbd>S</kbd> Skip<br>
         <kbd>↑</kbd>/<kbd>↓</kbd> Navigate • <kbd>?</kbd> Toggle help
     </div>
     
     <script>
-        let matches = [];
+        let games = [];
         let currentIndex = 0;
         let reviewed = { approved: 0, rejected: 0, skipped: 0 };
         
-        // Load matches from API
+        // Load games from API
         async function loadMatches() {
             try {
                 const response = await fetch('/api/matches');
-                matches = await response.json();
-                renderMatches();
+                games = await response.json();
+                renderGames();
                 updateProgress();
             } catch (error) {
-                console.error('Error loading matches:', error);
-                document.getElementById('progressText').textContent = 'Error loading matches';
+                console.error('Error loading games:', error);
+                document.getElementById('progressText').textContent = 'Error loading games';
             }
         }
         
-        function renderMatches() {
+        function renderGames() {
             const container = document.getElementById('matchesContainer');
             container.innerHTML = '';
             
-            matches.forEach((match, index) => {
-                const card = createMatchCard(match, index);
+            games.forEach((game, index) => {
+                const card = createGameCard(game, index);
                 container.appendChild(card);
             });
             
-            // Scroll to current match
-            if (matches.length > 0) {
-                scrollToMatch(currentIndex);
+            // Scroll to current game
+            if (games.length > 0) {
+                scrollToGame(currentIndex);
             }
         }
         
-        function createMatchCard(match, index) {
+        function createGameCard(game, index) {
             const card = document.createElement('div');
-            card.className = `match-card ${match.status || ''}`;
-            card.id = `match-${index}`;
+            card.className = `match-card ${game.status || ''}`;
+            card.id = `game-${index}`;
             
-            const categories = match.bgg_categories || [];
-            const families = match.bgg_families || [];
+            const categories = game.bgg_categories || [];
+            const families = game.bgg_families || [];
+            const mechanics = game.bgg_mechanics || [];
             
             // Identify special categories
             const historicalCategories = categories.filter(cat => 
@@ -302,22 +384,53 @@ class ReviewHandler(SimpleHTTPRequestHandler):
                 )
             );
             
+            // Create city options
+            const cityOptionsHtml = game.cities.map(city => `
+                <div class="city-option" onclick="selectCity(${index}, ${city.city_id})">
+                    <input type="radio" name="game-${game.game_id}" value="${city.city_id}" 
+                           id="city-${game.game_id}-${city.city_id}">
+                    <div class="city-info">
+                        <div class="city-name">${city.city_name}, ${city.city_country}</div>
+                        <div class="city-details">
+                            Population: ${city.city_population ? city.city_population.toLocaleString() : 'Unknown'} • 
+                            ${city.match_type}
+                        </div>
+                    </div>
+                    <div class="match-score">Score: ${city.match_score.toFixed(1)}</div>
+                </div>
+            `).join('');
+            
             card.innerHTML = `
-                <div class="game-title">${match.game_name}</div>
+                <div class="game-title">${game.game_name}</div>
                 <div class="game-info">
-                    <div class="info-item">BGG Rank: #${match.rank || 'Unranked'}</div>
-                    <div class="info-item">Year: ${match.year || 'Unknown'}</div>
-                    <div class="info-item">Rating: ${match.rating ? match.rating.toFixed(2) : 'N/A'}</div>
-                    <div class="info-item">Match Type: ${match.match_type}</div>
-                    <div class="info-item">Score: ${match.match_score.toFixed(1)}</div>
+                    <div class="info-item">BGG Rank: #${game.rank || 'Unranked'}</div>
+                    <div class="info-item">Year: ${game.year || 'Unknown'}</div>
+                    <div class="info-item">Rating: ${game.rating ? game.rating.toFixed(2) : 'N/A'}</div>
+                    <div class="info-item">BGG ID: ${game.bgg_id || 'N/A'}</div>
                 </div>
                 
-                <div class="location-match">
-                    🎮 "${match.game_name}" → 📍 ${match.city_name}, ${match.city_country}
-                    <br><small>Population: ${match.city_population ? match.city_population.toLocaleString() : 'Unknown'}</small>
+                ${game.bgg_description ? `
+                    <div class="game-description">
+                        <div class="description-title">📋 Game Description</div>
+                        ${game.bgg_description}
+                    </div>
+                ` : ''}
+                
+                <div class="location-options">
+                    <h4>📍 Select matching city or no match:</h4>
+                    ${cityOptionsHtml}
+                    
+                    <div class="city-option no-match-option" onclick="selectNoMatch(${index})">
+                        <input type="radio" name="game-${game.game_id}" value="no-match" 
+                               id="no-match-${game.game_id}">
+                        <div class="city-info">
+                            <div class="city-name">No geographical match</div>
+                            <div class="city-details">This game does not correspond to a real-world location</div>
+                        </div>
+                    </div>
                 </div>
                 
-                ${match.reasoning ? `<div class="reasoning">🤖 AI Analysis: ${match.reasoning}</div>` : ''}
+                ${game.reasoning ? `<div class="reasoning">🤖 AI Analysis: ${game.reasoning}</div>` : ''}
                 
                 <div class="bgg-data">
                     <div class="categories">
@@ -329,6 +442,7 @@ class ReviewHandler(SimpleHTTPRequestHandler):
                                             isGeographical ? 'tag geographical' : 'tag';
                             return `<span class="${className}">${cat}</span>`;
                         }).join('')}
+                        ${categories.length === 0 ? '<span class="tag">No categories available</span>' : ''}
                     </div>
                     
                     <div class="families">
@@ -337,24 +451,32 @@ class ReviewHandler(SimpleHTTPRequestHandler):
                             `<span class="tag">${family}</span>`
                         ).join('')}
                         ${families.length > 8 ? `<span class="tag">+${families.length - 8} more</span>` : ''}
+                        ${families.length === 0 ? '<span class="tag">No families available</span>' : ''}
                     </div>
                     
-                    ${match.indicators && match.indicators.length > 0 ? `
+                    ${mechanics.length > 0 ? `
+                        <div class="mechanics" style="margin: 5px 0;">
+                            <strong>Mechanics:</strong>
+                            ${mechanics.slice(0, 6).map(mechanic => 
+                                `<span class="tag">${mechanic}</span>`
+                            ).join('')}
+                            ${mechanics.length > 6 ? `<span class="tag">+${mechanics.length - 6} more</span>` : ''}
+                        </div>
+                    ` : ''}
+                    
+                    ${game.indicators && game.indicators.length > 0 ? `
                         <div style="margin-top: 10px;">
                             <strong>Geographical Indicators:</strong><br>
-                            ${match.indicators.slice(0, 3).join('<br>')}
+                            ${game.indicators.slice(0, 3).join('<br>')}
                         </div>
                     ` : ''}
                 </div>
                 
                 <div class="actions">
-                    <button class="btn btn-approve" onclick="updateMatch(${index}, 'approved')">
-                        ✅ Approve (A)
+                    <button class="btn btn-approve" onclick="approveGame(${index})" disabled id="approve-btn-${index}">
+                        ✅ Approve Selection (A)
                     </button>
-                    <button class="btn btn-reject" onclick="updateMatch(${index}, 'rejected')">
-                        ❌ Reject (R)
-                    </button>
-                    <button class="btn btn-skip" onclick="updateMatch(${index}, 'skipped')">
+                    <button class="btn btn-skip" onclick="skipGame(${index})">
                         ⏭️ Skip (S)
                     </button>
                 </div>
@@ -363,8 +485,54 @@ class ReviewHandler(SimpleHTTPRequestHandler):
             return card;
         }
         
-        async function updateMatch(index, status) {
-            const match = matches[index];
+        // Radio button selection handlers
+        function selectCity(gameIndex, cityId) {
+            const radio = document.getElementById(`city-${games[gameIndex].game_id}-${cityId}`);
+            radio.checked = true;
+            
+            // Update visual selection
+            updateCitySelection(gameIndex);
+            
+            // Enable approve button
+            document.getElementById(`approve-btn-${gameIndex}`).disabled = false;
+        }
+        
+        function selectNoMatch(gameIndex) {
+            const radio = document.getElementById(`no-match-${games[gameIndex].game_id}`);
+            radio.checked = true;
+            
+            // Update visual selection
+            updateCitySelection(gameIndex);
+            
+            // Enable approve button
+            document.getElementById(`approve-btn-${gameIndex}`).disabled = false;
+        }
+        
+        function updateCitySelection(gameIndex) {
+            const gameId = games[gameIndex].game_id;
+            const options = document.querySelectorAll(`input[name="game-${gameId}"]`);
+            
+            options.forEach(option => {
+                const cityOption = option.closest('.city-option');
+                if (option.checked) {
+                    cityOption.classList.add('selected');
+                } else {
+                    cityOption.classList.remove('selected');
+                }
+            });
+        }
+        
+        async function approveGame(index) {
+            const game = games[index];
+            const selectedOption = document.querySelector(`input[name="game-${game.game_id}"]:checked`);
+            
+            if (!selectedOption) {
+                alert('Please select a city or "no match" option');
+                return;
+            }
+            
+            const selectedCityId = selectedOption.value === 'no-match' ? null : parseInt(selectedOption.value);
+            const status = selectedOption.value === 'no-match' ? 'no_match' : 'approved';
             
             try {
                 const response = await fetch('/api/update', {
@@ -373,16 +541,17 @@ class ReviewHandler(SimpleHTTPRequestHandler):
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        game_id: match.game_id,
-                        city_id: match.city_id,
+                        game_id: game.game_id,
+                        city_id: selectedCityId,
                         status: status
                     })
                 });
                 
                 if (response.ok) {
                     // Update local state
-                    const oldStatus = match.status;
-                    match.status = status;
+                    const oldStatus = game.status;
+                    game.status = status;
+                    game.selected_city_id = selectedCityId;
                     
                     // Update counters
                     if (oldStatus) reviewed[oldStatus]--;
@@ -390,96 +559,155 @@ class ReviewHandler(SimpleHTTPRequestHandler):
                     reviewed[status]++;
                     
                     // Update UI
-                    const card = document.getElementById(`match-${index}`);
+                    const card = document.getElementById(`game-${index}`);
                     card.className = `match-card ${status}`;
                     
                     updateProgress();
                     
-                    // Move to next unreviewed match
-                    moveToNextMatch();
+                    // Move to next unreviewed game
+                    moveToNextGame();
                 } else {
-                    alert('Error updating match');
+                    alert('Error updating game');
                 }
             } catch (error) {
-                console.error('Error updating match:', error);
-                alert('Error updating match');
+                console.error('Error updating game:', error);
+                alert('Error updating game');
             }
         }
         
-        function moveToNextMatch() {
-            // Find next unreviewed match
-            for (let i = currentIndex + 1; i < matches.length; i++) {
-                if (!matches[i].status) {
+        async function skipGame(index) {
+            const game = games[index];
+            
+            try {
+                const response = await fetch('/api/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        game_id: game.game_id,
+                        city_id: null,
+                        status: 'skipped'
+                    })
+                });
+                
+                if (response.ok) {
+                    // Update local state
+                    const oldStatus = game.status;
+                    game.status = 'skipped';
+                    
+                    // Update counters
+                    if (oldStatus) reviewed[oldStatus]--;
+                    if (!reviewed.skipped) reviewed.skipped = 0;
+                    reviewed.skipped++;
+                    
+                    // Update UI
+                    const card = document.getElementById(`game-${index}`);
+                    card.className = 'match-card skipped';
+                    
+                    updateProgress();
+                    
+                    // Move to next unreviewed game
+                    moveToNextGame();
+                } else {
+                    alert('Error skipping game');
+                }
+            } catch (error) {
+                console.error('Error skipping game:', error);
+                alert('Error skipping game');
+            }
+        }
+        
+        function moveToNextGame() {
+            // Find next unreviewed game
+            for (let i = currentIndex + 1; i < games.length; i++) {
+                if (!games[i].status) {
                     currentIndex = i;
-                    scrollToMatch(i);
+                    scrollToGame(i);
                     return;
                 }
             }
             
-            // If no more unreviewed matches after current, look from beginning
+            // If no more unreviewed games after current, look from beginning
             for (let i = 0; i < currentIndex; i++) {
-                if (!matches[i].status) {
+                if (!games[i].status) {
                     currentIndex = i;
-                    scrollToMatch(i);
+                    scrollToGame(i);
                     return;
                 }
             }
             
-            // All matches reviewed
-            alert('All matches have been reviewed! 🎉');
+            // All games reviewed
+            alert('All games have been reviewed! 🎉');
         }
         
-        function scrollToMatch(index) {
-            const card = document.getElementById(`match-${index}`);
+        function scrollToGame(index) {
+            const card = document.getElementById(`game-${index}`);
             if (card) {
                 card.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 
-                // Highlight current match
+                // Highlight current game
                 document.querySelectorAll('.match-card').forEach(c => c.style.outline = '');
                 card.style.outline = '3px solid #2196F3';
             }
         }
         
         function updateProgress() {
-            const total = matches.length;
-            const reviewedCount = reviewed.approved + reviewed.rejected + reviewed.skipped;
+            const total = games.length;
+            const reviewedCount = (reviewed.approved || 0) + (reviewed.no_match || 0) + (reviewed.skipped || 0);
             const percentage = total > 0 ? (reviewedCount / total) * 100 : 0;
             
             document.getElementById('progressBar').style.width = percentage + '%';
             document.getElementById('progressText').textContent = 
-                `Progress: ${reviewedCount}/${total} matches reviewed ` +
-                `(${reviewed.approved} approved, ${reviewed.rejected} rejected, ${reviewed.skipped} skipped)`;
+                `Progress: ${reviewedCount}/${total} games reviewed ` +
+                `(${reviewed.approved || 0} approved, ${reviewed.no_match || 0} no match, ${reviewed.skipped || 0} skipped)`;
         }
         
         // Keyboard shortcuts
         document.addEventListener('keydown', function(event) {
-            if (matches.length === 0) return;
+            if (games.length === 0) return;
             
             switch(event.key.toLowerCase()) {
                 case 'a':
                     event.preventDefault();
-                    updateMatch(currentIndex, 'approved');
-                    break;
-                case 'r':
-                    event.preventDefault();
-                    updateMatch(currentIndex, 'rejected');
+                    approveGame(currentIndex);
                     break;
                 case 's':
                     event.preventDefault();
-                    updateMatch(currentIndex, 'skipped');
+                    skipGame(currentIndex);
+                    break;
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    event.preventDefault();
+                    const optionIndex = parseInt(event.key) - 1;
+                    const game = games[currentIndex];
+                    if (game && game.cities && optionIndex < game.cities.length) {
+                        selectCity(currentIndex, game.cities[optionIndex].city_id);
+                    }
+                    break;
+                case '0':
+                    event.preventDefault();
+                    selectNoMatch(currentIndex);
                     break;
                 case 'arrowup':
                     event.preventDefault();
                     if (currentIndex > 0) {
                         currentIndex--;
-                        scrollToMatch(currentIndex);
+                        scrollToGame(currentIndex);
                     }
                     break;
                 case 'arrowdown':
                     event.preventDefault();
-                    if (currentIndex < matches.length - 1) {
+                    if (currentIndex < games.length - 1) {
                         currentIndex++;
-                        scrollToMatch(currentIndex);
+                        scrollToGame(currentIndex);
                     }
                     break;
                 case '?':
@@ -505,12 +733,12 @@ class ReviewHandler(SimpleHTTPRequestHandler):
     def serve_matches_data(self):
         """Serve matches data as JSON."""
         try:
-            matches = get_review_matches(self.db_path)
+            games = get_review_matches(self.db_path)
             
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            self.wfile.write(json.dumps(matches).encode())
+            self.wfile.write(json.dumps(games).encode())
         except Exception as e:
             self.send_error(500, str(e))
     
@@ -527,12 +755,16 @@ class ReviewHandler(SimpleHTTPRequestHandler):
                 params = urllib.parse.parse_qs(query)
                 data = {
                     'game_id': int(params['game_id'][0]),
-                    'city_id': int(params['city_id'][0]),
+                    'city_id': int(params.get('city_id', [None])[0]) if params.get('city_id', [None])[0] else None,
                     'status': params['status'][0]
                 }
             
-            # Update database
-            update_match_status(self.db_path, data['game_id'], data['city_id'], data['status'])
+            # Update database using new game-based approach
+            selected_city_id = data.get('city_id')
+            if selected_city_id:
+                selected_city_id = int(selected_city_id)
+            
+            update_game_match_status(self.db_path, data['game_id'], selected_city_id, data['status'])
             
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
@@ -542,69 +774,150 @@ class ReviewHandler(SimpleHTTPRequestHandler):
             self.send_error(500, str(e))
 
 def get_review_matches(db_path):
-    """Get matches that need manual review."""
+    """Get games with their potential city matches for manual review."""
+    import os
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     
-    # Get matches that haven't been manually reviewed yet
+    # Get games that have unreviewed matches, grouped by game
     query = '''
-        SELECT 
-            m.game_id,
-            m.city_id,
+        SELECT DISTINCT
+            g.id as game_id,
             g.name as game_name,
+            g.bgg_id,
             g.rank_position as rank,
             g.year,
-            g.rating,
-            c.name as city_name,
-            c.country_name as city_country,
-            c.population as city_population,
-            m.match_type,
-            m.score as match_score,
-            m.approved,
-            '' as bgg_categories,
-            '' as bgg_families,
-            '' as indicators,
-            '' as reasoning
+            g.rating
         FROM matches m
         JOIN games g ON m.game_id = g.id
-        JOIN cities c ON m.city_id = c.id
         WHERE m.approved IS NULL
         ORDER BY 
-            CASE WHEN g.rank_position IS NULL THEN 999999 ELSE g.rank_position END,
-            m.score DESC
+            CASE WHEN g.rank_position IS NULL THEN 999999 ELSE g.rank_position END
     '''
     
     cursor.execute(query)
-    rows = cursor.fetchall()
+    game_rows = cursor.fetchall()
     
-    matches = []
-    for row in rows:
-        match = {
-            'game_id': row[0],
-            'city_id': row[1],
-            'game_name': row[2],
-            'rank': row[3],
-            'year': row[4],
-            'rating': row[5],
-            'city_name': row[6],
-            'city_country': row[7],
-            'city_population': row[8],
-            'match_type': row[9],
-            'match_score': row[10],
-            'approved': row[11],
-            'bgg_categories': [],
-            'bgg_families': [],
-            'indicators': [],
-            'reasoning': ''
+    games = []
+    cache_dir = os.path.join(os.path.dirname(db_path), '..', '..', 'data', 'cache', 'bgg')
+    
+    for game_row in game_rows:
+        game_id, game_name, bgg_id, rank, year, rating = game_row
+        
+        # Get all potential cities for this game
+        city_query = '''
+            SELECT 
+                m.city_id,
+                c.name as city_name,
+                c.country_name as city_country,
+                c.population as city_population,
+                m.match_type,
+                m.score as match_score,
+                m.approved
+            FROM matches m
+            JOIN cities c ON m.city_id = c.id
+            WHERE m.game_id = ? AND m.approved IS NULL
+            ORDER BY m.score DESC
+        '''
+        
+        cursor.execute(city_query, (game_id,))
+        city_rows = cursor.fetchall()
+        
+        cities = []
+        for city_row in city_rows:
+            city_id, city_name, city_country, city_population, match_type, match_score, approved = city_row
+            cities.append({
+                'city_id': city_id,
+                'city_name': city_name,
+                'city_country': city_country,
+                'city_population': city_population,
+                'match_type': match_type,
+                'match_score': match_score,
+                'approved': approved
+            })
+        
+        # Load BGG cache data if available
+        bgg_data = load_bgg_cache_data(cache_dir, bgg_id)
+        
+        game = {
+            'game_id': game_id,
+            'game_name': game_name,
+            'bgg_id': bgg_id,
+            'rank': rank,
+            'year': year,
+            'rating': rating,
+            'cities': cities,
+            'bgg_description': bgg_data.get('description', ''),
+            'bgg_categories': bgg_data.get('categories', []),
+            'bgg_families': bgg_data.get('families', []),
+            'bgg_mechanics': bgg_data.get('mechanics', []),
+            'indicators': bgg_data.get('indicators', []),
+            'reasoning': bgg_data.get('reasoning', '')
         }
         
-        matches.append(match)
+        games.append(game)
     
     conn.close()
-    return matches
+    return games
+
+def load_bgg_cache_data(cache_dir, bgg_id):
+    """Load BGG cache data for a game."""
+    if not bgg_id:
+        return {}
+    
+    cache_file = os.path.join(cache_dir, f'game_{bgg_id}.json')
+    if not os.path.exists(cache_file):
+        return {}
+    
+    try:
+        with open(cache_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            return data
+    except (json.JSONDecodeError, IOError):
+        return {}
+
+def update_game_match_status(db_path, game_id, selected_city_id, status):
+    """Update match approval status for a game - approve one city, reject others."""
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    
+    if status == 'approved' and selected_city_id:
+        # Approve the selected city
+        cursor.execute('''
+            UPDATE matches 
+            SET approved = 1, notes = 'approved'
+            WHERE game_id = ? AND city_id = ?
+        ''', (game_id, selected_city_id))
+        
+        # Reject all other cities for this game
+        cursor.execute('''
+            UPDATE matches 
+            SET approved = 0, notes = 'rejected_other_city_selected'
+            WHERE game_id = ? AND city_id != ?
+        ''', (game_id, selected_city_id))
+        
+    elif status == 'no_match':
+        # Reject all cities for this game
+        cursor.execute('''
+            UPDATE matches 
+            SET approved = 0, notes = 'no_match'
+            WHERE game_id = ?
+        ''', (game_id,))
+        
+    elif status == 'skipped':
+        # Leave all matches as NULL (unreviewed) but add skip note
+        cursor.execute('''
+            UPDATE matches 
+            SET notes = 'skipped'
+            WHERE game_id = ?
+        ''', (game_id,))
+    
+    conn.commit()
+    conn.close()
 
 def update_match_status(db_path, game_id, city_id, status):
-    """Update match approval status."""
+    """Legacy function for backward compatibility."""
+    # This is kept for any existing calls, but the new interface uses update_game_match_status
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     
@@ -637,12 +950,12 @@ def start_review_server(db_path, port=8000):
     print(f"🌐 Starting manual review server at http://localhost:{port}")
     print(f"📋 Database: {db_path}")
     
-    # Count pending matches
-    matches = get_review_matches(db_path)
-    print(f"🎯 Found {len(matches)} matches needing review")
+    # Count pending games
+    games = get_review_matches(db_path)
+    print(f"🎯 Found {len(games)} games needing review")
     
-    if len(matches) == 0:
-        print("✅ No matches need review!")
+    if len(games) == 0:
+        print("✅ No games need review!")
         return
     
     # Open browser after a short delay

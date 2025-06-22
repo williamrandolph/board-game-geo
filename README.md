@@ -160,10 +160,12 @@ board-game-geography/
 - **Confidence Scoring**: 0-1 scale based on validation strength
 
 ### Manual Review System
-- **Web Interface**: Clean, responsive design with keyboard shortcuts
-- **Progress Tracking**: Real-time completion statistics
-- **Smart Prioritization**: BGG rank-based ordering
-- **Batch Processing**: Efficient workflow for large datasets
+- **Game-Centric Interface**: One review card per game with radio button city selection
+- **Rich BGG Integration**: Full game descriptions, categories, families, and mechanics
+- **Smart Selection Options**: Radio buttons for cities plus "no match" option
+- **Enhanced Keyboard Shortcuts**: Number keys (1-9, 0) for quick selection
+- **Progress Tracking**: Real-time completion statistics with improved workflow
+- **Smart Prioritization**: BGG rank-based ordering with visual feedback
 
 ### Quality Metrics
 - **Precision**: High accuracy through strict auto-approval criteria
