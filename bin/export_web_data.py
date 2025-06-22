@@ -2,6 +2,7 @@
 """
 Export processed matches to JSON format for the web application.
 Generates clean, filtered data for map display.
+Defaults to exporting only manually approved matches for production use.
 """
 
 import sqlite3
@@ -243,22 +244,43 @@ def generate_summary_report(db_path, output_path):
     ''')
     stats['matches_by_confidence'] = dict(cursor.fetchall())
     
-    # Top scoring matches
+    # Matches by approval status
+    cursor.execute('''
+        SELECT 
+            CASE 
+                WHEN approved = 1 THEN 'approved'
+                WHEN approved = 0 THEN 'rejected'
+                ELSE 'pending'
+            END as status,
+            COUNT(*) 
+        FROM matches 
+        GROUP BY 
+            CASE 
+                WHEN approved = 1 THEN 'approved'
+                WHEN approved = 0 THEN 'rejected'
+                ELSE 'pending'
+            END
+    ''')
+    stats['matches_by_approval'] = dict(cursor.fetchall())
+    
+    # Top scoring approved matches
     cursor.execute('''
         SELECT g.name, c.name, c.country_name, m.score, m.confidence
         FROM matches m
         JOIN games g ON m.game_id = g.id
         JOIN cities c ON m.city_id = c.id
+        WHERE m.approved = 1
         ORDER BY m.score DESC
         LIMIT 10
     ''')
     stats['top_matches'] = cursor.fetchall()
     
-    # Countries with most matches
+    # Countries with most approved matches
     cursor.execute('''
         SELECT c.country_name, COUNT(*) as match_count
         FROM matches m
         JOIN cities c ON m.city_id = c.id
+        WHERE m.approved = 1
         GROUP BY c.country_name
         ORDER BY match_count DESC
         LIMIT 10
@@ -274,6 +296,7 @@ def generate_summary_report(db_path, output_path):
             "total_matches": stats['total_matches']
         },
         "confidence_breakdown": stats['matches_by_confidence'],
+        "approval_breakdown": stats['matches_by_approval'],
         "top_matches": [
             {
                 "game": match[0],
@@ -309,20 +332,32 @@ if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Usage: python export_web_data.py <command> [options]")
         print("Commands:")
-        print("  json <output_path> [confidence_filter]  - Export to JSON for web app")
+        print("  json <output_path> [confidence_filter]  - Export approved matches to JSON for web app")
+        print("  json-all <output_path> [confidence_filter] - Export all matches to JSON (testing)")
         print("  csv <output_path> [confidence_filter]   - Export to CSV for review")
         print("  summary <output_path>                   - Generate summary report")
-        print("  all                                     - Export all formats")
+        print("  all                                     - Export all formats (approved for web)")
+        print("")
+        print("Note: JSON exports now default to manual_approved_only=True for production web app use")
         sys.exit(1)
     
     command = sys.argv[1]
     
     if command == "json":
         output_path = sys.argv[2] if len(sys.argv) > 2 else "data/exports/games.json"
-        confidence_filter = sys.argv[3].split(',') if len(sys.argv) > 3 else ['very_high', 'high']
+        confidence_filter = sys.argv[3].split(',') if len(sys.argv) > 3 else None
         if len(sys.argv) > 4:
             db_path = sys.argv[4]
-        export_matches_json(db_path, output_path, confidence_filter)
+        # Default to only approved matches for web export
+        export_matches_json(db_path, output_path, confidence_filter, manual_approved_only=True)
+        
+    elif command == "json-all":
+        output_path = sys.argv[2] if len(sys.argv) > 2 else "data/exports/games_all.json"
+        confidence_filter = sys.argv[3].split(',') if len(sys.argv) > 3 else None
+        if len(sys.argv) > 4:
+            db_path = sys.argv[4]
+        # Export all matches (for testing/development)
+        export_matches_json(db_path, output_path, confidence_filter, manual_approved_only=False)
         
     elif command == "csv":
         output_path = sys.argv[2] if len(sys.argv) > 2 else "data/exports/matches_review.csv"
@@ -335,9 +370,11 @@ if __name__ == "__main__":
         
     elif command == "all":
         print("Exporting all formats...")
-        export_matches_json(db_path, "data/exports/games.json", ['very_high', 'high'])
-        export_matches_json(db_path, "data/exports/games_all.json")
-        export_matches_csv(db_path, "data/exports/matches_review.csv", ['medium', 'low', 'very_low'])
+        # Export only approved matches for web use
+        export_matches_json(db_path, "data/exports/games.json", None, manual_approved_only=True)
+        # Export all matches for review/analysis
+        export_matches_json(db_path, "data/exports/games_all.json", None, manual_approved_only=False)
+        export_matches_csv(db_path, "data/exports/matches_review.csv", None)
         generate_summary_report(db_path, "data/exports/summary_report.json")
         print("All exports complete!")
         
