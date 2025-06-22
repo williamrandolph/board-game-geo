@@ -1464,6 +1464,6 @@ const PIPELINE_DATA = {
 };
 
 // Export for use in other modules
-if (typeof module \!== 'undefined' && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
     module.exports = PIPELINE_DATA;
 }
