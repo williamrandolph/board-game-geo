@@ -225,10 +225,10 @@ class PipelineLoader {
     }
 
     /**
-     * Load default pipeline data (approved games)
+     * Load default pipeline data (approved games) from embedded data
      */
     async loadDefaultData(onProgress) {
-        return this.loadFromJSON('data/exports/games.json', {
+        return this.loadFromEmbeddedData(PIPELINE_DATA, {
             clearExisting: true,
             onProgress,
             filterApprovedOnly: true
@@ -244,5 +244,61 @@ class PipelineLoader {
             onProgress,
             filterApprovedOnly: false
         });
+    }
+
+    /**
+     * Load pipeline data from embedded JavaScript object
+     * @param {object} pipelineData - The embedded pipeline data object
+     * @param {object} options - Loading options
+     * @returns {Promise<object>} - Loading results
+     */
+    async loadFromEmbeddedData(pipelineData, options = {}) {
+        const {
+            clearExisting = true,
+            onProgress = null,
+            filterApprovedOnly = true
+        } = options;
+
+        try {
+            console.log('📥 Loading pipeline data from embedded data...');
+            
+            if (!pipelineData.games || !Array.isArray(pipelineData.games)) {
+                throw new Error('Invalid pipeline data format: missing games array');
+            }
+
+            console.log('📊 Pipeline metadata:', pipelineData.metadata);
+
+            // Filter games if needed
+            let gamesToLoad = pipelineData.games;
+            if (filterApprovedOnly) {
+                gamesToLoad = pipelineData.games.filter(game => 
+                    game.match && game.match.approved === true
+                );
+                console.log(`🔍 Filtered to ${gamesToLoad.length} approved games from ${pipelineData.games.length} total`);
+            }
+
+            // Clear existing data if requested
+            if (clearExisting) {
+                console.log('🗑️ Clearing existing database...');
+                await this.database.clearAllData();
+            }
+
+            // Load games into database
+            const results = await this.loadGames(gamesToLoad, onProgress);
+
+            this.lastLoadDate = new Date();
+            this.loadedGamesCount = results.successful;
+
+            return {
+                ...results,
+                metadata: pipelineData.metadata,
+                filteredCount: gamesToLoad.length,
+                totalCount: pipelineData.games.length
+            };
+
+        } catch (error) {
+            console.error('❌ Pipeline loading failed:', error);
+            throw error;
+        }
     }
 }

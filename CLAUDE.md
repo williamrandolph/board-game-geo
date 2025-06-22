@@ -176,10 +176,11 @@ python bin/clean_invalid_games.py --ids X   # Remove invalid/deleted games
 
 ## Deployment
 - **Data Processing**: Run pipeline locally to generate clean datasets
-- **Web Development**: Serve via HTTP server (e.g., `python -m http.server 8080`)
-- **Web Hosting**: Static site hosting (Netlify, Vercel, GitHub Pages) with pipeline JSON
-- **No Backend**: All processing done offline, web app loads pre-processed JSON
-- **Performance**: Pre-processed data enables instant map loading of approved games
+- **Embedded Data**: 69 approved games included as `src/pipeline-data.js` (no server needed)
+- **Web Development**: Open `index.html` directly, or serve via HTTP for JSON imports
+- **Web Hosting**: Static site hosting (Netlify, Vercel, GitHub Pages) with embedded data
+- **No Backend**: All processing done offline, web app uses embedded data + IndexedDB
+- **Performance**: Embedded data enables instant loading without CORS issues
 
 ## Known Limitations
 - **Rate Limits**: BGG (2/sec), Nominatim (1/sec) - pipeline takes time

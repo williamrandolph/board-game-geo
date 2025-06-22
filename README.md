@@ -17,10 +17,9 @@ An interactive map showing the real-world locations associated with board games.
 
 ### Option 1: Use Pre-processed Data (Recommended)
 1. Clone the repository
-2. Start a local HTTP server: `python -m http.server 8080`
-3. Open `http://localhost:8080` in your web browser
-4. Click "Load Pipeline Data" to load approved games from the pipeline
-5. Explore the map with color-coded markers (green=approved, orange=pending, blue=real-time)
+2. Open `index.html` directly in your web browser
+3. Click "Load Approved Games" to load 69 approved games from the embedded dataset
+4. Explore the map with color-coded markers (green=approved, orange=pending, blue=real-time)
 
 ### Option 2: Run Full Data Pipeline
 1. **Download Required Data**:
@@ -51,8 +50,11 @@ An interactive map showing the real-world locations associated with board games.
 
 3. **Launch Web App**: 
    ```bash
+   # For new pipeline data, start server:
    python -m http.server 8080
-   # Open http://localhost:8080 and click "Load Pipeline Data"
+   # Open http://localhost:8080 and click "Load All Pipeline Data"
+   
+   # For embedded approved games, just open index.html directly
    ```
 
 ## 🏗️ Architecture
@@ -67,7 +69,8 @@ An interactive map showing the real-world locations associated with board games.
 - Export clean JSON data for web application
 
 **Phase 2: Web Application** (`src/` + `index.html`)
-- **PipelineLoader**: Import JSON exports into IndexedDB for instant rendering
+- **Embedded Data**: 69 approved games included as JavaScript module (no server needed)
+- **PipelineLoader**: Import JSON exports or embedded data into IndexedDB for instant rendering
 - **Visual Markers**: Color-coded markers (green=approved, orange=pending, blue=real-time)
 - **Interactive Map**: Responsive design with detailed popups and legend
 - **Hybrid Data**: Pre-processed pipeline data + optional real-time BGG imports
