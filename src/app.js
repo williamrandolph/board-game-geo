@@ -2,6 +2,7 @@
 let database;
 let importSystem;
 let adminTools;
+let pipelineLoader;
 let isImporting = false;
 
 // Initialize map
@@ -20,6 +21,8 @@ async function initSystems() {
         
         adminTools = new AdminTools();
         await adminTools.init();
+        
+        pipelineLoader = new PipelineLoader(database);
         
         console.log('✅ All systems initialized');
         await updateStats();
@@ -41,16 +44,51 @@ function initMap() {
 
 // Add marker to map from database game
 function addGameMarker(game, location) {
-    const marker = L.marker([location.lat, location.lng]);
+    // Create different icons for pipeline vs real-time data
+    const isPipelineData = game.source === 'pipeline';
+    const isApproved = location.approved === true;
+    
+    let iconUrl = 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png';
+    let iconLabel = '🎮';
+    
+    if (isPipelineData) {
+        if (isApproved) {
+            iconUrl = 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png';
+            iconLabel = '✅';
+        } else {
+            iconUrl = 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png';
+            iconLabel = '⚠️';
+        }
+    }
+    
+    const customIcon = L.icon({
+        iconUrl: iconUrl,
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+    
+    const marker = L.marker([location.lat, location.lng], { icon: customIcon });
+    
+    const dataSource = isPipelineData ? 'Pipeline Data' : 'Real-time Import';
+    const approvalStatus = isPipelineData ? 
+        (isApproved ? 'Approved' : 'Pending/Rejected') : 
+        'N/A';
     
     const popupContent = `
         <div class="popup-content">
-            <h3>${game.name}</h3>
+            <h3>${game.name} ${iconLabel}</h3>
             <p><strong>Year:</strong> ${game.yearPublished || 'Unknown'}</p>
             <p><strong>Location:</strong> ${location.locationString}</p>
             <p><strong>Type:</strong> ${location.type}</p>
             <p><strong>Confidence:</strong> ${(location.confidence * 100).toFixed(0)}%</p>
             <p><strong>Rating:</strong> ${game.rating?.average ? game.rating.average.toFixed(1) : 'Unrated'}</p>
+            <p><strong>Source:</strong> ${dataSource}</p>
+            ${isPipelineData ? `<p><strong>Status:</strong> ${approvalStatus}</p>` : ''}
+            ${isPipelineData && location.matchType ? `<p><strong>Match Type:</strong> ${location.matchType}</p>` : ''}
+            ${isPipelineData && location.score ? `<p><strong>Score:</strong> ${location.score.toFixed(1)}</p>` : ''}
             ${game.description ? `<p><em>${game.description.substring(0, 100)}...</em></p>` : ''}
         </div>
     `;
@@ -159,6 +197,9 @@ async function importPopularGames() {
         button.disabled = true;
         progress.style.display = 'block';
         
+        // Reset progress element to have the text div
+        progress.innerHTML = '<div id="progress-text">Importing popular games...</div>';
+        
         const options = {
             batchSize: 5,
             delayBetweenBatches: 3000,
@@ -206,10 +247,8 @@ async function importSpecificGame() {
         button.disabled = true;
         progress.style.display = 'block';
         
-        const progressElement = document.getElementById('progress-text');
-        if (progressElement) {
-            progressElement.textContent = `Searching for "${gameName}"...`;
-        }
+        // Reset progress element to have the text div
+        progress.innerHTML = `<div id="progress-text">Searching for "${gameName}"...</div>`;
         
         const options = {
             batchSize: 3,
@@ -295,6 +334,92 @@ function showError(message) {
     setTimeout(() => {
         progress.style.display = 'none';
     }, 5000);
+}
+
+// Load pipeline data (approved games only)
+async function loadPipelineData() {
+    if (isImporting) return;
+    
+    if (!confirm('This will clear existing data and load approved games from the pipeline. Continue?')) {
+        return;
+    }
+    
+    const button = document.getElementById('load-pipeline');
+    const progress = document.getElementById('progress');
+    
+    try {
+        isImporting = true;
+        button.disabled = true;
+        progress.style.display = 'block';
+        
+        // Reset progress element to have the text div
+        progress.innerHTML = '<div id="progress-text">Loading pipeline data...</div>';
+        
+        const result = await pipelineLoader.loadDefaultData((status) => {
+            const progressElement = document.getElementById('progress-text');
+            if (progressElement) {
+                progressElement.textContent = `Loading ${status.game}... (${status.current}/${status.total})`;
+            }
+        });
+        
+        showSuccess(`Pipeline data loaded! ${result.successful} approved games loaded.`);
+        console.log('📊 Pipeline load results:', result);
+        
+        // Refresh the map
+        await loadGamesFromDatabase();
+        await updateStats();
+        
+    } catch (error) {
+        console.error('Pipeline loading failed:', error);
+        showError('Pipeline loading failed: ' + error.message);
+    } finally {
+        isImporting = false;
+        button.disabled = false;
+        progress.style.display = 'none';
+    }
+}
+
+// Load all pipeline data (including pending/rejected)
+async function loadAllPipelineData() {
+    if (isImporting) return;
+    
+    if (!confirm('This will clear existing data and load ALL games from the pipeline (including pending/rejected). Continue?')) {
+        return;
+    }
+    
+    const button = document.getElementById('load-all-pipeline');
+    const progress = document.getElementById('progress');
+    
+    try {
+        isImporting = true;
+        button.disabled = true;
+        progress.style.display = 'block';
+        
+        // Reset progress element to have the text div
+        progress.innerHTML = '<div id="progress-text">Loading all pipeline data...</div>';
+        
+        const result = await pipelineLoader.loadAllData((status) => {
+            const progressElement = document.getElementById('progress-text');
+            if (progressElement) {
+                progressElement.textContent = `Loading ${status.game}... (${status.current}/${status.total})`;
+            }
+        });
+        
+        showSuccess(`All pipeline data loaded! ${result.successful} games loaded from ${result.totalCount} total.`);
+        console.log('📊 Pipeline load results:', result);
+        
+        // Refresh the map
+        await loadGamesFromDatabase();
+        await updateStats();
+        
+    } catch (error) {
+        console.error('Pipeline loading failed:', error);
+        showError('Pipeline loading failed: ' + error.message);
+    } finally {
+        isImporting = false;
+        button.disabled = false;
+        progress.style.display = 'none';
+    }
 }
 
 // Run parsing tests

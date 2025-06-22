@@ -342,4 +342,27 @@ class GameDatabase {
         
         return Promise.all(promises);
     }
+
+    async linkGameToLocation(gameId, locationId, metadata = {}) {
+        const transaction = this.db.transaction(['gameLocations'], 'readwrite');
+        const store = transaction.objectStore('gameLocations');
+        
+        const linkRecord = {
+            gameId: gameId,
+            locationId: locationId,
+            familyId: metadata.familyId || null,
+            source: metadata.source || 'manual',
+            matchType: metadata.matchType || 'unknown',
+            confidence: metadata.confidence || 0.5,
+            score: metadata.score || 0,
+            approved: metadata.approved || false,
+            createdAt: new Date().toISOString()
+        };
+
+        return new Promise((resolve, reject) => {
+            const request = store.add(linkRecord);
+            request.onsuccess = () => resolve(linkRecord);
+            request.onerror = () => reject(request.error);
+        });
+    }
 }

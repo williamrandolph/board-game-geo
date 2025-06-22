@@ -17,6 +17,7 @@ This is an interactive map application that displays real-world locations associ
 ├── index.html              # Main web application
 ├── src/                    # Web application source code
 │   ├── app.js              # Core application logic and UI management
+│   ├── pipeline-loader.js  # Pipeline data import into IndexedDB
 │   ├── bgg-api.js          # BoardGameGeek XML API integration (web)
 │   ├── geocoding.js        # Nominatim geocoding pipeline (web)
 │   ├── database.js         # IndexedDB schema and data management
@@ -58,9 +59,10 @@ The project uses a two-phase approach:
    - Export clean JSON data for web application
 
 2. **Web Application Phase** (`src/` + `index.html`):
-   - Load pre-processed data for instant map rendering
-   - Optional real-time BGG integration for new games
-   - Interactive map with responsive design
+   - Load pre-processed pipeline data via PipelineLoader for instant map rendering
+   - Visual markers: green (approved), orange (pending/rejected), blue (real-time)
+   - Optional real-time BGG integration for new games discovery
+   - Interactive map with responsive design and data source legend
 
 ### Code Style
 - **Python**: Use vanilla Python with minimal dependencies (requests → urllib)
@@ -174,9 +176,10 @@ python bin/clean_invalid_games.py --ids X   # Remove invalid/deleted games
 
 ## Deployment
 - **Data Processing**: Run pipeline locally to generate clean datasets
-- **Web Hosting**: Static site hosting (Netlify, Vercel, GitHub Pages)
-- **No Backend**: All processing done offline, web app is static files
-- **Performance**: Pre-processed data enables instant map loading
+- **Web Development**: Serve via HTTP server (e.g., `python -m http.server 8080`)
+- **Web Hosting**: Static site hosting (Netlify, Vercel, GitHub Pages) with pipeline JSON
+- **No Backend**: All processing done offline, web app loads pre-processed JSON
+- **Performance**: Pre-processed data enables instant map loading of approved games
 
 ## Known Limitations
 - **Rate Limits**: BGG (2/sec), Nominatim (1/sec) - pipeline takes time

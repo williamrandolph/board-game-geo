@@ -54,7 +54,7 @@
             padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            min-width: 200px;
+            width: 220px;
         }
         
         .controls h4 {
@@ -72,6 +72,9 @@
             color: white;
             cursor: pointer;
             font-size: 14px;
+            white-space: normal;
+            word-wrap: break-word;
+            text-align: center;
         }
         
         .controls button:hover {
@@ -109,6 +112,41 @@
             color: #27ae60;
             font-size: 12px;
         }
+        
+        .legend {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            font-size: 12px;
+            max-width: 250px;
+        }
+        
+        .legend h4 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .legend-green { background: #28a745; }
+        .legend-orange { background: #fd7e14; }
+        .legend-blue { background: #007bff; }
     </style>
 </head>
 <body>
@@ -119,6 +157,8 @@
     
     <div id="controls" class="controls">
         <h4>Board Game Geography</h4>
+        <button id="load-pipeline" onclick="loadPipelineData()">Load Pipeline Data</button>
+        <button id="load-all-pipeline" onclick="loadAllPipelineData()">Load All Pipeline Data</button>
         <button id="import-popular" onclick="importPopularGames()">Import Popular Games</button>
         <button id="import-specific" onclick="importSpecificGame()">Import Specific Game</button>
         <button id="clear-data" onclick="clearAllData()">Clear All Data</button>
@@ -136,10 +176,27 @@
     
     <div id="map"></div>
     
+    <div class="legend">
+        <h4>Marker Legend</h4>
+        <div class="legend-item">
+            <div class="legend-color legend-green"></div>
+            <span>✅ Pipeline (Approved)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color legend-orange"></div>
+            <span>⚠️ Pipeline (Pending/Rejected)</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color legend-blue"></div>
+            <span>🎮 Real-time Import</span>
+        </div>
+    </div>
+    
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="src/bgg-api.js"></script>
     <script src="src/geocoding.js"></script>
     <script src="src/database.js"></script>
+    <script src="src/pipeline-loader.js"></script>
     <script src="src/bulk-import.js"></script>
     <script src="src/admin.js"></script>
     <script src="src/test-bgg-parsing.js"></script>
