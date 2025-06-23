@@ -14,10 +14,12 @@ This is an interactive map application that displays real-world locations associ
 ## Project Structure
 ```
 /
+├── .gitignore              # Git ignore patterns
 ├── index.html              # Main web application
 ├── src/                    # Web application source code
 │   ├── app.js              # Core application logic and UI management
 │   ├── pipeline-loader.js  # Pipeline data import into IndexedDB
+│   ├── pipeline-data.js    # Embedded approved games data (no CORS)
 │   ├── bgg-api.js          # BoardGameGeek XML API integration (web)
 │   ├── geocoding.js        # Nominatim geocoding pipeline (web)
 │   ├── database.js         # IndexedDB schema and data management
@@ -28,19 +30,44 @@ This is an interactive map application that displays real-world locations associ
 │   ├── init_database.py    # SQLite database schema creation
 │   ├── load_bgg_data.py    # BoardGameGeek CSV data loader
 │   ├── load_cities_data.py # GeoNames cities500.txt loader
-│   ├── hybrid_match.py     # Optimized game/city matching algorithm
+│   ├── preprocess_data.py  # BGG game preprocessing and city name filtering
+│   ├── simple_match.py     # Basic string matching algorithm
+│   ├── fast_match.py       # Optimized matching for performance
+│   ├── fuzzy_match.py      # Fuzzy string matching algorithm
+│   ├── hybrid_match.py     # Combined matching strategies
 │   ├── bgg_cache.py        # BGG API caching layer with file storage
+│   ├── populate_cache.py   # Batch BGG API cache population
 │   ├── validate_matches.py # BGG metadata validation for false positive detection
 │   ├── manual_review.py    # Web-based manual review interface
 │   ├── review_workflow.py  # Complete validation workflow orchestrator
 │   ├── export_web_data.py  # Generate clean JSON for web application
-│   └── print_matches.py    # Human-readable match output formatter
-├── data/                   # Data files (untracked)
+│   ├── print_matches.py    # Human-readable match output formatter
+│   ├── run_pipeline.py     # Complete pipeline execution script
+│   ├── test_pipeline.py    # Pipeline testing and validation
+│   ├── debug_bgg.py        # BGG API debugging utilities
+│   ├── check_invalid_bgg_ids.py # Invalid BGG ID detection
+│   ├── clean_invalid_games.py   # Remove invalid/deleted games
+│   └── util.py             # Shared utility functions and string normalization
+├── data/                   # Data files (mostly untracked)
 │   ├── bgg/                # BoardGameGeek CSV data
+│   │   └── boardgames_ranks.csv
 │   ├── geonames/           # GeoNames cities500.txt dataset
-│   ├── cache/              # BGG API response cache
+│   │   └── cities500.txt
+│   ├── cache/bgg/          # BGG API response cache (2,483+ files)
+│   │   └── game_*.json     # Individual game cache files
 │   ├── processed/          # SQLite database and intermediate files
-│   └── exports/            # Generated web application data
+│   │   ├── boardgames.db   # Main SQLite database
+│   │   └── filtered_games.csv # Preprocessed game data
+│   ├── exports/            # Generated web application data
+│   │   ├── games.json      # Clean approved games for web app
+│   │   ├── games_all.json  # All processed games with status
+│   │   ├── matches_review.csv # Manual review export
+│   │   └── summary_report.json # Pipeline execution summary
+│   └── test/               # Test datasets and sample files
+│       ├── cities_sample.txt
+│       ├── games_sample.csv
+│       ├── test_games.db
+│       └── test_games.json
 ├── CLAUDE.md               # Development guidelines (this file)
 ├── README.md               # Project documentation and roadmap
 └── LICENSE                 # MIT License

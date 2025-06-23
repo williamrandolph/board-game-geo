@@ -21,11 +21,14 @@ def preprocess_games(games_csv_path: str, city_txt_path: str, filter_after_row: 
     with open("data/processed/filtered_games.csv", 'w') as outfile:
         with open(games_csv_path, 'r', encoding='utf-8') as file:
             reader = csv.DictReader(file)
-            rows = list(reader)
             writer = csv.DictWriter(outfile, reader.fieldnames)
-            writer.writeheader()
-            for i, row in enumerate(rows):
+            header_written = False
+            for i, row in enumerate(reader):
+                # Always include top N games for BGG API validation (catches games like "Brass: Birmingham")
                 if i < filter_after_row:
+                    if not header_written:
+                        header_written = True
+                        writer.writeheader()
                     writer.writerow(row)
                     games_loaded += 1
                     continue
@@ -49,6 +52,9 @@ def preprocess_games(games_csv_path: str, city_txt_path: str, filter_after_row: 
                     normalized_name = normalize_string(name)
 
                     if normalized_name in city_names:
+                        if not header_written:
+                            header_written = True
+                            writer.writeheader()
                         writer.writerow(row)
                         games_loaded += 1
                     else:
@@ -71,7 +77,7 @@ def get_city_names(city_txt_path: str) -> set[str]:
     
     if not os.path.exists(city_txt_path):
         print(f"Error: Cities file not found at {city_txt_path}")
-        return False
+        return set()
 
     # Read and process cities file
     cities_loaded = 0
