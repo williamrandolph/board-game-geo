@@ -4,7 +4,7 @@
 - **Pipeline**: 3 steps (preprocess → cache → geocode)
 - **Test safely**: `python bin/test_pipeline.py` (uses data/test/ paths)
 - **Rate limits**: BGG 2/sec, Nominatim 1/sec
-- **Key files**: bin/ (7 scripts), src/ (web app), data/ (untracked)
+- **Key files**: bin/ (8 scripts), src/ (web app), data/ (untracked)
 
 ## Development Patterns
 
@@ -54,3 +54,4 @@ python bin/run_pipeline.py
 python bin/preprocess_data.py [input] [cities] [limit] [output]
 python bin/get_bgg_info.py [filtered_csv]
 python bin/validate_and_geotag.py [filtered_csv] [output_json]
+python bin/update_pipeline_data.py [input_json] [output_js]

@@ -7,15 +7,15 @@ Pipeline steps:
 1. preprocess_data.py - Filter BGG CSV by city name matching
 2. get_bgg_info.py - Populate BGG cache for filtered games
 3. validate_and_geotag.py - Find games with BGG family tags and geocode them
+4. update_pipeline_data.py - Update web app with latest data (optional)
 """
 
 import subprocess
 import sys
-import os
 from datetime import datetime
 
 def run_simple_pipeline(games_csv=None, cities_txt=None, filter_after_row=None, 
-                        filtered_csv=None, output_json=None):
+                        filtered_csv=None, output_json=None, update_web_data=True):
     """Run the complete simple pipeline
     
     Args:
@@ -24,6 +24,7 @@ def run_simple_pipeline(games_csv=None, cities_txt=None, filter_after_row=None,
         filter_after_row: Row limit for preprocessing (default: 2500)
         filtered_csv: Output path for filtered CSV (default: data/processed/filtered_games.csv)
         output_json: Output path for final JSON (default: data/exports/bgg_family_games.json)
+        update_web_data: Update src/pipeline-data.js with results (default: True)
     """
     print("🚀 Starting Simple BGG Pipeline")
     print(f"⏰ Started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
@@ -82,12 +83,30 @@ def run_simple_pipeline(games_csv=None, cities_txt=None, filter_after_row=None,
         print("   ✅ Validation and geocoding complete")
         print()
         
+        # Step 4: Update web application data (optional)
+        if update_web_data:
+            print("📱 Step 4: Updating web application data...")
+            print(f"   Input: {output_json}")
+            print("   Output: src/pipeline-data.js")
+            
+            result = subprocess.run([
+                "python3", "bin/update_pipeline_data.py",
+                output_json, "src/pipeline-data.js"
+            ], check=True, capture_output=True, text=True)
+            
+            if result.stdout:
+                print("   " + result.stdout.replace('\n', '\n   ').strip())
+            print("   ✅ Web data update complete")
+            print()
+        
         print("🎉 Simple pipeline completed successfully!")
         print(f"⏰ Finished at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         print()
         print("📁 Output files:")
         print(f"   - {filtered_csv}")
         print(f"   - {output_json}")
+        if update_web_data:
+            print("   - src/pipeline-data.js")
         print("   - data/cache/bgg/ (BGG API cache)")
         print("   - data/cache/nominatim/ (Nominatim geocoding cache)")
         
@@ -115,4 +134,7 @@ if __name__ == "__main__":
     filtered_csv = sys.argv[4] if len(sys.argv) > 4 else None
     output_json = sys.argv[5] if len(sys.argv) > 5 else None
     
-    run_simple_pipeline(games_csv, cities_txt, filter_after_row, filtered_csv, output_json)
+    # Check for --no-web-update flag
+    update_web_data = "--no-web-update" not in sys.argv
+    
+    run_simple_pipeline(games_csv, cities_txt, filter_after_row, filtered_csv, output_json, update_web_data)

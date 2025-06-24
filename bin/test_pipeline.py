@@ -106,6 +106,21 @@ def test_simple_pipeline():
         print("   - Cache files created in data/cache/")
         print(f"   - Test output: {test_filtered_csv}, {test_output_json}")
         
+        # Optional: Test the web data update script
+        if os.path.exists(test_output_json):
+            print("\n📱 Testing web data update script...")
+            try:
+                result = subprocess.run([
+                    "python3", "bin/update_pipeline_data.py",
+                    test_output_json, "data/test/pipeline-data-test.js"
+                ], check=True, capture_output=True, text=True)
+                
+                print("   " + result.stdout.replace('\n', '\n   ').strip())
+                print("   ✅ Web data update test complete")
+                print(f"   - Test web data: data/test/pipeline-data-test.js")
+            except subprocess.CalledProcessError as e:
+                print(f"   ⚠️  Web data update test failed: {e}")
+        
         return True
         
     except subprocess.CalledProcessError as e:

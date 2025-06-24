@@ -108,12 +108,15 @@ def validate_and_geotag(filtered_csv: str, output_json_path: str = "data/exports
             try:
                 rating = float(csv_row.get('bayesaverage')) if csv_row.get('bayesaverage') else None
                 votes = int(csv_row.get('usersrated')) if csv_row.get('usersrated') else None
+                bgg_id = int(csv_row.get('id')) if csv_row.get('id') else None
             except (ValueError, TypeError):
                 rating = None
                 votes = None
+                bgg_id = None
             
             game_entry = {
                 "name": match["name"],
+                "id": bgg_id,
                 "year": match["year"],
                 "rating": rating,
                 "votes": votes,
