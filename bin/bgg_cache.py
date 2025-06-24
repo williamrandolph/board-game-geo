@@ -304,7 +304,7 @@ class BGGCache:
                     cached_data = json.load(f)
                 
                 self.metadata["stats"]["cache_hits"] += 1
-                print(f"  📁 Cache hit for BGG ID {bgg_id}")
+                # print(f"  📁 Cache hit for BGG ID {bgg_id}")
                 
                 # Return in the expected format
                 return {

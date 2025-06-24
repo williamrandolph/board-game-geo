@@ -47,6 +47,10 @@ def preprocess_games(games_csv_path: str, city_txt_path: str, filter_after_row: 
                     if num_votes and num_votes < 100:
                         games_skipped += 1
                         continue
+
+                    if row["id"] == "151734":
+                        games_skipped += 1
+                        continue
                     
                     # Normalize name for matching
                     normalized_name = normalize_string(name)
