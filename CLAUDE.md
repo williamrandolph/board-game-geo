@@ -1,15 +1,15 @@
 # Board Game Geography - Project Instructions
 
 ## Project Overview
-This is an interactive map application that displays real-world locations associated with board games. The project features a comprehensive data pipeline for processing BoardGameGeek data and a web interface for exploring game locations. The system combines offline data processing with a responsive web frontend.
+This is an interactive map application that displays real-world locations associated with board games. The project features a streamlined 3-step data pipeline for processing BoardGameGeek data and a web interface for exploring game locations. The system uses simple CSV processing with BGG API caching for efficient data handling.
 
 ## Current Architecture
-- **Data Pipeline**: Python scripts for BGG data processing and geocoding
+- **Simple Pipeline**: 3-step CSV-based processing without database complexity
 - **Frontend**: Vanilla HTML, CSS, JavaScript with Leaflet.js mapping
 - **Data Sources**: BoardGameGeek XML API v2 + GeoNames cities dataset
-- **Processing**: SQLite database for local data processing and validation
-- **Validation**: Hybrid approach (automated BGG validation + manual review interface)
-- **Web Interface**: Static files with IndexedDB for browser storage
+- **Processing**: Direct CSV filtering with BGG family tag validation
+- **Geocoding**: Nominatim API with 5-tier fallback strategy and caching
+- **Web Interface**: Static files with embedded approved games data
 
 ## Project Structure
 ```
@@ -26,47 +26,29 @@ This is an interactive map application that displays real-world locations associ
 │   ├── bulk-import.js      # Batch processing system for BGG data
 │   ├── admin.js            # Validation tools and data export functionality
 │   └── test-bgg-parsing.js # Unit tests for location parsing
-├── bin/                    # Data processing pipeline scripts
-│   ├── init_database.py    # SQLite database schema creation
-│   ├── load_bgg_data.py    # BoardGameGeek CSV data loader
-│   ├── load_cities_data.py # GeoNames cities500.txt loader
-│   ├── preprocess_data.py  # BGG game preprocessing and city name filtering
-│   ├── simple_match.py     # Basic string matching algorithm
-│   ├── fast_match.py       # Optimized matching for performance
-│   ├── fuzzy_match.py      # Fuzzy string matching algorithm
-│   ├── hybrid_match.py     # Combined matching strategies
+├── bin/                    # Simple 3-step data pipeline
+│   ├── preprocess_data.py  # Step 1: Filter BGG CSV by city name matching
+│   ├── get_bgg_info.py     # Step 2: Populate BGG cache for filtered games
+│   ├── validate_and_geotag.py # Step 3: Validate BGG families and geocode
+│   ├── run_pipeline.py     # Complete 3-step pipeline runner
+│   ├── test_pipeline.py    # Pipeline testing with sample data
 │   ├── bgg_cache.py        # BGG API caching layer with file storage
-│   ├── populate_cache.py   # Batch BGG API cache population
-│   ├── validate_matches.py # BGG metadata validation for false positive detection
-│   ├── manual_review.py    # Web-based manual review interface
-│   ├── review_workflow.py  # Complete validation workflow orchestrator
-│   ├── export_web_data.py  # Generate clean JSON for web application
-│   ├── print_matches.py    # Human-readable match output formatter
-│   ├── run_pipeline.py     # Complete pipeline execution script
-│   ├── test_pipeline.py    # Pipeline testing and validation
-│   ├── debug_bgg.py        # BGG API debugging utilities
-│   ├── check_invalid_bgg_ids.py # Invalid BGG ID detection
-│   ├── clean_invalid_games.py   # Remove invalid/deleted games
 │   └── util.py             # Shared utility functions and string normalization
 ├── data/                   # Data files (mostly untracked)
 │   ├── bgg/                # BoardGameGeek CSV data
 │   │   └── boardgames_ranks.csv
 │   ├── geonames/           # GeoNames cities500.txt dataset
 │   │   └── cities500.txt
-│   ├── cache/bgg/          # BGG API response cache (2,483+ files)
-│   │   └── game_*.json     # Individual game cache files
-│   ├── processed/          # SQLite database and intermediate files
-│   │   ├── boardgames.db   # Main SQLite database
-│   │   └── filtered_games.csv # Preprocessed game data
-│   ├── exports/            # Generated web application data
-│   │   ├── games.json      # Clean approved games for web app
-│   │   ├── games_all.json  # All processed games with status
-│   │   ├── matches_review.csv # Manual review export
-│   │   └── summary_report.json # Pipeline execution summary
+│   ├── cache/              # API response caches
+│   │   ├── bgg/            # BGG API cache files (game_*.json)
+│   │   └── nominatim/      # Nominatim geocoding cache files
+│   ├── processed/          # Intermediate pipeline files
+│   │   └── filtered_games.csv # Step 1 output: filtered game data
+│   ├── exports/            # Final pipeline outputs
+│   │   └── bgg_family_games.json # Step 3 output: geocoded games
 │   └── test/               # Test datasets and sample files
 │       ├── cities_sample.txt
 │       ├── games_sample.csv
-│       ├── test_games.db
 │       └── test_games.json
 ├── CLAUDE.md               # Development guidelines (this file)
 ├── README.md               # Project documentation and roadmap
@@ -75,159 +57,155 @@ This is an interactive map application that displays real-world locations associ
 
 ## Development Guidelines
 
-### Data Pipeline Architecture
-The project uses a two-phase approach:
+### Simple Pipeline Architecture
+The project uses a streamlined 3-step approach that avoids database complexity:
 
-1. **Offline Processing Phase** (`bin/` scripts):
-   - Import BGG games and GeoNames cities data into SQLite
-   - Run hybrid matching algorithm for performance
-   - Validate matches using BGG API metadata
-   - Manual review interface for remaining matches
-   - Export clean JSON data for web application
+**Step 1: Preprocessing** (`preprocess_data.py`):
+- Filters BGG CSV by basic city name matching against GeoNames dataset
+- Includes top N games (default 2,500) regardless of city match for BGG validation
+- Skips expansions and low-rated games for quality
+- Outputs: `data/processed/filtered_games.csv`
 
-2. **Web Application Phase** (`src/` + `index.html`):
-   - Load pre-processed pipeline data via PipelineLoader for instant map rendering
-   - Visual markers: green (approved), orange (pending/rejected), blue (real-time)
-   - Optional real-time BGG integration for new games discovery
-   - Interactive map with responsive design and data source legend
+**Step 2: Cache Population** (`get_bgg_info.py`):
+- Populates BGG API cache for all filtered games
+- Uses efficient batch API calls with rate limiting
+- Provides comprehensive progress reporting
+- Outputs: BGG cache files in `data/cache/bgg/`
+
+**Step 3: Validation & Geocoding** (`validate_and_geotag.py`):
+- Finds games with exactly one BGG "Cities:" family tag
+- Uses 5-tier Nominatim geocoding with fallback strategies
+- Exports results in games.json format with rating/votes data
+- Outputs: `data/exports/bgg_family_games.json`
+
+**Web Application** (`src/` + `index.html`):
+- Loads embedded approved games data for instant rendering
+- Optional pipeline data import via JSON files
+- Interactive map with Leaflet.js and responsive design
 
 ### Code Style
-- **Python**: Use vanilla Python with minimal dependencies (requests → urllib)
+- **Python**: Use vanilla Python with minimal dependencies (urllib for HTTP)
 - **JavaScript**: Vanilla JS, no frameworks
 - **Rate Limiting**: BGG API (2 req/sec), Nominatim (1 req/sec)
-- **Database**: SQLite for processing, IndexedDB for web storage
+- **Storage**: File-based caching, CSV processing, JSON export
 
-### Data Processing Pipeline
+### Simple Pipeline Execution
 
-#### Step 1: Database Initialization
+#### Complete Pipeline
 ```bash
-python bin/init_database.py  # Creates SQLite schema
+python bin/run_pipeline.py  # Runs all 3 steps automatically
 ```
 
-#### Step 2: Data Loading
+#### Individual Steps
 ```bash
-python bin/load_bgg_data.py      # Import boardgames_ranks.csv
-python bin/load_cities_data.py   # Import cities500.txt
+python bin/preprocess_data.py    # Step 1: Filter BGG CSV
+python bin/get_bgg_info.py       # Step 2: Populate BGG cache  
+python bin/validate_and_geotag.py # Step 3: Validate & geocode
 ```
 
-#### Step 3: Matching & Validation
+#### Testing
 ```bash
-python bin/hybrid_match.py       # Find game/city matches
-python bin/populate_cache.py --matches-only  # Pre-populate BGG cache (NEW!)
-python bin/review_workflow.py    # BGG validation + manual review
+python bin/test_pipeline.py     # Test with sample data
 ```
 
-#### Step 4: Web Export
-```bash
-python bin/export_web_data.py    # Generate JSON for web app
-```
+### BGG Family Validation
+- **Automatic Discovery**: Games with exactly one BGG "Cities:" family tag
+- **High Confidence**: BGG families are manually curated, ensuring accuracy
+- **No Manual Review**: Simplified validation based on BGG's own categorization
+- **API Caching**: File-based cache with 30-day retention
+- **Batch Processing**: Efficient BGG API usage with rate limiting
 
-### Hybrid Matching Strategy
-- **Exact Matches**: Population ≥ 1,000 (catches smaller cities like Amalfi)
-- **Substring Matches**: Population ≥ 500,000 (major cities only)
-- **Performance**: ~2,891 total matches with good precision/recall balance
+### City Name Preprocessing
+- **Direct Matching**: Simple string normalization against GeoNames dataset
+- **Top Games Inclusion**: Always process top N games for BGG family validation
+- **Quality Filters**: Skip expansions and games with <100 ratings
+- **Performance**: Fast CSV processing without database overhead
 
-### BGG Validation System
-- **Auto-Approval**: Very strict criteria (explicit "Cities: [city]" BGG families)
-- **Auto-Rejection**: Abstract games with no geographical content
-- **Manual Review**: Web interface with keyboard shortcuts (A/R/S)
-- **Historical Detection**: Flags ancient/medieval games for review
-- **API Caching**: 30-day file-based cache to avoid repeated requests
-- **Batch Processing**: 20x faster cache population using BGG batch API
-- **Invalid Game Cleanup**: Automatic detection and removal of deleted/unpublished games
+### Geocoding Strategy
+The pipeline uses a 5-tier Nominatim geocoding strategy with fallback:
 
-### Manual Review Interface
-- **Game-Based Review**: One interface card per game with radio button city selection
-- **BGG Integration**: Full game descriptions, categories, families, and mechanics displayed
-- **Smart Selection**: Radio buttons for city choices plus "no match" option
-- **Keyboard Shortcuts**: 1-9 (select cities), 0 (no match), A (approve), S (skip)
-- **Progress Tracking**: Real-time statistics and completion percentage
-- **Data Display**: Rich BGG metadata with geographical context and visual feedback
+1. **Structured Query**: `city=Tokyo&country=Japan` (when region/country available)
+2. **Simple Text Query**: "Tokyo, Japan" (comma-separated location)
+3. **Primary Only**: "Tokyo" (city name only)
+4. **Country Context**: "Tokyo Japan" (space-separated for context)
 
-### Geocoding Pipeline (Web App)
-The web application maintains the 5-tier geocoding strategy:
-
-1. **Structured Query**: `city=Tokyo&country=Japan`
-2. **Simple Text Query**: "Tokyo, Japan"
-3. **Primary Only**: "Tokyo"
-4. **Full Location**: "Venice, Veneto, Italy"
-5. **Country Only**: "Japan"
-
-### Data Validation
-- **BGG API Validation**: Metadata analysis for geographical indicators
-- **Confidence Scoring**: 0-1 scores based on geocoding method and validation
-- **Unit Tests**: Comprehensive test suite for parsing edge cases
-- **Manual Review**: Web interface for human validation of uncertain matches
-- **Export Quality**: Multiple formats (JSON, CSV, GeoJSON) for analysis
+### Data Quality
+- **BGG Family Validation**: Uses BGG's curated "Cities:" family tags
+- **Confidence Scoring**: 0-1 scores based on geocoding tier and success
+- **File Caching**: Both BGG and Nominatim responses cached locally
+- **Error Handling**: Graceful fallback for failed geocoding or API errors
+- **Export Format**: Clean JSON matching existing games.json structure
 
 ## Usage Instructions
 
-### Data Pipeline Setup
+### Simple Pipeline Setup
 1. **Download Data**: 
    - BGG CSV: `data/bgg/boardgames_ranks.csv`
    - GeoNames: `data/geonames/cities500.txt`
 
-2. **Run Pipeline**:
+2. **Run Complete Pipeline**:
    ```bash
    cd /path/to/bggeo
-   python bin/init_database.py
-   python bin/load_bgg_data.py
-   python bin/load_cities_data.py
-   python bin/hybrid_match.py
-   python bin/review_workflow.py  # Interactive validation
-   python bin/export_web_data.py
+   python bin/run_pipeline.py
    ```
 
 3. **Launch Web App**: Open `index.html` in browser
 
-### Manual Review Workflow
-1. **BGG Validation**: Auto-approves obvious matches, flags others
-2. **Manual Review**: Web interface opens automatically
-3. **Keyboard Shortcuts**: A (approve), R (reject), S (skip)
-4. **Progress Tracking**: Real-time completion statistics
+### Custom Pipeline Options
+```bash
+# Custom data sources and limits
+python bin/run_pipeline.py data/bgg/boardgames_ranks.csv data/geonames/cities500.txt 5000
+
+# Run individual steps
+python bin/preprocess_data.py
+python bin/get_bgg_info.py  
+python bin/validate_and_geotag.py
+
+# Test with sample data
+python bin/test_pipeline.py
+```
 
 ### Cache Management
 ```bash
-python bin/populate_cache.py --matches-only  # Pre-populate cache (recommended)
-python bin/bgg_cache.py stats               # View cache statistics
-python bin/bgg_cache.py clear               # Clear old cache files
-python bin/bgg_cache.py test 1234           # Test specific BGG ID
-python bin/clean_invalid_games.py --ids X   # Remove invalid/deleted games
+# View BGG cache statistics  
+python bin/bgg_cache.py stats
+
+# Clear old cache files
+python bin/bgg_cache.py clear
+
+# Test specific BGG ID
+python bin/bgg_cache.py test 1234
 ```
 
 ## Testing
-- **Unit Tests**: `bin/test_*` scripts for core functionality
+- **Pipeline Testing**: `python bin/test_pipeline.py` with sample data
 - **Sample Data**: `data/test/` contains smaller datasets for testing
-- **Pipeline Validation**: End-to-end testing with sample games
-- **API Connectivity**: BGG and Nominatim API testing tools
+- **Individual Steps**: Test each pipeline step independently
+- **API Connectivity**: Built-in BGG and Nominatim API testing
 
 ## Deployment
-- **Data Processing**: Run pipeline locally to generate clean datasets
-- **Embedded Data**: 69 approved games included as `src/pipeline-data.js` (no server needed)
-- **Web Development**: Open `index.html` directly, or serve via HTTP for JSON imports
-- **Web Hosting**: Static site hosting (Netlify, Vercel, GitHub Pages) with embedded data
-- **No Backend**: All processing done offline, web app uses embedded data + IndexedDB
-- **Performance**: Embedded data enables instant loading without CORS issues
+- **Data Processing**: Run simple pipeline locally to generate datasets
+- **Embedded Data**: Approved games included as `src/pipeline-data.js` (no server needed)
+- **Web Development**: Open `index.html` directly, or serve via HTTP
+- **Web Hosting**: Static site hosting (Netlify, Vercel, GitHub Pages)
+- **No Backend**: All processing done offline, web app uses embedded + pipeline data
+- **Performance**: Simple pipeline completes in minutes vs. hours
 
 ## Known Limitations
 - **Rate Limits**: BGG (2/sec), Nominatim (1/sec) - pipeline takes time
 - **Data Freshness**: Requires manual pipeline runs for new BGG data
 - **Local Processing**: Python pipeline runs on development machine
-- **Storage**: SQLite database can become large with full BGG dataset
-- **Manual Work**: Some matches require human validation
+- **BGG Dependencies**: Relies on BGG family tags for city identification
+- **Geocoding Quality**: Dependent on Nominatim data accuracy
 
 ## Contributing
-- Use validation tools to check data quality before committing
-- Test changes with sample data first (`data/test/`)
+- Test changes with sample data first (`python bin/test_pipeline.py`)
 - Follow rate limiting for all API requests
-- Run manual review for any new matching algorithms
 - Update both CLAUDE.md and README.md when changing architecture
+- Use file caching to avoid repeated API calls during development
 
 ## Important Commands
-- **Full Pipeline**: `python bin/review_workflow.py`
-- **Pre-populate Cache**: `python bin/populate_cache.py --matches-only`
-- **Database Reset**: `rm data/processed/boardgames.db && python bin/init_database.py`
+- **Full Pipeline**: `python bin/run_pipeline.py`
 - **Quick Test**: `python bin/test_pipeline.py`
-- **Web Export**: `python bin/export_web_data.py`
 - **Cache Stats**: `python bin/bgg_cache.py stats`
-- **Clean Invalid Games**: `python bin/clean_invalid_games.py --ids X --execute`
+- **Individual Steps**: `python bin/preprocess_data.py`, `python bin/get_bgg_info.py`, `python bin/validate_and_geotag.py`

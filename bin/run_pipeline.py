@@ -1,168 +1,111 @@
-#!/usr/bin/env python3
-"""
-Run the complete data processing pipeline from raw data to web exports.
+"""Simple 3-step pipeline for BGG city game processing
+
+This script runs the simplified pipeline that processes BGG game data
+without requiring SQLite, using only CSV files and BGG API cache.
+
+Pipeline steps:
+1. preprocess_data.py - Filter BGG CSV by city name matching
+2. get_bgg_info.py - Populate BGG cache for filtered games
+3. validate_and_geotag.py - Find games with BGG family tags and geocode them
 """
 
-import os
+import subprocess
 import sys
-from util import run_command
+import os
+from datetime import datetime
 
-def check_data_files():
-    """Check that required data files exist."""
-    required_files = [
-        "data/bgg/boardgames_ranks.csv",
-        "data/geonames/cities500.txt"
-    ]
+def run_simple_pipeline(games_csv=None, cities_txt=None, filter_after_row=None):
+    """Run the complete simple pipeline
     
-    missing_files = []
-    for filepath in required_files:
-        if not os.path.exists(filepath):
-            missing_files.append(filepath)
+    Args:
+        games_csv: Path to BGG games CSV (default: data/bgg/boardgames_ranks.csv)
+        cities_txt: Path to cities data (default: data/geonames/cities500.txt) 
+        filter_after_row: Row limit for preprocessing (default: 2500)
+    """
+    print("🚀 Starting Simple BGG Pipeline")
+    print(f"⏰ Started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print()
     
-    if missing_files:
-        print("❌ Missing required data files:")
-        for filepath in missing_files:
-            print(f"   - {filepath}")
-        print("\nPlease download the required data files first.")
-        return False
+    # Default paths
+    games_csv = games_csv or "data/bgg/boardgames_ranks.csv"
+    cities_txt = cities_txt or "data/geonames/cities500.txt"
+    filter_after_row = filter_after_row or "2500"
     
-    print("✅ All required data files found")
-    return True
-
-def run_full_pipeline(use_fuzzy_matching="simple"):
-    """Run the complete pipeline."""
-    
-    print(f"🚀 Starting Board Game Geography Data Pipeline ({use_fuzzy_matching} matching)")
-    print(f"Working directory: {os.getcwd()}")
-    
-    # Check prerequisites
-    if not check_data_files():
-        return False
-    
-    # Ensure Python scripts are executable
-    os.chmod("bin/init_database.py", 0o755)
-    os.chmod("bin/load_bgg_data.py", 0o755)
-    os.chmod("bin/load_cities_data.py", 0o755)
-    os.chmod("bin/fuzzy_match.py", 0o755)
-    os.chmod("bin/simple_match.py", 0o755)
-    os.chmod("bin/hybrid_match.py", 0o755)
-    os.chmod("bin/export_web_data.py", 0o755)
-    
-    # Choose matching script based on flag
-    if use_fuzzy_matching == "fuzzy":
-        match_script = "python3 bin/fuzzy_match.py"
-        match_description = "Run fuzzy matching (slower, most comprehensive)"
-    elif use_fuzzy_matching == "hybrid":
-        match_script = "python3 bin/hybrid_match.py"
-        match_description = "Run hybrid matching (fast, good coverage)"
-    else:
-        match_script = "python3 bin/simple_match.py"
-        match_description = "Run simple exact matching (fastest)"
-    
-    # Pipeline steps
-    steps = [
-        ("python3 bin/init_database.py", "Initialize SQLite database"),
-        ("python3 bin/load_bgg_data.py", "Load BoardGameGeek data"),
-        ("python3 bin/load_cities_data.py", "Load cities data"),
-        (match_script, match_description),
-        ("python3 bin/export_web_data.py all", "Export data for web app")
-    ]
-    
-    # Run each step
-    for command, description in steps:
-        success = run_command(command, description)
-        if not success:
-            print(f"\n❌ Pipeline failed at step: {description}")
-            return False
-    
-    print(f"\n{'='*60}")
-    print("🎉 PIPELINE COMPLETE!")
-    print(f"{'='*60}")
-    print("Generated files:")
-    print("  - data/processed/boardgames.db (SQLite database)")
-    print("  - data/exports/games.json (High-confidence matches for web app)")
-    print("  - data/exports/games_all.json (All matches)")
-    print("  - data/exports/matches_review.csv (Matches needing review)")
-    print("  - data/exports/summary_report.json (Statistics and summary)")
-    print("\nNext steps:")
-    print("  1. Review matches_review.csv for accuracy")
-    print("  2. Update your web app to use games.json")
-    print("  3. Test the web application")
-    
-    return True
-
-def run_quick_test(use_fuzzy_matching="simple"):
-    """Run a quick test with limited data."""
-    print(f"🧪 Running quick test pipeline with limited data ({use_fuzzy_matching} matching)...")
-    
-    if not check_data_files():
-        return False
-    
-    # Choose matching script
-    if use_fuzzy_matching == "fuzzy":
-        match_command = "python3 bin/fuzzy_match.py data/processed/boardgames.db 60.0"
-        match_description = "Run fuzzy matching (higher threshold)"
-    elif use_fuzzy_matching == "hybrid":
-        match_command = "python3 bin/hybrid_match.py data/processed/boardgames.db"
-        match_description = "Run hybrid matching"
-    else:
-        match_command = "python3 bin/simple_match.py data/processed/boardgames.db"
-        match_description = "Run simple exact matching"
-    
-    # Pipeline steps with limited data
-    steps = [
-        ("python3 bin/init_database.py", "Initialize database"),
-        ("python3 bin/load_bgg_data.py", "Load BGG data (limited)"),
-        ("python3 bin/load_cities_data.py data/geonames/cities500.txt data/processed/boardgames.db 50000", "Load major cities only"),
-        (match_command, match_description),
-        ("python3 bin/export_web_data.py json data/exports/games_test.json", "Export test data")
-    ]
-    
-    for command, description in steps:
-        success = run_command(command, description)
-        if not success:
-            print(f"\n❌ Test failed at step: {description}")
-            return False
-    
-    print("\n🎉 Quick test complete! Check data/exports/games_test.json")
-    return True
+    try:
+        # Step 1: Preprocess BGG data
+        print("📝 Step 1: Preprocessing BGG data...")
+        print(f"   Input: {games_csv}")
+        print(f"   Cities: {cities_txt}")
+        print(f"   Filter after row: {filter_after_row}")
+        
+        result = subprocess.run([
+            "python3", "bin/preprocess_data.py",
+            games_csv, cities_txt, str(filter_after_row)
+        ], check=True, capture_output=True, text=True)
+        
+        if result.stdout:
+            print("   " + result.stdout.replace('\n', '\n   ').strip())
+        print("   ✅ Preprocessing complete")
+        print()
+        
+        # Step 2: Populate BGG cache
+        print("💾 Step 2: Populating BGG cache...")
+        print("   Input: data/processed/filtered_games.csv")
+        
+        result = subprocess.run([
+            "python3", "bin/get_bgg_info.py",
+            "data/processed/filtered_games.csv"
+        ], check=True, capture_output=True, text=True)
+        
+        if result.stdout:
+            print("   " + result.stdout.replace('\n', '\n   ').strip())
+        print("   ✅ Cache population complete")
+        print()
+        
+        # Step 3: Validate and geocode
+        print("🌍 Step 3: Validating and geocoding...")
+        print("   Input: data/processed/filtered_games.csv")
+        print("   Output: data/exports/bgg_family_games.json")
+        
+        result = subprocess.run([
+            "python3", "bin/validate_and_geotag.py",
+            "data/processed/filtered_games.csv"
+        ], check=True, capture_output=True, text=True)
+        
+        if result.stdout:
+            print("   " + result.stdout.replace('\n', '\n   ').strip())
+        print("   ✅ Validation and geocoding complete")
+        print()
+        
+        print("🎉 Simple pipeline completed successfully!")
+        print(f"⏰ Finished at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        print()
+        print("📁 Output files:")
+        print("   - data/processed/filtered_games.csv")
+        print("   - data/exports/bgg_family_games.json")
+        print("   - data/cache/bgg/ (BGG API cache)")
+        print("   - data/cache/nominatim/ (Nominatim geocoding cache)")
+        
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Pipeline failed at step: {e.cmd[1]}")
+        print(f"   Error: {e.stderr if e.stderr else 'Unknown error'}")
+        if e.stdout:
+            print(f"   Output: {e.stdout}")
+        sys.exit(1)
+    except FileNotFoundError as e:
+        print(f"❌ Required file not found: {e}")
+        print("   Make sure data files are in place:")
+        print(f"   - {games_csv}")
+        print(f"   - {cities_txt}")
+        sys.exit(1)
+    except Exception as e:
+        print(f"❌ Unexpected error: {e}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     # Parse command line arguments
-    matching_mode = "simple"  # default
-    command = "full"
+    games_csv = sys.argv[1] if len(sys.argv) > 1 else None
+    cities_txt = sys.argv[2] if len(sys.argv) > 2 else None
+    filter_after_row = sys.argv[3] if len(sys.argv) > 3 else None
     
-    for arg in sys.argv[1:]:
-        if arg == "test":
-            command = "test"
-        elif arg == "--simple":
-            matching_mode = "simple"
-        elif arg == "--hybrid":
-            matching_mode = "hybrid"
-        elif arg == "--fuzzy":
-            matching_mode = "fuzzy"
-        elif arg in ["--help", "-h"]:
-            print("Usage: python run_pipeline.py [command] [options]")
-            print()
-            print("Commands:")
-            print("  (none)    Run full pipeline")
-            print("  test      Run quick test with limited data")
-            print()
-            print("Matching Options:")
-            print("  --simple  Use simple exact matching (default, fastest)")
-            print("  --hybrid  Use hybrid matching (fast, better coverage)")
-            print("  --fuzzy   Use fuzzy matching (slower, most comprehensive)")
-            print("  --help    Show this help message")
-            print()
-            print("Examples:")
-            print("  python run_pipeline.py --hybrid")
-            print("  python run_pipeline.py test --fuzzy")
-            sys.exit(0)
-    
-    # Run the appropriate pipeline
-    if command == "test":
-        success = run_quick_test(matching_mode)
-    else:
-        success = run_full_pipeline(matching_mode)
-    
-    sys.exit(0 if success else 1)
+    run_simple_pipeline(games_csv, cities_txt, filter_after_row)

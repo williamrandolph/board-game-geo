@@ -1,90 +1,192 @@
-#!/usr/bin/env python3
-"""
-Test the pipeline with a small sample dataset for development.
+"""Test the simple 3-step BGG pipeline with sample data
+
+This script tests the simplified pipeline using smaller test datasets
+to verify functionality without processing the full BGG dataset.
 """
 
-import os
+import subprocess
 import sys
-from util import run_command
+import os
+import json
+from datetime import datetime
 
-def test_pipeline():
-    """Test with sample data."""
+def test_simple_pipeline():
+    """Test the simple pipeline with sample data"""
+    print("🧪 Testing Simple BGG Pipeline")
+    print(f"⏰ Started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print()
     
-    print("🧪 Testing Board Game Geography Pipeline with Sample Data")
-    print(f"Working directory: {os.getcwd()}")
+    # Test data paths
+    test_games_csv = "data/test/games_sample.csv"
+    test_cities_txt = "data/test/cities_sample.txt" 
+    test_filter_limit = "100"  # Process only first 100 games for testing
     
-    # Check that test files exist
-    test_files = [
-        "data/test/games_sample.csv",
-        "data/test/cities_sample.txt"
-    ]
-    
-    for filepath in test_files:
-        if not os.path.exists(filepath):
-            print(f"❌ Missing test file: {filepath}")
+    # Verify test data exists
+    print("📋 Verifying test data...")
+    test_files = [test_games_csv, test_cities_txt]
+    for file_path in test_files:
+        if not os.path.exists(file_path):
+            print(f"❌ Test file missing: {file_path}")
+            print("   Please ensure test data is available")
             return False
+        else:
+            print(f"   ✅ Found: {file_path}")
+    print()
     
-    print("✅ Test files found")
-    
-    # Use test database
-    test_db = "data/test/test_games.db"
-    
-    # Clean up previous test
-    if os.path.exists(test_db):
-        os.remove(test_db)
-        print("🧹 Cleaned up previous test database")
-    
-    # Pipeline steps with test data
-    steps = [
-        (f"python3 bin/init_database.py {test_db}", "Initialize test database"),
-        (f"python3 bin/load_bgg_data.py data/test/games_sample.csv {test_db}", "Load sample games"),
-        (f"python3 bin/load_cities_data.py data/test/cities_sample.txt {test_db} 0", "Load sample cities"),
-        (f"python3 bin/simple_match.py {test_db}", "Run simple exact matching"),
-        (f"python3 bin/export_web_data.py json data/test/test_games.json very_high,high {test_db}", "Export test data")
-    ]
-    
-    # Run each step
-    for command, description in steps:
-        success = run_command(command, description)
-        if not success:
-            print(f"\n❌ Test failed at step: {description}")
-            return False
-    
-    # Show results
-    print(f"\n{'='*50}")
-    print("🎉 TEST COMPLETE!")
-    print(f"{'='*50}")
-    
-    # Display the exported JSON
-    json_file = "data/test/test_games.json"
-    if os.path.exists(json_file):
-        print(f"\nGenerated test file: {json_file}")
+    try:
+        # Test Step 1: Preprocess test data
+        print("📝 Testing Step 1: Preprocessing...")
+        result = subprocess.run([
+            "python3", "bin/preprocess_data.py",
+            test_games_csv, test_cities_txt, test_filter_limit
+        ], check=True, capture_output=True, text=True)
         
-        # Show a summary of the JSON content
-        import json
-        try:
-            with open(json_file, 'r') as f:
-                data = json.load(f)
+        print("   " + result.stdout.replace('\n', '\n   ').strip())
+        
+        # Check if filtered output was created
+        if os.path.exists("data/processed/filtered_games.csv"):
+            with open("data/processed/filtered_games.csv", 'r') as f:
+                lines = sum(1 for line in f) - 1  # Subtract header
+            print(f"   ✅ Created filtered_games.csv with {lines} games")
+        else:
+            print("   ❌ No filtered output created")
+            return False
+        print()
+        
+        # Test Step 2: Cache population (if filtered games exist)
+        if lines > 0:
+            print("💾 Testing Step 2: BGG cache population...")
+            result = subprocess.run([
+                "python3", "bin/get_bgg_info.py",
+                "data/processed/filtered_games.csv"
+            ], check=True, capture_output=True, text=True)
             
-            print(f"Total games in export: {data['metadata']['total_games']}")
-            print("\nGames found:")
-            for game in data['games']:
-                match_info = game['match']
-                print(f"  - {game['name']} → {game['location']['city']}, {game['location']['country']}")
-                print(f"    Score: {match_info['score']}, Confidence: {match_info['confidence']}")
-                
-        except Exception as e:
-            print(f"Error reading JSON: {e}")
+            print("   " + result.stdout.replace('\n', '\n   ').strip())
+            print("   ✅ Cache population test complete")
+            print()
+            
+            # Test Step 3: Validation and geocoding
+            print("🌍 Testing Step 3: Validation and geocoding...")
+            result = subprocess.run([
+                "python3", "bin/validate_and_geotag.py",
+                "data/processed/filtered_games.csv"
+            ], check=True, capture_output=True, text=True)
+            
+            print("   " + result.stdout.replace('\n', '\n   ').strip())
+            
+            # Check output file
+            output_file = "data/exports/bgg_family_games.json"
+            if os.path.exists(output_file):
+                with open(output_file, 'r') as f:
+                    data = json.load(f)
+                    game_count = data.get('metadata', {}).get('total_games', 0)
+                print(f"   ✅ Created {output_file} with {game_count} geocoded games")
+            else:
+                print("   ⚠️  No geocoded output created (may be normal if no BGG family matches)")
+            print()
+        else:
+            print("💾 Skipping Steps 2-3: No games in filtered output")
+            print()
+        
+        print("🎉 Pipeline test completed successfully!")
+        print(f"⏰ Finished at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        print()
+        
+        # Test summary
+        print("📊 Test Summary:")
+        print(f"   - Filtered games: {lines}")
+        if os.path.exists("data/exports/bgg_family_games.json"):
+            with open("data/exports/bgg_family_games.json", 'r') as f:
+                data = json.load(f)
+                geocoded_count = data.get('metadata', {}).get('total_games', 0)
+            print(f"   - Geocoded games: {geocoded_count}")
+        print("   - Cache files created in data/cache/")
+        print("   - Test output in data/processed/ and data/exports/")
+        
+        return True
+        
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Test failed at: {e.cmd[1]}")
+        print(f"   Error: {e.stderr if e.stderr else 'Unknown error'}")
+        if e.stdout:
+            print(f"   Output: {e.stdout}")
+        return False
+    except Exception as e:
+        print(f"❌ Unexpected test error: {e}")
+        return False
+
+def verify_pipeline_scripts():
+    """Verify all required pipeline scripts exist"""
+    print("🔍 Verifying pipeline scripts...")
     
-    print("\nNext steps:")
-    print("  1. Review the matches above")
-    print("  2. Check if Birmingham matched correctly")
-    print("  3. Verify Amalfi matched correctly") 
-    print("  4. Confirm Gloomhaven didn't match anything")
-    print("  5. Confirm Medina didn't match anything (due to data issue)")
+    required_scripts = [
+        "bin/preprocess_data.py",
+        "bin/get_bgg_info.py", 
+        "bin/validate_and_geotag.py",
+        "bin/bgg_cache.py",
+        "bin/util.py"
+    ]
     
-    return True
+    all_present = True
+    for script in required_scripts:
+        if os.path.exists(script):
+            print(f"   ✅ {script}")
+        else:
+            print(f"   ❌ {script} - MISSING")
+            all_present = False
+    
+    print()
+    return all_present
+
+def create_test_data():
+    """Create minimal test data if it doesn't exist"""
+    print("📋 Checking test data...")
+    
+    os.makedirs("data/test", exist_ok=True)
+    
+    # Create minimal test games CSV if missing
+    test_games_csv = "data/test/games_sample.csv"
+    if not os.path.exists(test_games_csv):
+        print(f"   Creating minimal {test_games_csv}...")
+        with open(test_games_csv, 'w') as f:
+            f.write("id,name,yearpublished,rank,bayesaverage,average,usersrated,is_expansion\n")
+            f.write("224517,Brass: Birmingham,2018,1,8.40157,8.57623,52461,0\n")
+            f.write("174430,Gloomhaven,2017,4,8.32263,8.56104,65016,0\n")
+            f.write("1261,Medina,2001,1500,6.12345,6.45678,1234,0\n")
+        print(f"   ✅ Created {test_games_csv}")
+    
+    # Create minimal test cities file if missing  
+    test_cities_txt = "data/test/cities_sample.txt"
+    if not os.path.exists(test_cities_txt):
+        print(f"   Creating minimal {test_cities_txt}...")
+        with open(test_cities_txt, 'w') as f:
+            # Format: geonameid, name, asciiname, alternatenames, latitude, longitude, feature class, feature code, country code, cc2, admin1 code, admin2 code, admin3 code, admin4 code, population, elevation, dem, timezone, modification date
+            f.write("2655984\tBirmingham\tBirmingham\t\t52.48142\t-1.89983\tP\tPPLA2\tGB\t\tENG\tBIR\t\t\t984333\t\t124\tEurope/London\t2019-09-05\n")
+            f.write("5746545\tGloomhaven\tGloomhaven\t\t45.0\t-93.0\tP\tPPL\tUS\t\tMN\t\t\t\t1000\t\t300\tAmerica/Chicago\t2019-09-05\n")
+            f.write("108410\tMedina\tMedina\t\t24.46861\t39.61417\tP\tPPLA\tSA\t\t\t\t\t\t1500000\t\t631\tAsia/Riyadh\t2019-09-05\n")
+        print(f"   ✅ Created {test_cities_txt}")
+    
+    print()
 
 if __name__ == "__main__":
-    success = test_pipeline()
-    sys.exit(0 if success else 1)
+    print("🧪 BGG Pipeline Test Suite")
+    print("=" * 50)
+    print()
+    
+    # Verify pipeline scripts exist
+    if not verify_pipeline_scripts():
+        print("❌ Missing required pipeline scripts. Cannot run tests.")
+        sys.exit(1)
+    
+    # Create test data if needed
+    create_test_data()
+    
+    # Run the pipeline test
+    success = test_simple_pipeline()
+    
+    if success:
+        print("\n🎉 All tests passed!")
+        sys.exit(0)
+    else:
+        print("\n❌ Tests failed!")
+        sys.exit(1)
