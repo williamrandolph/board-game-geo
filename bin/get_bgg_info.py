@@ -5,10 +5,14 @@ import csv
 import sys
 
 def cache_bgg_info(input_csv: str):
-    # get all IDs
+    """Ensure info from the BGG API is cached locally for every game ID in the CSV"""
     with open(input_csv, 'r', encoding='utf-8') as in_file:
         reader = csv.DictReader(in_file)
-        ids = [int(row['id']) for row in reader]
+        try:
+            ids = [int(row['id']) for row in reader]
+        except (ValueError, KeyError) as e:
+            print(f"ERROR: Failed to read from ID column: {e}")
+            return
 
     # Show initial cache stats
     initial_stats = get_cache_stats()
