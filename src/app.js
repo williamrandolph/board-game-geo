@@ -8,7 +8,7 @@ let isImporting = false;
 // Initialize map
 let map;
 let markers = [];
-let markerGroup;
+let markerClusterGroup;
 
 // Initialize all systems
 async function initSystems() {
@@ -40,6 +40,32 @@ function initMap() {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
+    
+    // Initialize marker cluster group
+    markerClusterGroup = L.markerClusterGroup({
+        spiderfyOnMaxZoom: true,
+        showCoverageOnHover: false,
+        zoomToBoundsOnClick: true,
+        maxClusterRadius: 50,
+        iconCreateFunction: function(cluster) {
+            const childCount = cluster.getChildCount();
+            let c = ' marker-cluster-';
+            if (childCount < 10) {
+                c += 'small';
+            } else if (childCount < 100) {
+                c += 'medium';
+            } else {
+                c += 'large';
+            }
+            return new L.DivIcon({ 
+                html: '<div><span>' + childCount + '</span></div>', 
+                className: 'marker-cluster' + c, 
+                iconSize: new L.Point(40, 40) 
+            });
+        }
+    });
+    
+    map.addLayer(markerClusterGroup);
 }
 
 // Add marker to map from database game
@@ -77,9 +103,12 @@ function addGameMarker(game, location) {
         (isApproved ? 'Approved' : 'Pending/Rejected') : 
         'N/A';
     
+    const bggId = game.id || (game.name && game.yearPublished ? `${game.name.replace(/\s+/g, '-').toLowerCase()}-${game.yearPublished}` : null);
+    const bggLink = bggId ? `https://boardgamegeek.com/boardgame/${bggId}` : null;
+    
     const popupContent = `
         <div class="popup-content">
-            <h3>${game.name} ${iconLabel}</h3>
+            <h3>${bggLink ? `<a href="${bggLink}" target="_blank" rel="noopener">${game.name}</a>` : game.name} ${iconLabel}</h3>
             <p><strong>Year:</strong> ${game.yearPublished || 'Unknown'}</p>
             <p><strong>Location:</strong> ${location.locationString}</p>
             <p><strong>Type:</strong> ${location.type}</p>
@@ -96,11 +125,8 @@ function addGameMarker(game, location) {
     marker.bindPopup(popupContent);
     markers.push(marker);
     
-    if (markerGroup) {
-        markerGroup.addLayer(marker);
-    } else {
-        marker.addTo(map);
-    }
+    // Add marker to cluster group
+    markerClusterGroup.addLayer(marker);
 }
 
 // Load games from database and display on map
@@ -124,9 +150,6 @@ async function loadGamesFromDatabase() {
         // Clear existing markers
         clearMarkers();
         
-        // Create marker group for better performance
-        markerGroup = L.featureGroup();
-        
         let totalLocations = 0;
         games.forEach(game => {
             game.locations.forEach(location => {
@@ -135,12 +158,10 @@ async function loadGamesFromDatabase() {
             });
         });
         
-        // Add marker group to map
-        markerGroup.addTo(map);
-        
         // Fit map to show all markers
-        if (totalLocations > 0) {
-            map.fitBounds(markerGroup.getBounds().pad(0.1));
+        if (totalLocations > 0 && markers.length > 0) {
+            const group = new L.featureGroup(markers);
+            map.fitBounds(group.getBounds().pad(0.1));
         }
         
         console.log(`✅ Loaded ${games.length} games with ${totalLocations} locations`);
@@ -157,15 +178,9 @@ async function loadGamesFromDatabase() {
 
 // Clear all markers from map
 function clearMarkers() {
-    if (markerGroup) {
-        map.removeLayer(markerGroup);
-        markerGroup = null;
+    if (markerClusterGroup) {
+        markerClusterGroup.clearLayers();
     }
-    markers.forEach(marker => {
-        if (map.hasLayer(marker)) {
-            map.removeLayer(marker);
-        }
-    });
     markers = [];
 }
 

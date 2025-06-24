@@ -147,7 +147,8 @@ class PipelineLoader {
      */
     convertPipelineGameToDBFormat(pipelineGame) {
         return {
-            id: `pipeline_${pipelineGame.name}_${pipelineGame.year}`,
+            id: pipelineGame.id, // Use actual BGG ID from pipeline data
+            bggId: pipelineGame.id, // Also store as bggId for clarity
             name: pipelineGame.name,
             yearPublished: pipelineGame.year,
             description: null, // Pipeline doesn't include description in JSON export

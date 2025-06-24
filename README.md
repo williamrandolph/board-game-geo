@@ -4,8 +4,8 @@ An interactive map showing the real-world locations associated with board games.
 
 ## ✨ Features
 
-- **🗺️ Interactive World Map**: Leaflet.js with OpenStreetMap integration
-- **🎲 BoardGameGeek Integration**: Direct BGG API integration with family tag validation
+- **🗺️ Interactive World Map**: Leaflet.js with OpenStreetMap integration and marker clustering
+- **🎲 BoardGameGeek Integration**: Direct BGG API integration with family tag validation and game links
 - **⚡ Simple 3-Step Pipeline**: CSV processing without database complexity
 - **🌍 Smart Geocoding**: 5-tier Nominatim fallback strategy with caching
 - **📱 Responsive Design**: Works on desktop, tablet, and mobile
