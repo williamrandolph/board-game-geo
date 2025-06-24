@@ -17,13 +17,13 @@ An interactive map showing the real-world locations associated with board games.
 ### Option 1: Use Pre-processed Data (Recommended)
 1. Clone the repository
 2. Open `index.html` directly in your web browser
-3. Click "Load Approved Games" to load 69 approved games from the embedded dataset
+3. Click "Load Approved Games" to load 200+ games from the embedded dataset
 4. Explore the map with color-coded markers
 
 ### Option 2: Run Simple Pipeline
 1. **Download Required Data**:
-   - BoardGameGeek CSV: `data/bgg/boardgames_ranks.csv`
-   - GeoNames dataset: `data/geonames/cities500.txt`
+   - [BoardGameGeek CSV](https://boardgamegeek.com/data_dumps/bg_ranks): `data/bgg/boardgames_ranks.csv`
+   - [GeoNames dataset](https://www.geonames.org/export/): `data/geonames/cities500.txt`
 
 2. **Run Simple Pipeline**:
    ```bash
@@ -112,14 +112,12 @@ python bin/bgg_cache.py stats
 ## 🎯 Key Benefits
 
 ### Simple Pipeline
-- **No Database**: Direct CSV processing avoids SQLite complexity
 - **Fast Execution**: Completes in minutes instead of hours
 - **Easy Testing**: `test_pipeline.py` with sample data
 - **Clear Steps**: 3 focused scripts with single responsibilities
 
 ### BGG Family Validation
 - **High Confidence**: Uses BGG's manually curated "Cities:" family tags
-- **No Manual Review**: Automated validation based on BGG categorization
 - **Quality Data**: BGG families ensure geographical relevance
 
 ### Smart Geocoding
