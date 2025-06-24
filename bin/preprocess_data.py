@@ -5,8 +5,13 @@ import csv
 import os
 import sys
 
-def preprocess_games(games_csv_path: str, city_txt_path: str, filter_after_row: int):
+def preprocess_games(games_csv_path: str, city_txt_path: str, filter_after_row: int, output_csv_path: str = "data/processed/filtered_games.csv"):
     city_names = get_city_names(city_txt_path)
+    
+    # Check if cities were loaded successfully
+    if not city_names:
+        print(f"Error: No cities loaded from {city_txt_path}")
+        return False
 
     print(f"Loading BGG data from {games_csv_path}...")
     
@@ -18,7 +23,10 @@ def preprocess_games(games_csv_path: str, city_txt_path: str, filter_after_row: 
     games_loaded = 0
     games_skipped = 0
     
-    with open("data/processed/filtered_games.csv", 'w') as outfile:
+    # Ensure output directory exists
+    os.makedirs(os.path.dirname(output_csv_path), exist_ok=True)
+    
+    with open(output_csv_path, 'w') as outfile:
         with open(games_csv_path, 'r', encoding='utf-8') as file:
             reader = csv.DictReader(file)
             writer = csv.DictWriter(outfile, reader.fieldnames)
@@ -73,6 +81,9 @@ def preprocess_games(games_csv_path: str, city_txt_path: str, filter_after_row: 
     print(f"\nProcessing complete:")
     print(f"  Games added: {games_loaded:,}")
     print(f"  Games skipped: {games_skipped:,}")
+    print(f"  Output: {output_csv_path}")
+    
+    return True
 
 def get_city_names(city_txt_path: str) -> set[str]:
     city_names = set()
@@ -143,15 +154,18 @@ if __name__ == "__main__":
     games_csv_path = "data/bgg/boardgames_ranks.csv"
     city_txt_path = "data/geonames/cities500.txt"
     filter_after_row = 2500
+    output_csv_path = "data/processed/filtered_games.csv"
     
-    # Allow custom paths and population filter as command line arguments
+    # Allow custom paths and parameters as command line arguments
     if len(sys.argv) > 1:
         games_csv_path = sys.argv[1]
     if len(sys.argv) > 2:
         city_txt_path = sys.argv[2]
     if len(sys.argv) > 3:
         filter_after_row = int(sys.argv[3])
+    if len(sys.argv) > 4:
+        output_csv_path = sys.argv[4]
     
-    success = preprocess_games(games_csv_path, city_txt_path, filter_after_row)
+    success = preprocess_games(games_csv_path, city_txt_path, filter_after_row, output_csv_path)
     if not success:
         sys.exit(1)

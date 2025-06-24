@@ -5,7 +5,7 @@ import csv
 import re
 import sys
 
-def validate_and_geotag(filtered_csv: str):
+def validate_and_geotag(filtered_csv: str, output_json_path: str = "data/exports/bgg_family_games.json"):
     skipped = 0
     routes = 0
     bgg_games = []    # BGG game details with single city families + CSV data
@@ -135,7 +135,7 @@ def validate_and_geotag(filtered_csv: str):
             print(f"    ❌ Failed to geocode {match['name']} -> {city}")
     
     # Export results in games.json format
-    export_results(final_games)
+    export_results(final_games, output_json_path)
 
 def get_geotag(city: str, region: str, country: str) -> dict[str, any]:
     """Geocode a city using Nominatim API with 5-tier fallback strategy"""
@@ -269,14 +269,14 @@ def get_geotag(city: str, region: str, country: str) -> dict[str, any]:
     
     return result
 
-def export_results(games: list):
+def export_results(games: list, output_json_path: str):
     """Export games in the same format as games.json"""
     import json
     from datetime import datetime
     import os
     
-    # Create exports directory if it doesn't exist
-    os.makedirs("data/exports", exist_ok=True)
+    # Create output directory if it doesn't exist
+    os.makedirs(os.path.dirname(output_json_path), exist_ok=True)
     
     # Create output in games.json format
     output = {
@@ -293,17 +293,19 @@ def export_results(games: list):
     }
     
     # Write to file
-    output_file = "data/exports/bgg_family_games.json"
-    with open(output_file, 'w', encoding='utf-8') as f:
+    with open(output_json_path, 'w', encoding='utf-8') as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
     
-    print(f"\n📁 Exported {len(games)} games to {output_file}")
+    print(f"\n📁 Exported {len(games)} games to {output_json_path}")
     print(f"✅ Successfully geocoded {len([g for g in games if g['location']['coordinates']])} games")
 
 if __name__ == "__main__":
     filtered_csv = "data/processed/filtered_games.csv"
+    output_json_path = "data/exports/bgg_family_games.json"
     
     if len(sys.argv) > 1:
         filtered_csv = sys.argv[1]
+    if len(sys.argv) > 2:
+        output_json_path = sys.argv[2]
     
-    validate_and_geotag(filtered_csv)
+    validate_and_geotag(filtered_csv, output_json_path)

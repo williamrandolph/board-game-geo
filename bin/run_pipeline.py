@@ -14,13 +14,16 @@ import sys
 import os
 from datetime import datetime
 
-def run_simple_pipeline(games_csv=None, cities_txt=None, filter_after_row=None):
+def run_simple_pipeline(games_csv=None, cities_txt=None, filter_after_row=None, 
+                        filtered_csv=None, output_json=None):
     """Run the complete simple pipeline
     
     Args:
         games_csv: Path to BGG games CSV (default: data/bgg/boardgames_ranks.csv)
         cities_txt: Path to cities data (default: data/geonames/cities500.txt) 
         filter_after_row: Row limit for preprocessing (default: 2500)
+        filtered_csv: Output path for filtered CSV (default: data/processed/filtered_games.csv)
+        output_json: Output path for final JSON (default: data/exports/bgg_family_games.json)
     """
     print("🚀 Starting Simple BGG Pipeline")
     print(f"⏰ Started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
@@ -30,6 +33,8 @@ def run_simple_pipeline(games_csv=None, cities_txt=None, filter_after_row=None):
     games_csv = games_csv or "data/bgg/boardgames_ranks.csv"
     cities_txt = cities_txt or "data/geonames/cities500.txt"
     filter_after_row = filter_after_row or "2500"
+    filtered_csv = filtered_csv or "data/processed/filtered_games.csv"
+    output_json = output_json or "data/exports/bgg_family_games.json"
     
     try:
         # Step 1: Preprocess BGG data
@@ -40,7 +45,7 @@ def run_simple_pipeline(games_csv=None, cities_txt=None, filter_after_row=None):
         
         result = subprocess.run([
             "python3", "bin/preprocess_data.py",
-            games_csv, cities_txt, str(filter_after_row)
+            games_csv, cities_txt, str(filter_after_row), filtered_csv
         ], check=True, capture_output=True, text=True)
         
         if result.stdout:
@@ -50,11 +55,11 @@ def run_simple_pipeline(games_csv=None, cities_txt=None, filter_after_row=None):
         
         # Step 2: Populate BGG cache
         print("💾 Step 2: Populating BGG cache...")
-        print("   Input: data/processed/filtered_games.csv")
+        print(f"   Input: {filtered_csv}")
         
         result = subprocess.run([
             "python3", "bin/get_bgg_info.py",
-            "data/processed/filtered_games.csv"
+            filtered_csv
         ], check=True, capture_output=True, text=True)
         
         if result.stdout:
@@ -64,12 +69,12 @@ def run_simple_pipeline(games_csv=None, cities_txt=None, filter_after_row=None):
         
         # Step 3: Validate and geocode
         print("🌍 Step 3: Validating and geocoding...")
-        print("   Input: data/processed/filtered_games.csv")
-        print("   Output: data/exports/bgg_family_games.json")
+        print(f"   Input: {filtered_csv}")
+        print(f"   Output: {output_json}")
         
         result = subprocess.run([
             "python3", "bin/validate_and_geotag.py",
-            "data/processed/filtered_games.csv"
+            filtered_csv, output_json
         ], check=True, capture_output=True, text=True)
         
         if result.stdout:
@@ -81,8 +86,8 @@ def run_simple_pipeline(games_csv=None, cities_txt=None, filter_after_row=None):
         print(f"⏰ Finished at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         print()
         print("📁 Output files:")
-        print("   - data/processed/filtered_games.csv")
-        print("   - data/exports/bgg_family_games.json")
+        print(f"   - {filtered_csv}")
+        print(f"   - {output_json}")
         print("   - data/cache/bgg/ (BGG API cache)")
         print("   - data/cache/nominatim/ (Nominatim geocoding cache)")
         
@@ -107,5 +112,7 @@ if __name__ == "__main__":
     games_csv = sys.argv[1] if len(sys.argv) > 1 else None
     cities_txt = sys.argv[2] if len(sys.argv) > 2 else None
     filter_after_row = sys.argv[3] if len(sys.argv) > 3 else None
+    filtered_csv = sys.argv[4] if len(sys.argv) > 4 else None
+    output_json = sys.argv[5] if len(sys.argv) > 5 else None
     
-    run_simple_pipeline(games_csv, cities_txt, filter_after_row)
+    run_simple_pipeline(games_csv, cities_txt, filter_after_row, filtered_csv, output_json)

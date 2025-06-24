@@ -21,6 +21,10 @@ def test_simple_pipeline():
     test_cities_txt = "data/test/cities_sample.txt" 
     test_filter_limit = "100"  # Process only first 100 games for testing
     
+    # Test output paths (separate from production)
+    test_filtered_csv = "data/test/filtered_games_test.csv"
+    test_output_json = "data/test/bgg_family_games_test.json"
+    
     # Verify test data exists
     print("📋 Verifying test data...")
     test_files = [test_games_csv, test_cities_txt]
@@ -38,18 +42,18 @@ def test_simple_pipeline():
         print("📝 Testing Step 1: Preprocessing...")
         result = subprocess.run([
             "python3", "bin/preprocess_data.py",
-            test_games_csv, test_cities_txt, test_filter_limit
+            test_games_csv, test_cities_txt, test_filter_limit, test_filtered_csv
         ], check=True, capture_output=True, text=True)
         
         print("   " + result.stdout.replace('\n', '\n   ').strip())
         
         # Check if filtered output was created
-        if os.path.exists("data/processed/filtered_games.csv"):
-            with open("data/processed/filtered_games.csv", 'r') as f:
+        if os.path.exists(test_filtered_csv):
+            with open(test_filtered_csv, 'r') as f:
                 lines = sum(1 for line in f) - 1  # Subtract header
-            print(f"   ✅ Created filtered_games.csv with {lines} games")
+            print(f"   ✅ Created {test_filtered_csv} with {lines} games")
         else:
-            print("   ❌ No filtered output created")
+            print(f"   ❌ No filtered output created at {test_filtered_csv}")
             return False
         print()
         
@@ -58,7 +62,7 @@ def test_simple_pipeline():
             print("💾 Testing Step 2: BGG cache population...")
             result = subprocess.run([
                 "python3", "bin/get_bgg_info.py",
-                "data/processed/filtered_games.csv"
+                test_filtered_csv
             ], check=True, capture_output=True, text=True)
             
             print("   " + result.stdout.replace('\n', '\n   ').strip())
@@ -69,18 +73,17 @@ def test_simple_pipeline():
             print("🌍 Testing Step 3: Validation and geocoding...")
             result = subprocess.run([
                 "python3", "bin/validate_and_geotag.py",
-                "data/processed/filtered_games.csv"
+                test_filtered_csv, test_output_json
             ], check=True, capture_output=True, text=True)
             
             print("   " + result.stdout.replace('\n', '\n   ').strip())
             
             # Check output file
-            output_file = "data/exports/bgg_family_games.json"
-            if os.path.exists(output_file):
-                with open(output_file, 'r') as f:
+            if os.path.exists(test_output_json):
+                with open(test_output_json, 'r') as f:
                     data = json.load(f)
                     game_count = data.get('metadata', {}).get('total_games', 0)
-                print(f"   ✅ Created {output_file} with {game_count} geocoded games")
+                print(f"   ✅ Created {test_output_json} with {game_count} geocoded games")
             else:
                 print("   ⚠️  No geocoded output created (may be normal if no BGG family matches)")
             print()
@@ -95,13 +98,13 @@ def test_simple_pipeline():
         # Test summary
         print("📊 Test Summary:")
         print(f"   - Filtered games: {lines}")
-        if os.path.exists("data/exports/bgg_family_games.json"):
-            with open("data/exports/bgg_family_games.json", 'r') as f:
+        if os.path.exists(test_output_json):
+            with open(test_output_json, 'r') as f:
                 data = json.load(f)
                 geocoded_count = data.get('metadata', {}).get('total_games', 0)
             print(f"   - Geocoded games: {geocoded_count}")
         print("   - Cache files created in data/cache/")
-        print("   - Test output in data/processed/ and data/exports/")
+        print(f"   - Test output: {test_filtered_csv}, {test_output_json}")
         
         return True
         
