@@ -159,6 +159,36 @@ python bin/bgg_cache.py stats
 3. Use file caching to avoid repeated API calls during development
 4. Update documentation when changing architecture
 
+## 🚧 TODO: Planned Enhancements
+
+### Auto-Loading & Filtering
+- [ ] **Auto-load pipeline data** on page load (remove manual "Load Games" button)
+- [ ] **Top N games filter**: Slider/dropdown for "Show top 50/100/250/All games by BGG rating"
+- [ ] **Category filtering**: Multi-select dropdown with game categories (Economic, Strategy, etc.)
+- [ ] **Expansion support**: Checkbox to include/exclude game expansions
+
+### Visual Enhancements
+- [ ] **Color-coded markers** by primary game category:
+  - Economic games: Green markers
+  - Strategy games: Blue markers
+  - Thematic games: Red markers
+  - Family games: Orange markers
+  - Abstract games: Purple markers
+- [ ] **Updated legend** showing category colors instead of data source
+- [ ] **Enhanced popups** displaying game categories and mechanics
+
+### Data Pipeline Updates
+- [ ] **Include categories** in `validate_and_geotag.py` export from BGG cache
+- [ ] **Preserve categories** in `update_pipeline_data.py` for web data
+- [ ] **Re-generate pipeline-data.js** with enriched category information
+- [ ] **Add expansion detection** using BGG family tags
+
+### Implementation Notes
+- BGG cache already contains categories/mechanics data at `data/cache/bgg/game_*.json`
+- Current pipeline-data.js has 280+ games sorted by BGG rating
+- Marker clustering already handles overlapping locations
+- Static page approach maintained with embedded data
+
 ## 📄 License
 
 MIT License - see [LICENSE](LICENSE) file for details.
