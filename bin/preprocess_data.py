@@ -43,7 +43,7 @@ def preprocess_games(games_csv_path: str, city_txt_path: str, filter_after_row: 
                 try:
                     # Extract data from CSV
                     name = row['name'].strip()
-                    num_votes = int(row['usersrated']) if row['usersrated'] else None
+                    num_votes = int(row['usersrated']) if row['usersrated'] is not None else None
                     is_expansion = bool(int(row['is_expansion'])) if row['is_expansion'] else False
                     
                     # Skip expansions for now - focus on base games
@@ -52,7 +52,7 @@ def preprocess_games(games_csv_path: str, city_txt_path: str, filter_after_row: 
                         continue
                     
                     # Skip games with very few ratings (likely incomplete data)
-                    if num_votes and num_votes < 100:
+                    if num_votes is not None and num_votes < 100:
                         games_skipped += 1
                         continue
 
