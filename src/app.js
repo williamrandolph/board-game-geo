@@ -1,7 +1,5 @@
 // Global application state
 let database;
-let importSystem;
-let adminTools;
 let pipelineLoader;
 let isImporting = false;
 
@@ -15,12 +13,6 @@ async function initSystems() {
     try {
         database = new GameDatabase();
         await database.init();
-        
-        importSystem = new BulkImportSystem();
-        await importSystem.init();
-        
-        adminTools = new AdminTools();
-        await adminTools.init();
         
         pipelineLoader = new PipelineLoader(database);
         
@@ -200,99 +192,7 @@ async function updateStats() {
     }
 }
 
-// Import popular games
-async function importPopularGames() {
-    if (isImporting) return;
-    
-    const button = document.getElementById('import-popular');
-    const progress = document.getElementById('progress');
-    
-    try {
-        isImporting = true;
-        button.disabled = true;
-        progress.style.display = 'block';
-        
-        // Reset progress element to have the text div
-        progress.innerHTML = '<div id="progress-text">Importing popular games...</div>';
-        
-        const options = {
-            batchSize: 5,
-            delayBetweenBatches: 3000,
-            onProgress: (status) => {
-                const progressElement = document.getElementById('progress-text');
-                if (progressElement) {
-                    progressElement.textContent = `Processing ${status.currentGameId}... (${status.processed}/${status.total})`;
-                }
-            },
-            onError: (error) => {
-                console.warn('Import error:', error);
-            }
-        };
-        
-        const result = await importSystem.importTopGames(20, options);
-        
-        showSuccess(`Import completed! ${result.successful} games imported, ${result.failed} failed.`);
-        
-        // Refresh the map
-        await loadGamesFromDatabase();
-        await updateStats();
-        
-    } catch (error) {
-        console.error('Import failed:', error);
-        showError('Import failed: ' + error.message);
-    } finally {
-        isImporting = false;
-        button.disabled = false;
-        progress.style.display = 'none';
-    }
-}
 
-// Import specific game
-async function importSpecificGame() {
-    const gameName = prompt('Enter game name to search for:');
-    if (!gameName) return;
-    
-    if (isImporting) return;
-    
-    const button = document.getElementById('import-specific');
-    const progress = document.getElementById('progress');
-    
-    try {
-        isImporting = true;
-        button.disabled = true;
-        progress.style.display = 'block';
-        
-        // Reset progress element to have the text div
-        progress.innerHTML = `<div id="progress-text">Searching for "${gameName}"...</div>`;
-        
-        const options = {
-            batchSize: 3,
-            delayBetweenBatches: 2000,
-            onProgress: (status) => {
-                const progressElement = document.getElementById('progress-text');
-                if (progressElement) {
-                    progressElement.textContent = `Processing ${status.currentGameId}... (${status.processed}/${status.total})`;
-                }
-            }
-        };
-        
-        const result = await importSystem.searchAndImportGames(gameName, 10, options);
-        
-        showSuccess(`Import completed! ${result.successful} games imported, ${result.failed} failed.`);
-        
-        // Refresh the map
-        await loadGamesFromDatabase();
-        await updateStats();
-        
-    } catch (error) {
-        console.error('Import failed:', error);
-        showError('Import failed: ' + error.message);
-    } finally {
-        isImporting = false;
-        button.disabled = false;
-        progress.style.display = 'none';
-    }
-}
 
 // Clear all data
 async function clearAllData() {
@@ -311,25 +211,6 @@ async function clearAllData() {
     }
 }
 
-// Export data
-async function exportData() {
-    try {
-        const data = await adminTools.exportData('json');
-        const blob = new Blob([data], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `board-game-geo-export-${new Date().toISOString().split('T')[0]}.json`;
-        a.click();
-        
-        URL.revokeObjectURL(url);
-        showSuccess('Data exported successfully.');
-    } catch (error) {
-        console.error('Export failed:', error);
-        showError('Export failed: ' + error.message);
-    }
-}
 
 // Show success message
 function showSuccess(message) {
@@ -394,64 +275,6 @@ async function loadPipelineData() {
     }
 }
 
-// Load all pipeline data (including pending/rejected)
-async function loadAllPipelineData() {
-    if (isImporting) return;
-    
-    if (!confirm('This will clear existing data and load ALL games from the pipeline (including pending/rejected). Continue?')) {
-        return;
-    }
-    
-    const button = document.getElementById('load-all-pipeline');
-    const progress = document.getElementById('progress');
-    
-    try {
-        isImporting = true;
-        button.disabled = true;
-        progress.style.display = 'block';
-        
-        // Reset progress element to have the text div
-        progress.innerHTML = '<div id="progress-text">Loading all pipeline data...</div>';
-        
-        const result = await pipelineLoader.loadAllData((status) => {
-            const progressElement = document.getElementById('progress-text');
-            if (progressElement) {
-                progressElement.textContent = `Loading ${status.game}... (${status.current}/${status.total})`;
-            }
-        });
-        
-        showSuccess(`All pipeline data loaded! ${result.successful} games loaded from ${result.totalCount} total.`);
-        console.log('📊 Pipeline load results:', result);
-        
-        // Refresh the map
-        await loadGamesFromDatabase();
-        await updateStats();
-        
-    } catch (error) {
-        console.error('Pipeline loading failed:', error);
-        showError('Pipeline loading failed: ' + error.message);
-    } finally {
-        isImporting = false;
-        button.disabled = false;
-        progress.style.display = 'none';
-    }
-}
-
-// Run parsing tests
-function runTests() {
-    console.clear();
-    try {
-        const results = runAllBGGTests();
-        if (results.failed === 0) {
-            showSuccess(`All ${results.passed} parsing tests passed! Check console for details.`);
-        } else {
-            showError(`${results.failed} tests failed. Check console for details.`);
-        }
-    } catch (error) {
-        console.error('Test execution failed:', error);
-        showError('Test execution failed: ' + error.message);
-    }
-}
 
 // Initialize everything when page loads
 document.addEventListener('DOMContentLoaded', async function() {

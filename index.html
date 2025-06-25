@@ -159,13 +159,8 @@
     
     <div id="controls" class="controls">
         <h4>Board Game Geography</h4>
-        <button id="load-pipeline" onclick="loadPipelineData()">Load Approved Games</button>
-        <button id="load-all-pipeline" onclick="loadAllPipelineData()">Load All Pipeline Data</button>
-        <button id="import-popular" onclick="importPopularGames()">Import Popular Games</button>
-        <button id="import-specific" onclick="importSpecificGame()">Import Specific Game</button>
+        <button id="load-pipeline" onclick="loadPipelineData()">Load Games</button>
         <button id="clear-data" onclick="clearAllData()">Clear All Data</button>
-        <button id="export-data" onclick="exportData()">Export Data</button>
-        <button id="run-tests" onclick="runTests()">Run Tests</button>
         
         <div id="stats" class="stats">
             <div>Database: Loading...</div>
@@ -196,14 +191,9 @@
     
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
-    <script src="src/bgg-api.js"></script>
-    <script src="src/geocoding.js"></script>
     <script src="src/database.js"></script>
     <script src="src/pipeline-data.js"></script>
     <script src="src/pipeline-loader.js"></script>
-    <script src="src/bulk-import.js"></script>
-    <script src="src/admin.js"></script>
-    <script src="src/test-bgg-parsing.js"></script>
     <script src="src/app.js"></script>
 </body>
 </html>

@@ -9,7 +9,7 @@ An interactive map showing the real-world locations associated with board games.
 - **⚡ Simple 3-Step Pipeline**: CSV processing without database complexity
 - **🌍 Smart Geocoding**: 5-tier Nominatim fallback strategy with caching
 - **📱 Responsive Design**: Works on desktop, tablet, and mobile
-- **🔍 Advanced Filtering**: Search and filter by game categories
+- **🔗 Game Links**: Direct links to BoardGameGeek for each game
 - **📊 Data Export**: Clean JSON output in standardized format
 
 ## 🚀 Quick Start
@@ -17,8 +17,8 @@ An interactive map showing the real-world locations associated with board games.
 ### Option 1: Use Pre-processed Data (Recommended)
 1. Clone the repository
 2. Open `index.html` directly in your web browser
-3. Click "Load Approved Games" to load 200+ games from the embedded dataset
-4. Explore the map with color-coded markers
+3. Click "Load Games" to load 280+ games from the embedded dataset
+4. Explore the map with clustered markers and clickable game links
 
 ### Option 2: Run Simple Pipeline
 1. **Download Required Data**:
@@ -87,11 +87,11 @@ python bin/bgg_cache.py stats
 ```
 /
 ├── index.html              # Main web application
-├── src/                    # Web application source code
+├── src/                    # Web application source code (4 files)
 │   ├── app.js              # Core application logic
 │   ├── pipeline-data.js    # Embedded approved games data
-│   ├── bgg-api.js          # BoardGameGeek XML API integration
-│   └── ...                 # Other web components
+│   ├── pipeline-loader.js  # Loads pipeline data into IndexedDB
+│   └── database.js         # IndexedDB storage layer
 ├── bin/                    # Simple 3-step data pipeline
 │   ├── preprocess_data.py  # Step 1: Filter BGG CSV
 │   ├── get_bgg_info.py     # Step 2: Populate BGG cache
@@ -119,6 +119,12 @@ python bin/bgg_cache.py stats
 ### BGG Family Validation
 - **High Confidence**: Uses BGG's manually curated "Cities:" family tags
 - **Quality Data**: BGG families ensure geographical relevance
+- **Direct Links**: Each game links to its BoardGameGeek page
+
+### Static Web Interface
+- **No Dependencies**: Works offline with embedded data
+- **Marker Clustering**: Automatically groups overlapping city markers
+- **Simple Controls**: Just "Load Games" and "Clear Data"
 
 ### Smart Geocoding
 - **5-Tier Fallback**: Multiple Nominatim query strategies

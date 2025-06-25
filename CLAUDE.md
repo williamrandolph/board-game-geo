@@ -4,7 +4,8 @@
 - **Pipeline**: 3 steps (preprocess → cache → geocode)
 - **Test safely**: `python bin/test_pipeline.py` (uses data/test/ paths)
 - **Rate limits**: BGG 2/sec, Nominatim 1/sec
-- **Key files**: bin/ (8 scripts), src/ (web app), data/ (untracked)
+- **Key files**: bin/ (8 scripts), src/ (4 web files), data/ (untracked)
+- **Web app**: Static page with embedded data, marker clustering, BGG links
 
 ## Development Patterns
 
@@ -16,9 +17,10 @@
 
 ### Code Conventions
 - Python: vanilla stdlib, minimal dependencies
-- JavaScript: vanilla JS, no frameworks  
+- JavaScript: vanilla JS, no frameworks (except Leaflet + MarkerCluster CDN)
 - Error handling: print errors, return False/None, graceful degradation
 - File paths: always absolute, use os.makedirs(exist_ok=True)
+- Web: Static page using embedded pipeline data only
 
 ### API Integration
 - BGG: Use bgg_cache.py, respect 2/sec limit, handle batch responses
@@ -41,6 +43,7 @@
 - BGG families are source of truth for city validation
 - File-based caching prevents duplicate API calls
 - Production vs test isolation via output path arguments
+- Web interface: simplified to Load Games + Clear Data only (no imports/exports)
 
 ## Quick Commands
 ```bash
