@@ -14,11 +14,24 @@ function updateFilters() {
     const topNSelect = document.getElementById('top-n-select');
     const categorySelect = document.getElementById('category-select');
     
+    // Store previously selected categories to maintain selection if possible
+    const previouslySelected = Array.from(categorySelect.selectedOptions).map(option => option.value);
+    
     currentFilters.topN = topNSelect.value;
     
-    // Get selected categories
-    const selectedCategories = Array.from(categorySelect.selectedOptions).map(option => option.value);
-    currentFilters.categories = selectedCategories;
+    // Repopulate category filter based on current ranking filter
+    updateCategoryFilterForCurrentRanking();
+    
+    // Restore previous selections that are still available
+    const availableOptions = Array.from(categorySelect.options).map(option => option.value);
+    const categoriesToSelect = previouslySelected.filter(cat => availableOptions.includes(cat));
+    
+    // Clear and reselect categories
+    Array.from(categorySelect.options).forEach(option => {
+        option.selected = categoriesToSelect.includes(option.value);
+    });
+    
+    currentFilters.categories = categoriesToSelect;
     
     console.log('🔄 Filters updated:', currentFilters);
     
@@ -56,18 +69,20 @@ function initMap() {
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
     
-    // Initialize marker cluster group
+    // Initialize marker cluster group with looser clustering
     markerClusterGroup = L.markerClusterGroup({
         spiderfyOnMaxZoom: true,
         showCoverageOnHover: false,
         zoomToBoundsOnClick: true,
-        maxClusterRadius: 50,
+        maxClusterRadius: 25, // Reduced from 50 to show more individual markers
+        disableClusteringAtZoom: 8, // Stop clustering at zoom level 8
+        spiderfyDistanceMultiplier: 2, // Spread out spiderfied markers more
         iconCreateFunction: function(cluster) {
             const childCount = cluster.getChildCount();
             let c = ' marker-cluster-';
-            if (childCount < 10) {
+            if (childCount < 5) { // Reduced threshold for small clusters
                 c += 'small';
-            } else if (childCount < 100) {
+            } else if (childCount < 25) { // Reduced threshold for medium clusters  
                 c += 'medium';
             } else {
                 c += 'large';
@@ -243,7 +258,8 @@ async function loadGamesFromDatabase() {
         // Update stats to show filtered results
         updateFilterStats(allGames.length, filteredGames.length, totalLocations);
         
-        // Populate category filter dropdown (only if not already populated)
+        // Populate category filter dropdown on initial load only
+        // (updateFilters() handles dynamic updates)
         const categorySelect = document.getElementById('category-select');
         if (categorySelect.options.length === 0) {
             populateCategoryFilter(allGames);
@@ -267,6 +283,27 @@ function clearMarkers() {
     markers = [];
 }
 
+// Update category filter based on current ranking filter
+async function updateCategoryFilterForCurrentRanking() {
+    try {
+        const allGames = await database.getAllGamesWithLocations();
+        
+        // Apply only the BGG ranking filter to get the subset of games
+        let filteredForCategories = [...allGames];
+        if (currentFilters.topN !== 'all') {
+            const rankLimit = parseInt(currentFilters.topN);
+            filteredForCategories = filteredForCategories.filter(game => {
+                const bggRank = game.bggRank || game.rank;
+                return bggRank && bggRank <= rankLimit;
+            });
+        }
+        
+        populateCategoryFilter(filteredForCategories);
+    } catch (error) {
+        console.error('Error updating category filter:', error);
+    }
+}
+
 // Populate category filter dropdown with available categories
 function populateCategoryFilter(games) {
     const categorySelect = document.getElementById('category-select');
@@ -281,9 +318,13 @@ function populateCategoryFilter(games) {
         }
     });
     
-    // Filter categories with at least 20 games and sort by count (descending)
+    // For smaller game sets, use a lower threshold (minimum 2 games)
+    // For larger sets, use the original 20 game threshold
+    const minThreshold = games.length < 200 ? 2 : 20;
+    
+    // Filter categories with at least the threshold and sort by count (descending)
     const significantCategories = Object.entries(categoryCount)
-        .filter(([, count]) => count >= 20)
+        .filter(([, count]) => count >= minThreshold)
         .sort((a, b) => b[1] - a[1]); // Sort by count descending
     
     // Clear existing options
@@ -297,7 +338,7 @@ function populateCategoryFilter(games) {
         categorySelect.appendChild(option);
     });
     
-    console.log(`📋 Populated ${significantCategories.length} categories (20+ games) in filter dropdown`);
+    console.log(`📋 Populated ${significantCategories.length} categories (${minThreshold}+ games) from ${games.length} games`);
 }
 
 // Update stats display

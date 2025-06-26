@@ -190,6 +190,30 @@
         .legend-blue { background: #007bff; }
         .legend-orange { background: #fd7e14; }
         .legend-grey { background: #6c757d; }
+        
+        .legend-divider {
+            border-top: 1px solid #eee;
+            margin: 12px 0 8px 0;
+        }
+        
+        .legend-info {
+            margin-top: 8px;
+        }
+        
+        .legend-info p {
+            margin: 4px 0;
+            font-size: 11px;
+            line-height: 1.3;
+        }
+        
+        .legend-info a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .legend-info a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -259,6 +283,14 @@
         <div class="legend-item">
             <div class="legend-color legend-grey"></div>
             <span>Other Categories</span>
+        </div>
+        
+        <div class="legend-divider"></div>
+        
+        <div class="legend-info">
+            <p><strong>Data Source:</strong> BoardGameGeek city family tags</p>
+            <p><em>Currently supports cities only. Regions, landmarks, and geographic features coming soon.</em></p>
+            <p><a href="https://github.com/williamrandolph/board-game-geo" target="_blank" rel="noopener">View on GitHub</a></p>
         </div>
     </div>
     

@@ -161,35 +161,27 @@ python bin/bgg_cache.py stats
 3. Use file caching to avoid repeated API calls during development
 4. Update documentation when changing architecture
 
-## 🚧 TODO: Planned Enhancements
+## 🔮 Coming Soon
 
-### Auto-Loading & Filtering
-- [x] **Auto-load pipeline data** on page load (remove manual "Load Games" button)
-- [x] **BGG ranking filter**: Dropdown for "Show BGG Top 100/500/1000/5000/All games"
-- [x] **Category filtering**: Multi-select dropdown with major game categories (20+ games)
+### Geographic Feature Expansion
+We're planning to expand beyond city-based games to include:
 
-### Visual Enhancements
-- [x] **Color-coded markers** by primary game category using priority hierarchy:
-  - Wargame: Red markers (most distinctive)
-  - Economic: Green markers  
-  - Medieval/Ancient: Purple markers
-  - Card Game: Blue markers
-  - City Building: Orange markers
-  - Other categories: Grey markers
-- [x] **Updated legend** showing category colors instead of data source
-- [x] **Enhanced popups** with essential information (BGG rank, location, year)
+- **🏔️ Landmarks & Monuments**: Games set at specific famous locations (Machu Picchu, Stonehenge, etc.)
+- **🗺️ Regions & Countries**: Games representing broader geographic areas (Tuscany, Scandinavia, etc.)
+- **🌊 Geographic Features**: Games based on rivers, mountains, islands, and other natural features
+- **🏰 Historical Sites**: Castles, battlefields, ancient ruins, and archaeological sites
 
-### Data Pipeline Updates
-- [x] **Include categories** in `validate_and_geotag.py` export from BGG cache
-- [x] **Preserve categories** in `update_pipeline_data.py` for web data
-- [x] **Re-generate pipeline-data.js** with enriched category information
-- [x] **Add expansion detection** using BGG family tags
+### Enhanced Data Sources
+- **BGG Family Tag Expansion**: Parse additional geographic family tag patterns
+- **Manual Curation**: Community-contributed geographic game database
+- **Fuzzy Matching**: Improved location detection for variant spellings and names
 
-### Implementation Notes
-- BGG cache already contains categories/mechanics data at `data/cache/bgg/game_*.json`
-- Current pipeline-data.js has 280+ games sorted by BGG rating
-- Marker clustering already handles overlapping locations
-- Static page approach maintained with embedded data
+### Interactive Features
+- **Multi-Scale View**: Toggle between city, regional, and landmark views
+- **Time-Based Filtering**: Explore games by historical periods and their geographic context
+- **Route Visualization**: Show trade routes, migration patterns, and historical connections
+
+Current implementation focuses on **cities only** using BGG's "Cities:" family tags. This provides high-confidence geographic data while we develop support for more complex location types.
 
 ## 📄 License
 
