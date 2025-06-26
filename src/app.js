@@ -125,15 +125,12 @@ function addGameMarker(game, location) {
     const isApproved = location.approved === true;
     
     let iconUrl = 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png';
-    let iconLabel = '🎮';
     
     if (isPipelineData) {
         if (isApproved) {
             iconUrl = 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png';
-            iconLabel = '✅';
         } else {
             iconUrl = 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png';
-            iconLabel = '⚠️';
         }
     }
     
@@ -148,27 +145,18 @@ function addGameMarker(game, location) {
     
     const marker = L.marker([location.lat, location.lng], { icon: customIcon });
     
-    const dataSource = isPipelineData ? 'Pipeline Data' : 'Real-time Import';
-    const approvalStatus = isPipelineData ? 
-        (isApproved ? 'Approved' : 'Pending/Rejected') : 
-        'N/A';
-    
     const bggId = game.id || (game.name && game.yearPublished ? `${game.name.replace(/\s+/g, '-').toLowerCase()}-${game.yearPublished}` : null);
     const bggLink = bggId ? `https://boardgamegeek.com/boardgame/${bggId}` : null;
     
+    const bggRank = game.bggRank || game.rank;
+    const rankText = bggRank ? `#${bggRank}` : 'Unranked';
+    
     const popupContent = `
         <div class="popup-content">
-            <h3>${bggLink ? `<a href="${bggLink}" target="_blank" rel="noopener">${game.name}</a>` : game.name} ${iconLabel}</h3>
-            <p><strong>Year:</strong> ${game.yearPublished || 'Unknown'}</p>
+            <h3>${bggLink ? `<a href="${bggLink}" target="_blank" rel="noopener">${game.name}</a>` : game.name}</h3>
+            <p><strong>BGG Rank:</strong> ${rankText}</p>
             <p><strong>Location:</strong> ${location.locationString}</p>
-            <p><strong>Type:</strong> ${location.type}</p>
-            <p><strong>Confidence:</strong> ${(location.confidence * 100).toFixed(0)}%</p>
-            <p><strong>Rating:</strong> ${game.rating?.average ? game.rating.average.toFixed(1) : 'Unrated'}</p>
-            <p><strong>Source:</strong> ${dataSource}</p>
-            ${isPipelineData ? `<p><strong>Status:</strong> ${approvalStatus}</p>` : ''}
-            ${isPipelineData && location.matchType ? `<p><strong>Match Type:</strong> ${location.matchType}</p>` : ''}
-            ${isPipelineData && location.score ? `<p><strong>Score:</strong> ${location.score.toFixed(1)}</p>` : ''}
-            ${game.description ? `<p><em>${game.description.substring(0, 100)}...</em></p>` : ''}
+            <p><strong>Year:</strong> ${game.yearPublished || 'Unknown'}</p>
         </div>
     `;
     
@@ -290,7 +278,7 @@ function populateCategoryFilter(games) {
     
     // Filter categories with at least 20 games and sort by count (descending)
     const significantCategories = Object.entries(categoryCount)
-        .filter(([category, count]) => count >= 20)
+        .filter(([, count]) => count >= 20)
         .sort((a, b) => b[1] - a[1]); // Sort by count descending
     
     // Clear existing options
