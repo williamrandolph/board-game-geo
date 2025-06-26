@@ -184,9 +184,12 @@
             margin-right: 8px;
         }
         
+        .legend-red { background: #dc3545; }
         .legend-green { background: #28a745; }
-        .legend-orange { background: #fd7e14; }
+        .legend-violet { background: #6f42c1; }
         .legend-blue { background: #007bff; }
+        .legend-orange { background: #fd7e14; }
+        .legend-grey { background: #6c757d; }
     </style>
 </head>
 <body>
@@ -232,18 +235,30 @@
     <div id="map"></div>
     
     <div class="legend">
-        <h4>Marker Legend</h4>
+        <h4>Game Categories</h4>
         <div class="legend-item">
-            <div class="legend-color legend-green"></div>
-            <span>✅ Pipeline (Approved)</span>
+            <div class="legend-color legend-red"></div>
+            <span>Wargame</span>
         </div>
         <div class="legend-item">
-            <div class="legend-color legend-orange"></div>
-            <span>⚠️ Pipeline (Pending/Rejected)</span>
+            <div class="legend-color legend-green"></div>
+            <span>Economic</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color legend-violet"></div>
+            <span>Medieval/Ancient</span>
         </div>
         <div class="legend-item">
             <div class="legend-color legend-blue"></div>
-            <span>🎮 Real-time Import</span>
+            <span>Card Game</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color legend-orange"></div>
+            <span>City Building</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color legend-grey"></div>
+            <span>Other Categories</span>
         </div>
     </div>
     

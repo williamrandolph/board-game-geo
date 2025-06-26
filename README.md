@@ -169,20 +169,21 @@ python bin/bgg_cache.py stats
 - [x] **Category filtering**: Multi-select dropdown with major game categories (20+ games)
 
 ### Visual Enhancements
-- [ ] **Color-coded markers** by primary game category:
-  - Economic games: Green markers
-  - Strategy games: Blue markers
-  - Thematic games: Red markers
-  - Family games: Orange markers
-  - Abstract games: Purple markers
-- [ ] **Updated legend** showing category colors instead of data source
-- [ ] **Enhanced popups** displaying game categories and mechanics
+- [x] **Color-coded markers** by primary game category using priority hierarchy:
+  - Wargame: Red markers (most distinctive)
+  - Economic: Green markers  
+  - Medieval/Ancient: Purple markers
+  - Card Game: Blue markers
+  - City Building: Orange markers
+  - Other categories: Grey markers
+- [x] **Updated legend** showing category colors instead of data source
+- [x] **Enhanced popups** with essential information (BGG rank, location, year)
 
 ### Data Pipeline Updates
-- [ ] **Include categories** in `validate_and_geotag.py` export from BGG cache
-- [ ] **Preserve categories** in `update_pipeline_data.py` for web data
-- [ ] **Re-generate pipeline-data.js** with enriched category information
-- [ ] **Add expansion detection** using BGG family tags
+- [x] **Include categories** in `validate_and_geotag.py` export from BGG cache
+- [x] **Preserve categories** in `update_pipeline_data.py` for web data
+- [x] **Re-generate pipeline-data.js** with enriched category information
+- [x] **Add expansion detection** using BGG family tags
 
 ### Implementation Notes
 - BGG cache already contains categories/mechanics data at `data/cache/bgg/game_*.json`

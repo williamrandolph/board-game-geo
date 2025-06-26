@@ -118,21 +118,26 @@ function applyFilters(games) {
     return filteredGames;
 }
 
+// Determine marker color based on game category priority
+function getCategoryColor(categories) {
+    if (!categories || categories.length === 0) return 'grey';
+    
+    // Priority hierarchy - most distinctive categories first
+    if (categories.includes('Wargame')) return 'red';
+    if (categories.includes('Economic')) return 'green';
+    if (categories.includes('Medieval') || categories.includes('Ancient')) return 'violet';
+    if (categories.includes('Card Game')) return 'blue';
+    if (categories.includes('City Building')) return 'orange';
+    
+    // Default color for other categories
+    return 'grey';
+}
+
 // Add marker to map from database game
 function addGameMarker(game, location) {
-    // Create different icons for pipeline vs real-time data
-    const isPipelineData = game.source === 'pipeline';
-    const isApproved = location.approved === true;
-    
-    let iconUrl = 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png';
-    
-    if (isPipelineData) {
-        if (isApproved) {
-            iconUrl = 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png';
-        } else {
-            iconUrl = 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png';
-        }
-    }
+    // Choose marker color based on game category
+    const categoryColor = getCategoryColor(game.categories);
+    const iconUrl = `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${categoryColor}.png`;
     
     const customIcon = L.icon({
         iconUrl: iconUrl,
