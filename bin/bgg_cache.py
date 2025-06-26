@@ -279,7 +279,7 @@ class BGGCache:
                     'mechanics': mechanics,
                     'families': families,
                     'cached_at': cached_at,
-                    'raw_xml': xml_content.decode('utf-8')  # Store raw XML for debugging
+                    # 'raw_xml': xml_content.decode('utf-8')  # Store raw XML for debugging
                 }
             except Exception as e:
                 print(f"  Error parsing item {item.get('id', 'unknown')}: {e}")

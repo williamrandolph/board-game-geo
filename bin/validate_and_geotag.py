@@ -109,10 +109,15 @@ def validate_and_geotag(filtered_csv: str, output_json_path: str = "data/exports
                 rating = float(csv_row.get('bayesaverage')) if csv_row.get('bayesaverage') else None
                 votes = int(csv_row.get('usersrated')) if csv_row.get('usersrated') else None
                 bgg_id = int(csv_row.get('id')) if csv_row.get('id') else None
+                bgg_rank = int(csv_row.get('rank') if csv_row.get('rank') else None)
             except (ValueError, TypeError):
                 rating = None
                 votes = None
                 bgg_id = None
+                bgg_rank = None
+            
+            # Check if game is an expansion
+            is_expansion = "Expansion for Base-game" in match.get("categories", [])
             
             game_entry = {
                 "name": match["name"],
@@ -120,6 +125,8 @@ def validate_and_geotag(filtered_csv: str, output_json_path: str = "data/exports
                 "year": match["year"],
                 "rating": rating,
                 "votes": votes,
+                "bggRank": bgg_rank,
+                "is_expansion": is_expansion,
                 "location": {
                     "city": geocoding_result["city"],
                     "country": geocoding_result.get("address", {}).get("country") or geocoding_result["country"],

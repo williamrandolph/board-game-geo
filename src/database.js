@@ -29,6 +29,7 @@ class GameDatabase {
             gamesStore.createIndex('name', 'name', { unique: false });
             gamesStore.createIndex('yearPublished', 'yearPublished', { unique: false });
             gamesStore.createIndex('rating', 'rating.average', { unique: false });
+            gamesStore.createIndex('bggRank', 'bggRank', { unique: false });
         }
 
         // Locations store
@@ -68,6 +69,7 @@ class GameDatabase {
         
         const gameRecord = {
             id: gameData.id,
+            bggRank: gameData.bggRank,
             name: gameData.name,
             yearPublished: gameData.yearPublished,
             description: gameData.description,

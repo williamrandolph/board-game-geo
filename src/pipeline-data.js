@@ -1,9 +1,9 @@
 // Pipeline data export - 378 BGG family games
-// Generated: 2025-06-24T23:41:31.170482
+// Generated: 2025-06-26T15:05:52.129234
 
 const PIPELINE_DATA = {
   "metadata": {
-    "generated_at": "2025-06-24T23:41:31.170482",
+    "generated_at": "2025-06-26T15:05:52.129234",
     "total_games": 378,
     "filters_applied": {
       "confidence": null,
@@ -18,6 +18,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 8.40157,
       "votes": 52461,
+      "bggRank": 1,
+      "is_expansion": false,
       "location": {
         "city": "Birmingham",
         "country": "United Kingdom",
@@ -40,6 +42,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 7.99635,
       "votes": 42582,
+      "bggRank": 17,
+      "is_expansion": false,
       "location": {
         "city": "Kansas City",
         "country": "United States",
@@ -62,6 +66,8 @@ const PIPELINE_DATA = {
       "year": 2007,
       "rating": 7.96097,
       "votes": 26191,
+      "bggRank": 21,
+      "is_expansion": false,
       "location": {
         "city": "Manchester",
         "country": "United Kingdom",
@@ -84,6 +90,8 @@ const PIPELINE_DATA = {
       "year": 2021,
       "rating": 7.90427,
       "votes": 15618,
+      "bggRank": 27,
+      "is_expansion": false,
       "location": {
         "city": "Kansas City",
         "country": "United States",
@@ -106,6 +114,8 @@ const PIPELINE_DATA = {
       "year": 2014,
       "rating": 7.86118,
       "votes": 33760,
+      "bggRank": 34,
+      "is_expansion": false,
       "location": {
         "city": "Orléans",
         "country": "France",
@@ -128,6 +138,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 7.71096,
       "votes": 12079,
+      "bggRank": 64,
+      "is_expansion": false,
       "location": {
         "city": "Lisbon",
         "country": "Portugal",
@@ -150,6 +162,8 @@ const PIPELINE_DATA = {
       "year": 2015,
       "rating": 7.70476,
       "votes": 23154,
+      "bggRank": 67,
+      "is_expansion": false,
       "location": {
         "city": "Vienna",
         "country": "Österreich",
@@ -172,6 +186,8 @@ const PIPELINE_DATA = {
       "year": 2008,
       "rating": 7.66663,
       "votes": 32911,
+      "bggRank": 74,
+      "is_expansion": false,
       "location": {
         "city": "Le Havre",
         "country": "France",
@@ -194,6 +210,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 7.66479,
       "votes": 17755,
+      "bggRank": 77,
+      "is_expansion": false,
       "location": {
         "city": "Maracaibo",
         "country": "Venezuela",
@@ -216,6 +234,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 7.49915,
       "votes": 24362,
+      "bggRank": 131,
+      "is_expansion": false,
       "location": {
         "city": "Troyes",
         "country": "France",
@@ -238,6 +258,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 7.49905,
       "votes": 14658,
+      "bggRank": 132,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -260,6 +282,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 7.44698,
       "votes": 12885,
+      "bggRank": 149,
+      "is_expansion": false,
       "location": {
         "city": "Yokohama",
         "country": "日本",
@@ -282,6 +306,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 7.38646,
       "votes": 9751,
+      "bggRank": 180,
+      "is_expansion": false,
       "location": {
         "city": "Prague",
         "country": "Česko",
@@ -304,6 +330,8 @@ const PIPELINE_DATA = {
       "year": 1981,
       "rating": 7.38056,
       "votes": 22198,
+      "bggRank": 185,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -326,6 +354,8 @@ const PIPELINE_DATA = {
       "year": 2014,
       "rating": 7.37954,
       "votes": 32708,
+      "bggRank": 186,
+      "is_expansion": false,
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -348,6 +378,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 7.33372,
       "votes": 14172,
+      "bggRank": 210,
+      "is_expansion": false,
       "location": {
         "city": "Moscow",
         "country": "Россия",
@@ -370,6 +402,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 7.32768,
       "votes": 44791,
+      "bggRank": 213,
+      "is_expansion": false,
       "location": {
         "city": "Barcelona",
         "country": "España",
@@ -392,6 +426,8 @@ const PIPELINE_DATA = {
       "year": 2000,
       "rating": 7.29645,
       "votes": 133793,
+      "bggRank": 233,
+      "is_expansion": false,
       "location": {
         "city": "Carcassonne",
         "country": "France",
@@ -414,6 +450,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 7.23481,
       "votes": 20078,
+      "bggRank": 267,
+      "is_expansion": false,
       "location": {
         "city": "Kyoto",
         "country": "日本",
@@ -436,6 +474,8 @@ const PIPELINE_DATA = {
       "year": 2005,
       "rating": 7.21865,
       "votes": 14630,
+      "bggRank": 278,
+      "is_expansion": false,
       "location": {
         "city": "Rome",
         "country": "Italia",
@@ -458,6 +498,8 @@ const PIPELINE_DATA = {
       "year": 2000,
       "rating": 7.21826,
       "votes": 15833,
+      "bggRank": 279,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -480,6 +522,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 7.17517,
       "votes": 4643,
+      "bggRank": 317,
+      "is_expansion": false,
       "location": {
         "city": "Rome",
         "country": "Italia",
@@ -502,6 +546,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 7.12276,
       "votes": 5804,
+      "bggRank": 354,
+      "is_expansion": false,
       "location": {
         "city": "Baghdad",
         "country": "العراق",
@@ -524,6 +570,8 @@ const PIPELINE_DATA = {
       "year": 1999,
       "rating": 7.11066,
       "votes": 11990,
+      "bggRank": 366,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -546,6 +594,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 7.11014,
       "votes": 12041,
+      "bggRank": 368,
+      "is_expansion": false,
       "location": {
         "city": "Bruges",
         "country": "België / Belgique / Belgien",
@@ -568,6 +618,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 7.08443,
       "votes": 3565,
+      "bggRank": 395,
+      "is_expansion": false,
       "location": {
         "city": "Marrakech",
         "country": "Maroc ⵍⵎⵖⵔⵉⴱ المغرب",
@@ -590,6 +642,8 @@ const PIPELINE_DATA = {
       "year": 2011,
       "rating": 7.07429,
       "votes": 16640,
+      "bggRank": 410,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -612,6 +666,8 @@ const PIPELINE_DATA = {
       "year": 2024,
       "rating": 7.0741,
       "votes": 4544,
+      "bggRank": 411,
+      "is_expansion": false,
       "location": {
         "city": "Vienna",
         "country": "Österreich",
@@ -634,6 +690,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 7.07141,
       "votes": 6253,
+      "bggRank": 414,
+      "is_expansion": false,
       "location": {
         "city": "Luxor",
         "country": "مصر",
@@ -656,6 +714,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 7.04396,
       "votes": 8156,
+      "bggRank": 436,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -678,6 +738,8 @@ const PIPELINE_DATA = {
       "year": 2007,
       "rating": 7.0404,
       "votes": 13601,
+      "bggRank": 442,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -700,6 +762,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 7.04004,
       "votes": 6658,
+      "bggRank": 444,
+      "is_expansion": false,
       "location": {
         "city": "Rome",
         "country": "Italia",
@@ -722,6 +786,8 @@ const PIPELINE_DATA = {
       "year": 2004,
       "rating": 7.02893,
       "votes": 16329,
+      "bggRank": 449,
+      "is_expansion": false,
       "location": {
         "city": "Saint Petersburg",
         "country": "Россия",
@@ -744,6 +810,8 @@ const PIPELINE_DATA = {
       "year": 2011,
       "rating": 7.01992,
       "votes": 73587,
+      "bggRank": 456,
+      "is_expansion": false,
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -766,6 +834,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 7.0118,
       "votes": 7515,
+      "bggRank": 464,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -788,6 +858,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 6.99987,
       "votes": 5751,
+      "bggRank": 479,
+      "is_expansion": false,
       "location": {
         "city": "Brussels",
         "country": "België / Belgique / Belgien",
@@ -810,6 +882,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 6.99927,
       "votes": 5766,
+      "bggRank": 480,
+      "is_expansion": false,
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -832,6 +906,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 6.97686,
       "votes": 6308,
+      "bggRank": 506,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -854,6 +930,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 6.96916,
       "votes": 6965,
+      "bggRank": 518,
+      "is_expansion": false,
       "location": {
         "city": "Berlin",
         "country": "Deutschland",
@@ -876,6 +954,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 6.93046,
       "votes": 7899,
+      "bggRank": 564,
+      "is_expansion": false,
       "location": {
         "city": "Las Vegas",
         "country": "United States",
@@ -898,6 +978,8 @@ const PIPELINE_DATA = {
       "year": 2014,
       "rating": 6.9213,
       "votes": 36959,
+      "bggRank": 577,
+      "is_expansion": false,
       "location": {
         "city": "Nottingham",
         "country": "United Kingdom",
@@ -920,6 +1002,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 6.91366,
       "votes": 2918,
+      "bggRank": 584,
+      "is_expansion": false,
       "location": {
         "city": "Baghdad",
         "country": "العراق",
@@ -942,6 +1026,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 6.90889,
       "votes": 6248,
+      "bggRank": 591,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -964,6 +1050,8 @@ const PIPELINE_DATA = {
       "year": 2003,
       "rating": 6.90672,
       "votes": 34664,
+      "bggRank": 596,
+      "is_expansion": false,
       "location": {
         "city": "Granada",
         "country": "España",
@@ -986,6 +1074,8 @@ const PIPELINE_DATA = {
       "year": 2012,
       "rating": 6.89297,
       "votes": 11938,
+      "bggRank": 613,
+      "is_expansion": false,
       "location": {
         "city": "Las Vegas",
         "country": "United States",
@@ -1008,6 +1098,8 @@ const PIPELINE_DATA = {
       "year": 2007,
       "rating": 6.87962,
       "votes": 8538,
+      "bggRank": 629,
+      "is_expansion": false,
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -1030,6 +1122,8 @@ const PIPELINE_DATA = {
       "year": 2024,
       "rating": 6.87884,
       "votes": 2458,
+      "bggRank": 631,
+      "is_expansion": false,
       "location": {
         "city": "Jerusalem",
         "country": "ישראל",
@@ -1052,6 +1146,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 6.87396,
       "votes": 3208,
+      "bggRank": 637,
+      "is_expansion": false,
       "location": {
         "city": "Los Angeles",
         "country": "United States",
@@ -1074,6 +1170,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 6.86747,
       "votes": 6638,
+      "bggRank": 645,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -1096,6 +1194,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 6.86621,
       "votes": 3687,
+      "bggRank": 647,
+      "is_expansion": false,
       "location": {
         "city": "Barcelona",
         "country": "España",
@@ -1118,6 +1218,8 @@ const PIPELINE_DATA = {
       "year": 2000,
       "rating": 6.86036,
       "votes": 8044,
+      "bggRank": 658,
+      "is_expansion": false,
       "location": {
         "city": "Agra",
         "country": "India",
@@ -1140,6 +1242,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 6.8311,
       "votes": 2774,
+      "bggRank": 691,
+      "is_expansion": false,
       "location": {
         "city": "Maracaibo",
         "country": "Venezuela",
@@ -1162,6 +1266,8 @@ const PIPELINE_DATA = {
       "year": 1995,
       "rating": 6.82904,
       "votes": 8724,
+      "bggRank": 695,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -1184,6 +1290,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 6.81496,
       "votes": 4432,
+      "bggRank": 707,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -1206,6 +1314,8 @@ const PIPELINE_DATA = {
       "year": 2021,
       "rating": 6.81407,
       "votes": 4901,
+      "bggRank": 708,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -1228,6 +1338,8 @@ const PIPELINE_DATA = {
       "year": 2021,
       "rating": 6.80972,
       "votes": 4321,
+      "bggRank": 716,
+      "is_expansion": false,
       "location": {
         "city": "Prague",
         "country": "Česko",
@@ -1250,6 +1362,8 @@ const PIPELINE_DATA = {
       "year": 2009,
       "rating": 6.80852,
       "votes": 7418,
+      "bggRank": 718,
+      "is_expansion": false,
       "location": {
         "city": "Carson City",
         "country": "United States",
@@ -1272,6 +1386,8 @@ const PIPELINE_DATA = {
       "year": 2011,
       "rating": 6.79903,
       "votes": 9625,
+      "bggRank": 731,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -1294,6 +1410,8 @@ const PIPELINE_DATA = {
       "year": 2004,
       "rating": 6.79866,
       "votes": 8564,
+      "bggRank": 732,
+      "is_expansion": false,
       "location": {
         "city": "Naples",
         "country": "Italia",
@@ -1316,6 +1434,8 @@ const PIPELINE_DATA = {
       "year": 2021,
       "rating": 6.78132,
       "votes": 4677,
+      "bggRank": 761,
+      "is_expansion": false,
       "location": {
         "city": "Nottingham",
         "country": "United Kingdom",
@@ -1338,6 +1458,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 6.77747,
       "votes": 18615,
+      "bggRank": 765,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -1360,6 +1482,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 6.76505,
       "votes": 2506,
+      "bggRank": 779,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -1382,6 +1506,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 6.76415,
       "votes": 2905,
+      "bggRank": 780,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -1404,6 +1530,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 6.75313,
       "votes": 1700,
+      "bggRank": 799,
+      "is_expansion": false,
       "location": {
         "city": "Volgograd",
         "country": "Россия",
@@ -1426,6 +1554,8 @@ const PIPELINE_DATA = {
       "year": 2003,
       "rating": 6.74183,
       "votes": 8549,
+      "bggRank": 815,
+      "is_expansion": false,
       "location": {
         "city": "Carcassonne",
         "country": "France",
@@ -1448,6 +1578,8 @@ const PIPELINE_DATA = {
       "year": 2014,
       "rating": 6.73296,
       "votes": 2698,
+      "bggRank": 830,
+      "is_expansion": false,
       "location": {
         "city": "Berlin",
         "country": "Deutschland",
@@ -1470,6 +1602,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 6.73242,
       "votes": 2790,
+      "bggRank": 831,
+      "is_expansion": false,
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -1492,6 +1626,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 6.73149,
       "votes": 3640,
+      "bggRank": 833,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -1514,6 +1650,8 @@ const PIPELINE_DATA = {
       "year": 2005,
       "rating": 6.71279,
       "votes": 6473,
+      "bggRank": 867,
+      "is_expansion": false,
       "location": {
         "city": "Las Vegas",
         "country": "United States",
@@ -1536,6 +1674,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 6.7073,
       "votes": 5646,
+      "bggRank": 875,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -1558,6 +1698,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 6.70574,
       "votes": 8226,
+      "bggRank": 878,
+      "is_expansion": false,
       "location": {
         "city": "Isfahan",
         "country": "ایران",
@@ -1580,6 +1722,8 @@ const PIPELINE_DATA = {
       "year": 2002,
       "rating": 6.69818,
       "votes": 3686,
+      "bggRank": 892,
+      "is_expansion": false,
       "location": {
         "city": "Berlin",
         "country": "Deutschland",
@@ -1602,6 +1746,8 @@ const PIPELINE_DATA = {
       "year": 2014,
       "rating": 6.68496,
       "votes": 3496,
+      "bggRank": 908,
+      "is_expansion": false,
       "location": {
         "city": "Saint Petersburg",
         "country": "Россия",
@@ -1624,6 +1770,8 @@ const PIPELINE_DATA = {
       "year": 2007,
       "rating": 6.67515,
       "votes": 4512,
+      "bggRank": 930,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -1646,6 +1794,8 @@ const PIPELINE_DATA = {
       "year": 2014,
       "rating": 6.6704,
       "votes": 4144,
+      "bggRank": 936,
+      "is_expansion": false,
       "location": {
         "city": "Panama City",
         "country": "Panamá",
@@ -1668,6 +1818,8 @@ const PIPELINE_DATA = {
       "year": 2014,
       "rating": 6.66619,
       "votes": 17027,
+      "bggRank": 945,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -1690,6 +1842,8 @@ const PIPELINE_DATA = {
       "year": 2021,
       "rating": 6.66609,
       "votes": 2408,
+      "bggRank": 946,
+      "is_expansion": false,
       "location": {
         "city": "Trieste",
         "country": "Italia",
@@ -1712,6 +1866,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 6.64142,
       "votes": 4984,
+      "bggRank": 989,
+      "is_expansion": false,
       "location": {
         "city": "Luxor",
         "country": "مصر",
@@ -1734,6 +1890,8 @@ const PIPELINE_DATA = {
       "year": 2004,
       "rating": 6.62555,
       "votes": 4546,
+      "bggRank": 1006,
+      "is_expansion": false,
       "location": {
         "city": "Carcassonne",
         "country": "France",
@@ -1756,6 +1914,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 6.62453,
       "votes": 3087,
+      "bggRank": 1008,
+      "is_expansion": false,
       "location": {
         "city": "Las Vegas",
         "country": "United States",
@@ -1778,6 +1938,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 6.62284,
       "votes": 5108,
+      "bggRank": 1011,
+      "is_expansion": false,
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -1800,6 +1962,8 @@ const PIPELINE_DATA = {
       "year": 2001,
       "rating": 6.62042,
       "votes": 4624,
+      "bggRank": 1015,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -1822,6 +1986,8 @@ const PIPELINE_DATA = {
       "year": 1997,
       "rating": 6.62002,
       "votes": 7969,
+      "bggRank": 1016,
+      "is_expansion": false,
       "location": {
         "city": "Monte Carlo",
         "country": "Monaco",
@@ -1844,6 +2010,8 @@ const PIPELINE_DATA = {
       "year": 1995,
       "rating": 6.6194,
       "votes": 10561,
+      "bggRank": 1017,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -1866,6 +2034,8 @@ const PIPELINE_DATA = {
       "year": 2001,
       "rating": 6.60807,
       "votes": 6249,
+      "bggRank": 1034,
+      "is_expansion": false,
       "location": {
         "city": "Genoa",
         "country": "Italia",
@@ -1888,6 +2058,8 @@ const PIPELINE_DATA = {
       "year": 2007,
       "rating": 6.60485,
       "votes": 1848,
+      "bggRank": 1043,
+      "is_expansion": false,
       "location": {
         "city": "Austerlitz",
         "country": "Česko",
@@ -1910,6 +2082,8 @@ const PIPELINE_DATA = {
       "year": 2003,
       "rating": 6.59271,
       "votes": 6661,
+      "bggRank": 1066,
+      "is_expansion": false,
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -1932,6 +2106,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 6.57451,
       "votes": 5346,
+      "bggRank": 1102,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -1954,6 +2130,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 6.57325,
       "votes": 2845,
+      "bggRank": 1107,
+      "is_expansion": false,
       "location": {
         "city": "New Orleans",
         "country": "United States",
@@ -1976,6 +2154,8 @@ const PIPELINE_DATA = {
       "year": 2005,
       "rating": 6.57183,
       "votes": 6253,
+      "bggRank": 1110,
+      "is_expansion": false,
       "location": {
         "city": "Manila",
         "country": "Philippines",
@@ -1998,6 +2178,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 6.56864,
       "votes": 4445,
+      "bggRank": 1117,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -2020,6 +2202,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 6.56847,
       "votes": 2208,
+      "bggRank": 1118,
+      "is_expansion": false,
       "location": {
         "city": "Granada",
         "country": "España",
@@ -2042,6 +2226,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 6.55737,
       "votes": 2055,
+      "bggRank": 1139,
+      "is_expansion": false,
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -2064,6 +2250,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 6.55676,
       "votes": 4187,
+      "bggRank": 1140,
+      "is_expansion": false,
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -2086,6 +2274,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 6.5501,
       "votes": 8951,
+      "bggRank": 1149,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -2108,6 +2298,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 6.55001,
       "votes": 5202,
+      "bggRank": 1150,
+      "is_expansion": false,
       "location": {
         "city": "Hamburg",
         "country": "Deutschland",
@@ -2130,6 +2322,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 6.53946,
       "votes": 2888,
+      "bggRank": 1183,
+      "is_expansion": false,
       "location": {
         "city": "Cusco",
         "country": "Perú",
@@ -2152,6 +2346,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 6.53821,
       "votes": 7369,
+      "bggRank": 1184,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -2174,6 +2370,8 @@ const PIPELINE_DATA = {
       "year": 2014,
       "rating": 6.53511,
       "votes": 4953,
+      "bggRank": 1191,
+      "is_expansion": false,
       "location": {
         "city": "Luxor",
         "country": "مصر",
@@ -2196,6 +2394,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 6.53092,
       "votes": 3342,
+      "bggRank": 1197,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -2218,6 +2418,8 @@ const PIPELINE_DATA = {
       "year": 2009,
       "rating": 6.50987,
       "votes": 3625,
+      "bggRank": 1244,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -2240,6 +2442,8 @@ const PIPELINE_DATA = {
       "year": 2012,
       "rating": 6.50955,
       "votes": 2412,
+      "bggRank": 1245,
+      "is_expansion": false,
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -2262,6 +2466,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 6.46842,
       "votes": 3013,
+      "bggRank": 1328,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -2284,6 +2490,8 @@ const PIPELINE_DATA = {
       "year": 2015,
       "rating": 6.43695,
       "votes": 6483,
+      "bggRank": 1408,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -2306,6 +2514,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 6.43503,
       "votes": 1581,
+      "bggRank": 1416,
+      "is_expansion": false,
       "location": {
         "city": "Volgograd",
         "country": "Россия",
@@ -2328,6 +2538,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 6.43437,
       "votes": 4245,
+      "bggRank": 1419,
+      "is_expansion": false,
       "location": {
         "city": "Copenhagen",
         "country": "Danmark",
@@ -2350,6 +2562,8 @@ const PIPELINE_DATA = {
       "year": 2011,
       "rating": 6.43399,
       "votes": 2816,
+      "bggRank": 1421,
+      "is_expansion": false,
       "location": {
         "city": "Strasbourg",
         "country": "France",
@@ -2372,6 +2586,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 6.42804,
       "votes": 2600,
+      "bggRank": 1435,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -2394,6 +2610,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 6.4254,
       "votes": 2520,
+      "bggRank": 1444,
+      "is_expansion": false,
       "location": {
         "city": "Agra",
         "country": "India",
@@ -2416,6 +2634,8 @@ const PIPELINE_DATA = {
       "year": 2007,
       "rating": 6.42519,
       "votes": 3300,
+      "bggRank": 1445,
+      "is_expansion": false,
       "location": {
         "city": "Hamburg",
         "country": "Deutschland",
@@ -2438,6 +2658,8 @@ const PIPELINE_DATA = {
       "year": 2011,
       "rating": 6.42168,
       "votes": 4669,
+      "bggRank": 1460,
+      "is_expansion": false,
       "location": {
         "city": "Santiago",
         "country": "Cuba",
@@ -2460,6 +2682,8 @@ const PIPELINE_DATA = {
       "year": 2000,
       "rating": 6.40757,
       "votes": 8074,
+      "bggRank": 1496,
+      "is_expansion": false,
       "location": {
         "city": "Cartagena",
         "country": "Colombia",
@@ -2482,6 +2706,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 6.40674,
       "votes": 3440,
+      "bggRank": 1498,
+      "is_expansion": false,
       "location": {
         "city": "Ulm",
         "country": "Deutschland",
@@ -2504,6 +2730,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 6.40635,
       "votes": 2054,
+      "bggRank": 1499,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -2526,6 +2754,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 6.40516,
       "votes": 2384,
+      "bggRank": 1503,
+      "is_expansion": false,
       "location": {
         "city": "Carcassonne",
         "country": "France",
@@ -2548,6 +2778,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 6.40192,
       "votes": 4109,
+      "bggRank": 1507,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -2570,6 +2802,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 6.38889,
       "votes": 1499,
+      "bggRank": 1536,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -2592,6 +2826,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 6.38744,
       "votes": 2993,
+      "bggRank": 1541,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -2614,6 +2850,8 @@ const PIPELINE_DATA = {
       "year": 2024,
       "rating": 6.38709,
       "votes": 1521,
+      "bggRank": 1542,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -2636,6 +2874,8 @@ const PIPELINE_DATA = {
       "year": 1994,
       "rating": 6.38162,
       "votes": 5962,
+      "bggRank": 1556,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -2658,6 +2898,8 @@ const PIPELINE_DATA = {
       "year": 2009,
       "rating": 6.37374,
       "votes": 20590,
+      "bggRank": 1572,
+      "is_expansion": false,
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -2680,6 +2922,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 6.37326,
       "votes": 2159,
+      "bggRank": 1573,
+      "is_expansion": false,
       "location": {
         "city": "Warsaw",
         "country": "Polska",
@@ -2702,6 +2946,8 @@ const PIPELINE_DATA = {
       "year": 2015,
       "rating": 6.36111,
       "votes": 2398,
+      "bggRank": 1608,
+      "is_expansion": false,
       "location": {
         "city": "Trier",
         "country": "Deutschland",
@@ -2724,6 +2970,8 @@ const PIPELINE_DATA = {
       "year": 2014,
       "rating": 6.35336,
       "votes": 2322,
+      "bggRank": 1627,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -2746,6 +2994,8 @@ const PIPELINE_DATA = {
       "year": 1983,
       "rating": 6.3458,
       "votes": 17601,
+      "bggRank": 1647,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -2768,6 +3018,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 6.34454,
       "votes": 2766,
+      "bggRank": 1656,
+      "is_expansion": false,
       "location": {
         "city": "Hamburg",
         "country": "Deutschland",
@@ -2790,6 +3042,8 @@ const PIPELINE_DATA = {
       "year": 2009,
       "rating": 6.34206,
       "votes": 1496,
+      "bggRank": 1661,
+      "is_expansion": false,
       "location": {
         "city": "Kursk",
         "country": "Россия",
@@ -2812,6 +3066,8 @@ const PIPELINE_DATA = {
       "year": 2007,
       "rating": 6.33005,
       "votes": 5729,
+      "bggRank": 1692,
+      "is_expansion": false,
       "location": {
         "city": "Marrakech",
         "country": "Maroc ⵍⵎⵖⵔⵉⴱ المغرب",
@@ -2834,6 +3090,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 6.32774,
       "votes": 1962,
+      "bggRank": 1695,
+      "is_expansion": false,
       "location": {
         "city": "Xi'an",
         "country": "中国",
@@ -2856,6 +3114,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 6.32689,
       "votes": 1807,
+      "bggRank": 1697,
+      "is_expansion": false,
       "location": {
         "city": "Jerusalem",
         "country": "ישראל",
@@ -2878,6 +3138,8 @@ const PIPELINE_DATA = {
       "year": 2005,
       "rating": 6.32148,
       "votes": 4753,
+      "bggRank": 1708,
+      "is_expansion": false,
       "location": {
         "city": "Rome",
         "country": "Italia",
@@ -2900,6 +3162,8 @@ const PIPELINE_DATA = {
       "year": 2015,
       "rating": 6.31474,
       "votes": 2020,
+      "bggRank": 1725,
+      "is_expansion": false,
       "location": {
         "city": "Luxor",
         "country": "مصر",
@@ -2922,6 +3186,8 @@ const PIPELINE_DATA = {
       "year": 2012,
       "rating": 6.31415,
       "votes": 3723,
+      "bggRank": 1729,
+      "is_expansion": false,
       "location": {
         "city": "Le Havre",
         "country": "France",
@@ -2944,6 +3210,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 6.31322,
       "votes": 2286,
+      "bggRank": 1731,
+      "is_expansion": false,
       "location": {
         "city": "Glasgow",
         "country": "United Kingdom",
@@ -2966,6 +3234,8 @@ const PIPELINE_DATA = {
       "year": 1986,
       "rating": 6.31147,
       "votes": 2990,
+      "bggRank": 1739,
+      "is_expansion": false,
       "location": {
         "city": "Moscow",
         "country": "Россия",
@@ -2988,6 +3258,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 6.30684,
       "votes": 2675,
+      "bggRank": 1757,
+      "is_expansion": false,
       "location": {
         "city": "Troyes",
         "country": "France",
@@ -3010,6 +3282,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 6.30287,
       "votes": 3568,
+      "bggRank": 1771,
+      "is_expansion": false,
       "location": {
         "city": "Osaka",
         "country": "日本",
@@ -3032,6 +3306,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 6.29438,
       "votes": 2268,
+      "bggRank": 1795,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -3054,6 +3330,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 6.28762,
       "votes": 2001,
+      "bggRank": 1812,
+      "is_expansion": false,
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -3076,6 +3354,8 @@ const PIPELINE_DATA = {
       "year": 2009,
       "rating": 6.28638,
       "votes": 3255,
+      "bggRank": 1818,
+      "is_expansion": false,
       "location": {
         "city": "Havana",
         "country": "Cuba",
@@ -3098,6 +3378,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 6.28311,
       "votes": 2152,
+      "bggRank": 1826,
+      "is_expansion": false,
       "location": {
         "city": "Brussels",
         "country": "België / Belgique / Belgien",
@@ -3120,6 +3402,8 @@ const PIPELINE_DATA = {
       "year": 2021,
       "rating": 6.27442,
       "votes": 1271,
+      "bggRank": 1856,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -3142,6 +3426,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 6.26452,
       "votes": 1190,
+      "bggRank": 1887,
+      "is_expansion": false,
       "location": {
         "city": "Amsterdam",
         "country": "Nederland",
@@ -3164,6 +3450,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 6.24615,
       "votes": 953,
+      "bggRank": 1953,
+      "is_expansion": false,
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -3186,6 +3474,8 @@ const PIPELINE_DATA = {
       "year": 2024,
       "rating": 6.24325,
       "votes": 1014,
+      "bggRank": 1962,
+      "is_expansion": false,
       "location": {
         "city": "Baghdad",
         "country": "العراق",
@@ -3208,6 +3498,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 6.23706,
       "votes": 2541,
+      "bggRank": 1986,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -3230,6 +3522,8 @@ const PIPELINE_DATA = {
       "year": 2009,
       "rating": 6.22734,
       "votes": 4609,
+      "bggRank": 2033,
+      "is_expansion": false,
       "location": {
         "city": "Carcassonne",
         "country": "France",
@@ -3252,6 +3546,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 6.22573,
       "votes": 3457,
+      "bggRank": 2036,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -3274,6 +3570,8 @@ const PIPELINE_DATA = {
       "year": 2015,
       "rating": 6.21803,
       "votes": 2264,
+      "bggRank": 2059,
+      "is_expansion": false,
       "location": {
         "city": "Munich",
         "country": "Deutschland",
@@ -3296,6 +3594,8 @@ const PIPELINE_DATA = {
       "year": 2024,
       "rating": 6.21126,
       "votes": 1064,
+      "bggRank": 2092,
+      "is_expansion": false,
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -3318,6 +3618,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 6.20378,
       "votes": 2158,
+      "bggRank": 2126,
+      "is_expansion": false,
       "location": {
         "city": "Buenos Aires",
         "country": "Argentina",
@@ -3340,6 +3642,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 6.20354,
       "votes": 920,
+      "bggRank": 2127,
+      "is_expansion": false,
       "location": {
         "city": "Rome",
         "country": "Italia",
@@ -3362,6 +3666,8 @@ const PIPELINE_DATA = {
       "year": 2011,
       "rating": 6.20326,
       "votes": 1693,
+      "bggRank": 2129,
+      "is_expansion": false,
       "location": {
         "city": "Quebec",
         "country": "Canada",
@@ -3384,6 +3690,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 6.18265,
       "votes": 3177,
+      "bggRank": 2200,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -3406,6 +3714,8 @@ const PIPELINE_DATA = {
       "year": 2008,
       "rating": 6.18212,
       "votes": 2254,
+      "bggRank": 2202,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -3428,6 +3738,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 6.18037,
       "votes": 1733,
+      "bggRank": 2207,
+      "is_expansion": false,
       "location": {
         "city": "Essen",
         "country": "Deutschland",
@@ -3450,6 +3762,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 6.17033,
       "votes": 848,
+      "bggRank": 2243,
+      "is_expansion": false,
       "location": {
         "city": "Brussels",
         "country": "België / Belgique / Belgien",
@@ -3472,6 +3786,8 @@ const PIPELINE_DATA = {
       "year": 2024,
       "rating": 6.16866,
       "votes": 1144,
+      "bggRank": 2251,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -3494,6 +3810,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 6.16803,
       "votes": 1450,
+      "bggRank": 2254,
+      "is_expansion": false,
       "location": {
         "city": "Orléans",
         "country": "France",
@@ -3516,6 +3834,8 @@ const PIPELINE_DATA = {
       "year": 2021,
       "rating": 6.16589,
       "votes": 2286,
+      "bggRank": 2258,
+      "is_expansion": false,
       "location": {
         "city": "Bristol",
         "country": "United Kingdom",
@@ -3538,6 +3858,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 6.16583,
       "votes": 2852,
+      "bggRank": 2260,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -3560,6 +3882,8 @@ const PIPELINE_DATA = {
       "year": 2024,
       "rating": 6.16247,
       "votes": 1054,
+      "bggRank": 2270,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -3582,6 +3906,8 @@ const PIPELINE_DATA = {
       "year": 2015,
       "rating": 6.16073,
       "votes": 4505,
+      "bggRank": 2278,
+      "is_expansion": false,
       "location": {
         "city": "Havana",
         "country": "Cuba",
@@ -3604,6 +3930,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 6.15681,
       "votes": 2260,
+      "bggRank": 2295,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -3626,6 +3954,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 6.15505,
       "votes": 1097,
+      "bggRank": 2300,
+      "is_expansion": false,
       "location": {
         "city": "Hamburg",
         "country": "Deutschland",
@@ -3648,6 +3978,8 @@ const PIPELINE_DATA = {
       "year": 1988,
       "rating": 6.15474,
       "votes": 3526,
+      "bggRank": 2302,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -3670,6 +4002,8 @@ const PIPELINE_DATA = {
       "year": 2024,
       "rating": 6.15333,
       "votes": 1199,
+      "bggRank": 2307,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -3692,6 +4026,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 6.15316,
       "votes": 1030,
+      "bggRank": 2310,
+      "is_expansion": false,
       "location": {
         "city": "Amalfi",
         "country": "Italia",
@@ -3714,6 +4050,8 @@ const PIPELINE_DATA = {
       "year": 2015,
       "rating": 6.15266,
       "votes": 1765,
+      "bggRank": 2314,
+      "is_expansion": false,
       "location": {
         "city": "Estoril",
         "country": "Portugal",
@@ -3736,6 +4074,8 @@ const PIPELINE_DATA = {
       "year": 1973,
       "rating": 6.14797,
       "votes": 3498,
+      "bggRank": 2338,
+      "is_expansion": false,
       "location": {
         "city": "Colditz",
         "country": "Deutschland",
@@ -3758,6 +4098,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 6.1471,
       "votes": 991,
+      "bggRank": 2345,
+      "is_expansion": false,
       "location": {
         "city": "Moscow",
         "country": "Россия",
@@ -3780,6 +4122,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 6.14621,
       "votes": 2394,
+      "bggRank": 2346,
+      "is_expansion": false,
       "location": {
         "city": "York",
         "country": "United Kingdom",
@@ -3802,6 +4146,8 @@ const PIPELINE_DATA = {
       "year": 2008,
       "rating": 6.14578,
       "votes": 2000,
+      "bggRank": 2349,
+      "is_expansion": false,
       "location": {
         "city": "Madrid",
         "country": "España",
@@ -3824,6 +4170,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 6.14034,
       "votes": 2358,
+      "bggRank": 2375,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -3846,6 +4194,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 6.13887,
       "votes": 1187,
+      "bggRank": 2382,
+      "is_expansion": false,
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -3868,6 +4218,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 6.137,
       "votes": 2690,
+      "bggRank": 2393,
+      "is_expansion": false,
       "location": {
         "city": "Lisbon",
         "country": "Portugal",
@@ -3890,6 +4242,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 6.13259,
       "votes": 1130,
+      "bggRank": 2406,
+      "is_expansion": false,
       "location": {
         "city": "Cusco",
         "country": "Perú",
@@ -3912,6 +4266,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 6.13133,
       "votes": 1923,
+      "bggRank": 2412,
+      "is_expansion": false,
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -3934,6 +4290,8 @@ const PIPELINE_DATA = {
       "year": 1947,
       "rating": 6.13087,
       "votes": 1900,
+      "bggRank": 2414,
+      "is_expansion": false,
       "location": {
         "city": "Bergamo",
         "country": "Italia",
@@ -3956,6 +4314,8 @@ const PIPELINE_DATA = {
       "year": 2008,
       "rating": 6.12761,
       "votes": 1730,
+      "bggRank": 2429,
+      "is_expansion": false,
       "location": {
         "city": "Cusco",
         "country": "Perú",
@@ -3978,6 +4338,8 @@ const PIPELINE_DATA = {
       "year": 2002,
       "rating": 6.12744,
       "votes": 1326,
+      "bggRank": 2431,
+      "is_expansion": false,
       "location": {
         "city": "Berlin",
         "country": "Deutschland",
@@ -4000,6 +4362,8 @@ const PIPELINE_DATA = {
       "year": 1810,
       "rating": 6.12736,
       "votes": 1331,
+      "bggRank": 2433,
+      "is_expansion": false,
       "location": {
         "city": "Bern",
         "country": "Schweiz/Suisse/Svizzera/Svizra",
@@ -4022,6 +4386,8 @@ const PIPELINE_DATA = {
       "year": 2004,
       "rating": 6.12585,
       "votes": 2804,
+      "bggRank": 2441,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -4044,6 +4410,8 @@ const PIPELINE_DATA = {
       "year": 1997,
       "rating": 6.12457,
       "votes": 6568,
+      "bggRank": 2451,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -4066,6 +4434,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 6.11128,
       "votes": 895,
+      "bggRank": 2504,
+      "is_expansion": false,
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -4088,6 +4458,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 6.11039,
       "votes": 1021,
+      "bggRank": 2507,
+      "is_expansion": false,
       "location": {
         "city": "Versailles",
         "country": "France",
@@ -4110,6 +4482,8 @@ const PIPELINE_DATA = {
       "year": 2024,
       "rating": 6.10722,
       "votes": 1429,
+      "bggRank": 2524,
+      "is_expansion": false,
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -4132,6 +4506,8 @@ const PIPELINE_DATA = {
       "year": 2012,
       "rating": 6.10708,
       "votes": 1710,
+      "bggRank": 2526,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -4154,6 +4530,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 6.10614,
       "votes": 1197,
+      "bggRank": 2531,
+      "is_expansion": false,
       "location": {
         "city": "Budapest",
         "country": "Magyarország",
@@ -4176,6 +4554,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 6.10506,
       "votes": 1086,
+      "bggRank": 2540,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -4198,6 +4578,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 6.09702,
       "votes": 1776,
+      "bggRank": 2576,
+      "is_expansion": false,
       "location": {
         "city": "Samarkand",
         "country": "Oʻzbekiston",
@@ -4220,6 +4602,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 6.09587,
       "votes": 1059,
+      "bggRank": 2580,
+      "is_expansion": false,
       "location": {
         "city": "Saint Petersburg",
         "country": "Россия",
@@ -4242,6 +4626,8 @@ const PIPELINE_DATA = {
       "year": 2008,
       "rating": 6.0868,
       "votes": 12141,
+      "bggRank": 2616,
+      "is_expansion": false,
       "location": {
         "city": "Atlantic City",
         "country": "United States",
@@ -4264,6 +4650,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 6.08477,
       "votes": 1697,
+      "bggRank": 2626,
+      "is_expansion": false,
       "location": {
         "city": "Amsterdam",
         "country": "Nederland",
@@ -4286,6 +4674,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 6.08079,
       "votes": 2148,
+      "bggRank": 2639,
+      "is_expansion": false,
       "location": {
         "city": "Las Vegas",
         "country": "United States",
@@ -4308,6 +4698,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 6.07879,
       "votes": 1255,
+      "bggRank": 2651,
+      "is_expansion": false,
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -4330,6 +4722,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 6.07758,
       "votes": 2497,
+      "bggRank": 2657,
+      "is_expansion": false,
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -4352,6 +4746,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 6.07663,
       "votes": 1521,
+      "bggRank": 2664,
+      "is_expansion": false,
       "location": {
         "city": "Cracow",
         "country": "Polska",
@@ -4374,6 +4770,8 @@ const PIPELINE_DATA = {
       "year": 2012,
       "rating": 6.07356,
       "votes": 1365,
+      "bggRank": 2680,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -4396,6 +4794,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 6.06319,
       "votes": 1351,
+      "bggRank": 2730,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -4418,6 +4818,8 @@ const PIPELINE_DATA = {
       "year": 2012,
       "rating": 6.0602,
       "votes": 2026,
+      "bggRank": 2745,
+      "is_expansion": false,
       "location": {
         "city": "Warsaw",
         "country": "Polska",
@@ -4440,6 +4842,8 @@ const PIPELINE_DATA = {
       "year": 2021,
       "rating": 6.05822,
       "votes": 2849,
+      "bggRank": 2753,
+      "is_expansion": false,
       "location": {
         "city": "Lisbon",
         "country": "Portugal",
@@ -4462,6 +4866,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 6.05466,
       "votes": 1605,
+      "bggRank": 2773,
+      "is_expansion": false,
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -4484,6 +4890,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 6.05118,
       "votes": 2005,
+      "bggRank": 2789,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -4506,6 +4914,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 6.05078,
       "votes": 995,
+      "bggRank": 2792,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -4528,6 +4938,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 6.0472,
       "votes": 1013,
+      "bggRank": 2807,
+      "is_expansion": false,
       "location": {
         "city": "Kyoto",
         "country": "日本",
@@ -4550,6 +4962,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 6.04567,
       "votes": 655,
+      "bggRank": 2821,
+      "is_expansion": false,
       "location": {
         "city": "Sarajevo",
         "country": "Bosna i Hercegovina / Босна и Херцеговина",
@@ -4572,6 +4986,8 @@ const PIPELINE_DATA = {
       "year": 2003,
       "rating": 6.03967,
       "votes": 887,
+      "bggRank": 2842,
+      "is_expansion": false,
       "location": {
         "city": "Marengo",
         "country": "Italia",
@@ -4594,6 +5010,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 6.03409,
       "votes": 1149,
+      "bggRank": 2865,
+      "is_expansion": false,
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -4616,6 +5034,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 6.03311,
       "votes": 602,
+      "bggRank": 2869,
+      "is_expansion": false,
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -4638,6 +5058,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 6.02022,
       "votes": 1159,
+      "bggRank": 2928,
+      "is_expansion": false,
       "location": {
         "city": "Nuremberg",
         "country": "Deutschland",
@@ -4660,6 +5082,8 @@ const PIPELINE_DATA = {
       "year": 2001,
       "rating": 6.0196,
       "votes": 1511,
+      "bggRank": 2931,
+      "is_expansion": false,
       "location": {
         "city": "Rome",
         "country": "Italia",
@@ -4682,6 +5106,8 @@ const PIPELINE_DATA = {
       "year": 1996,
       "rating": 6.01845,
       "votes": 1198,
+      "bggRank": 2937,
+      "is_expansion": false,
       "location": {
         "city": "Marrakech",
         "country": "Maroc ⵍⵎⵖⵔⵉⴱ المغرب",
@@ -4704,6 +5130,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 6.01632,
       "votes": 1460,
+      "bggRank": 2949,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -4726,6 +5154,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 6.01389,
       "votes": 600,
+      "bggRank": 2966,
+      "is_expansion": false,
       "location": {
         "city": "Beijing",
         "country": "中国",
@@ -4748,6 +5178,8 @@ const PIPELINE_DATA = {
       "year": 2000,
       "rating": 6.0066,
       "votes": 1681,
+      "bggRank": 3011,
+      "is_expansion": false,
       "location": {
         "city": "Amsterdam",
         "country": "Nederland",
@@ -4770,6 +5202,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 6.00095,
       "votes": 1137,
+      "bggRank": 3041,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -4792,6 +5226,8 @@ const PIPELINE_DATA = {
       "year": 1998,
       "rating": 5.99478,
       "votes": 2230,
+      "bggRank": 3072,
+      "is_expansion": false,
       "location": {
         "city": "Rio de Janeiro",
         "country": "Brasil",
@@ -4814,6 +5250,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 5.99289,
       "votes": 2168,
+      "bggRank": 3085,
+      "is_expansion": false,
       "location": {
         "city": "Amsterdam",
         "country": "Nederland",
@@ -4836,6 +5274,8 @@ const PIPELINE_DATA = {
       "year": 2012,
       "rating": 5.99047,
       "votes": 2416,
+      "bggRank": 3095,
+      "is_expansion": false,
       "location": {
         "city": "Saint Malo",
         "country": "France",
@@ -4858,6 +5298,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 5.98975,
       "votes": 772,
+      "bggRank": 3100,
+      "is_expansion": false,
       "location": {
         "city": "Luxor",
         "country": "مصر",
@@ -4880,6 +5322,8 @@ const PIPELINE_DATA = {
       "year": 2007,
       "rating": 5.98933,
       "votes": 2707,
+      "bggRank": 3102,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -4902,6 +5346,8 @@ const PIPELINE_DATA = {
       "year": 2021,
       "rating": 5.98502,
       "votes": 778,
+      "bggRank": 3128,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -4924,6 +5370,8 @@ const PIPELINE_DATA = {
       "year": 2021,
       "rating": 5.97685,
       "votes": 960,
+      "bggRank": 3182,
+      "is_expansion": false,
       "location": {
         "city": "Vienna",
         "country": "Österreich",
@@ -4946,6 +5394,8 @@ const PIPELINE_DATA = {
       "year": 1981,
       "rating": 5.9748,
       "votes": 934,
+      "bggRank": 3196,
+      "is_expansion": false,
       "location": {
         "city": "Arnhem",
         "country": "Nederland",
@@ -4968,6 +5418,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 5.96877,
       "votes": 504,
+      "bggRank": 3222,
+      "is_expansion": false,
       "location": {
         "city": "Volgograd",
         "country": "Россия",
@@ -4990,6 +5442,8 @@ const PIPELINE_DATA = {
       "year": 1999,
       "rating": 5.96796,
       "votes": 1403,
+      "bggRank": 3227,
+      "is_expansion": false,
       "location": {
         "city": "Bruges",
         "country": "België / Belgique / Belgien",
@@ -5012,6 +5466,8 @@ const PIPELINE_DATA = {
       "year": 2005,
       "rating": 5.96512,
       "votes": 1275,
+      "bggRank": 3249,
+      "is_expansion": false,
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -5034,6 +5490,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 5.96046,
       "votes": 1368,
+      "bggRank": 3275,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -5056,6 +5514,8 @@ const PIPELINE_DATA = {
       "year": 1987,
       "rating": 5.95803,
       "votes": 868,
+      "bggRank": 3294,
+      "is_expansion": false,
       "location": {
         "city": "Saint-Nazaire",
         "country": "France",
@@ -5078,6 +5538,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 5.95427,
       "votes": 771,
+      "bggRank": 3320,
+      "is_expansion": false,
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -5100,6 +5562,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 5.95328,
       "votes": 1101,
+      "bggRank": 3326,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -5122,6 +5586,8 @@ const PIPELINE_DATA = {
       "year": 2008,
       "rating": 5.94925,
       "votes": 1304,
+      "bggRank": 3355,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -5144,6 +5610,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 5.94915,
       "votes": 1734,
+      "bggRank": 3357,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -5166,6 +5634,8 @@ const PIPELINE_DATA = {
       "year": 2007,
       "rating": 5.94666,
       "votes": 1543,
+      "bggRank": 3370,
+      "is_expansion": false,
       "location": {
         "city": "Amsterdam",
         "country": "Nederland",
@@ -5188,6 +5658,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 5.94522,
       "votes": 847,
+      "bggRank": 3380,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -5210,6 +5682,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 5.94182,
       "votes": 1199,
+      "bggRank": 3410,
+      "is_expansion": false,
       "location": {
         "city": "Kyoto",
         "country": "日本",
@@ -5232,6 +5706,8 @@ const PIPELINE_DATA = {
       "year": 2008,
       "rating": 5.94091,
       "votes": 1422,
+      "bggRank": 3417,
+      "is_expansion": false,
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -5254,6 +5730,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 5.93908,
       "votes": 733,
+      "bggRank": 3433,
+      "is_expansion": false,
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -5276,6 +5754,8 @@ const PIPELINE_DATA = {
       "year": 2011,
       "rating": 5.93655,
       "votes": 1083,
+      "bggRank": 3455,
+      "is_expansion": false,
       "location": {
         "city": "Canterbury",
         "country": "United Kingdom",
@@ -5298,6 +5778,8 @@ const PIPELINE_DATA = {
       "year": 1989,
       "rating": 5.93143,
       "votes": 770,
+      "bggRank": 3488,
+      "is_expansion": false,
       "location": {
         "city": "Volgograd",
         "country": "Россия",
@@ -5320,6 +5802,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 5.92909,
       "votes": 1109,
+      "bggRank": 3506,
+      "is_expansion": false,
       "location": {
         "city": "Nuremberg",
         "country": "Deutschland",
@@ -5342,6 +5826,8 @@ const PIPELINE_DATA = {
       "year": 2015,
       "rating": 5.92811,
       "votes": 1283,
+      "bggRank": 3518,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -5364,6 +5850,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 5.92713,
       "votes": 807,
+      "bggRank": 3523,
+      "is_expansion": false,
       "location": {
         "city": "Xi'an",
         "country": "中国",
@@ -5386,6 +5874,8 @@ const PIPELINE_DATA = {
       "year": 2009,
       "rating": 5.92711,
       "votes": 1319,
+      "bggRank": 3525,
+      "is_expansion": false,
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -5408,6 +5898,8 @@ const PIPELINE_DATA = {
       "year": 2021,
       "rating": 5.92593,
       "votes": 717,
+      "bggRank": 3532,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -5430,6 +5922,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 5.92178,
       "votes": 502,
+      "bggRank": 3558,
+      "is_expansion": false,
       "location": {
         "city": "Salerno",
         "country": "Italia",
@@ -5452,6 +5946,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 5.92173,
       "votes": 651,
+      "bggRank": 3559,
+      "is_expansion": false,
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -5474,6 +5970,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 5.91459,
       "votes": 1005,
+      "bggRank": 3600,
+      "is_expansion": false,
       "location": {
         "city": "Carson City",
         "country": "United States",
@@ -5496,6 +5994,8 @@ const PIPELINE_DATA = {
       "year": 1999,
       "rating": 5.9088,
       "votes": 947,
+      "bggRank": 3639,
+      "is_expansion": false,
       "location": {
         "city": "Nuremberg",
         "country": "Deutschland",
@@ -5518,6 +6018,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 5.90577,
       "votes": 566,
+      "bggRank": 3663,
+      "is_expansion": false,
       "location": {
         "city": "Yokohama",
         "country": "日本",
@@ -5540,6 +6042,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 5.90218,
       "votes": 911,
+      "bggRank": 3696,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -5562,6 +6066,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 5.90195,
       "votes": 1618,
+      "bggRank": 3698,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -5584,6 +6090,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 5.89839,
       "votes": 857,
+      "bggRank": 3718,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -5606,6 +6114,8 @@ const PIPELINE_DATA = {
       "year": 2002,
       "rating": 5.89445,
       "votes": 1453,
+      "bggRank": 3745,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -5628,6 +6138,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 5.89417,
       "votes": 408,
+      "bggRank": 3746,
+      "is_expansion": false,
       "location": {
         "city": "Kursk",
         "country": "Россия",
@@ -5650,6 +6162,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 5.89404,
       "votes": 823,
+      "bggRank": 3748,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -5672,6 +6186,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 5.89392,
       "votes": 1077,
+      "bggRank": 3749,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -5694,6 +6210,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 5.89372,
       "votes": 592,
+      "bggRank": 3751,
+      "is_expansion": false,
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -5716,6 +6234,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 5.89308,
       "votes": 770,
+      "bggRank": 3760,
+      "is_expansion": false,
       "location": {
         "city": "Bremen",
         "country": "Deutschland",
@@ -5738,6 +6258,8 @@ const PIPELINE_DATA = {
       "year": 2009,
       "rating": 5.88765,
       "votes": 1253,
+      "bggRank": 3787,
+      "is_expansion": false,
       "location": {
         "city": "Cologne",
         "country": "Deutschland",
@@ -5760,6 +6282,8 @@ const PIPELINE_DATA = {
       "year": 2008,
       "rating": 5.88452,
       "votes": 1392,
+      "bggRank": 3810,
+      "is_expansion": false,
       "location": {
         "city": "Shanghai",
         "country": "中国",
@@ -5782,6 +6306,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 5.8749,
       "votes": 1687,
+      "bggRank": 3880,
+      "is_expansion": false,
       "location": {
         "city": "Baghdad",
         "country": "العراق",
@@ -5804,6 +6330,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 5.87162,
       "votes": 695,
+      "bggRank": 3910,
+      "is_expansion": false,
       "location": {
         "city": "Porto",
         "country": "Portugal",
@@ -5826,6 +6354,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 5.86779,
       "votes": 654,
+      "bggRank": 3937,
+      "is_expansion": false,
       "location": {
         "city": "Volgograd",
         "country": "Россия",
@@ -5848,6 +6378,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 5.86711,
       "votes": 1507,
+      "bggRank": 3945,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -5870,6 +6402,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 5.86603,
       "votes": 878,
+      "bggRank": 3957,
+      "is_expansion": false,
       "location": {
         "city": "La Rochelle",
         "country": "France",
@@ -5892,6 +6426,8 @@ const PIPELINE_DATA = {
       "year": 2001,
       "rating": 5.86412,
       "votes": 878,
+      "bggRank": 3969,
+      "is_expansion": false,
       "location": {
         "city": "Santa Fe",
         "country": "United States",
@@ -5914,6 +6450,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 5.86334,
       "votes": 1057,
+      "bggRank": 3977,
+      "is_expansion": false,
       "location": {
         "city": "Cartagena",
         "country": "Colombia",
@@ -5936,6 +6474,8 @@ const PIPELINE_DATA = {
       "year": 2004,
       "rating": 5.86275,
       "votes": 444,
+      "bggRank": 3980,
+      "is_expansion": false,
       "location": {
         "city": "Hanoi",
         "country": "Việt Nam",
@@ -5958,6 +6498,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 5.86207,
       "votes": 477,
+      "bggRank": 3984,
+      "is_expansion": false,
       "location": {
         "city": "Seattle",
         "country": "United States",
@@ -5980,6 +6522,8 @@ const PIPELINE_DATA = {
       "year": 2003,
       "rating": 5.86093,
       "votes": 838,
+      "bggRank": 3994,
+      "is_expansion": false,
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -6002,6 +6546,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 5.85748,
       "votes": 630,
+      "bggRank": 4023,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -6024,6 +6570,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 5.85689,
       "votes": 370,
+      "bggRank": 4029,
+      "is_expansion": false,
       "location": {
         "city": "Verdun",
         "country": "France",
@@ -6046,6 +6594,8 @@ const PIPELINE_DATA = {
       "year": 2021,
       "rating": 5.85405,
       "votes": 363,
+      "bggRank": 4059,
+      "is_expansion": false,
       "location": {
         "city": "Prague",
         "country": "Česko",
@@ -6068,6 +6618,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 5.85343,
       "votes": 638,
+      "bggRank": 4069,
+      "is_expansion": false,
       "location": {
         "city": "Boston",
         "country": "United States",
@@ -6090,6 +6642,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 5.85246,
       "votes": 1920,
+      "bggRank": 4079,
+      "is_expansion": false,
       "location": {
         "city": "Verona",
         "country": "Italia",
@@ -6112,6 +6666,8 @@ const PIPELINE_DATA = {
       "year": 1972,
       "rating": 5.85221,
       "votes": 769,
+      "bggRank": 4081,
+      "is_expansion": false,
       "location": {
         "city": "Quebec",
         "country": "Canada",
@@ -6134,6 +6690,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 5.84495,
       "votes": 573,
+      "bggRank": 4146,
+      "is_expansion": false,
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -6156,6 +6714,8 @@ const PIPELINE_DATA = {
       "year": 2009,
       "rating": 5.84434,
       "votes": 528,
+      "bggRank": 4152,
+      "is_expansion": false,
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -6178,6 +6738,8 @@ const PIPELINE_DATA = {
       "year": 1982,
       "rating": 5.8418,
       "votes": 4306,
+      "bggRank": 4174,
+      "is_expansion": false,
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -6200,6 +6762,8 @@ const PIPELINE_DATA = {
       "year": 2024,
       "rating": 5.84062,
       "votes": 517,
+      "bggRank": 4184,
+      "is_expansion": false,
       "location": {
         "city": "New Orleans",
         "country": "United States",
@@ -6222,6 +6786,8 @@ const PIPELINE_DATA = {
       "year": 2005,
       "rating": 5.83959,
       "votes": 1702,
+      "bggRank": 4195,
+      "is_expansion": false,
       "location": {
         "city": "Rome",
         "country": "Italia",
@@ -6244,6 +6810,8 @@ const PIPELINE_DATA = {
       "year": 2018,
       "rating": 5.83921,
       "votes": 800,
+      "bggRank": 4197,
+      "is_expansion": false,
       "location": {
         "city": "Miami",
         "country": "United States",
@@ -6266,6 +6834,8 @@ const PIPELINE_DATA = {
       "year": 2007,
       "rating": 5.83585,
       "votes": 1261,
+      "bggRank": 4224,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -6288,6 +6858,8 @@ const PIPELINE_DATA = {
       "year": 2024,
       "rating": 5.83349,
       "votes": 453,
+      "bggRank": 4237,
+      "is_expansion": false,
       "location": {
         "city": "Versailles",
         "country": "France",
@@ -6310,6 +6882,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 5.83306,
       "votes": 1283,
+      "bggRank": 4239,
+      "is_expansion": false,
       "location": {
         "city": "Augsburg",
         "country": "Deutschland",
@@ -6332,6 +6906,8 @@ const PIPELINE_DATA = {
       "year": 1989,
       "rating": 5.83132,
       "votes": 604,
+      "bggRank": 4254,
+      "is_expansion": false,
       "location": {
         "city": "Jerusalem",
         "country": "ישראל",
@@ -6354,6 +6930,8 @@ const PIPELINE_DATA = {
       "year": 2021,
       "rating": 5.82853,
       "votes": 547,
+      "bggRank": 4277,
+      "is_expansion": false,
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -6376,6 +6954,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 5.82757,
       "votes": 540,
+      "bggRank": 4283,
+      "is_expansion": false,
       "location": {
         "city": "Berlin",
         "country": "Deutschland",
@@ -6398,6 +6978,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 5.82447,
       "votes": 821,
+      "bggRank": 4319,
+      "is_expansion": false,
       "location": {
         "city": "Paris",
         "country": "France",
@@ -6420,6 +7002,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 5.82398,
       "votes": 2184,
+      "bggRank": 4323,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -6442,6 +7026,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 5.82343,
       "votes": 652,
+      "bggRank": 4328,
+      "is_expansion": false,
       "location": {
         "city": "Canterbury",
         "country": "United Kingdom",
@@ -6464,6 +7050,8 @@ const PIPELINE_DATA = {
       "year": 2009,
       "rating": 5.81984,
       "votes": 912,
+      "bggRank": 4366,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -6486,6 +7074,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 5.81295,
       "votes": 411,
+      "bggRank": 4448,
+      "is_expansion": false,
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -6508,6 +7098,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 5.81158,
       "votes": 1015,
+      "bggRank": 4458,
+      "is_expansion": false,
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -6530,6 +7122,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 5.81155,
       "votes": 1558,
+      "bggRank": 4459,
+      "is_expansion": false,
       "location": {
         "city": "Nottingham",
         "country": "United Kingdom",
@@ -6552,6 +7146,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 5.80723,
       "votes": 454,
+      "bggRank": 4502,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -6574,6 +7170,8 @@ const PIPELINE_DATA = {
       "year": 2009,
       "rating": 5.80624,
       "votes": 1887,
+      "bggRank": 4509,
+      "is_expansion": false,
       "location": {
         "city": "Mumbai",
         "country": "India",
@@ -6596,6 +7194,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 5.80609,
       "votes": 942,
+      "bggRank": 4513,
+      "is_expansion": false,
       "location": {
         "city": "Copenhagen",
         "country": "Danmark",
@@ -6618,6 +7218,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 5.80301,
       "votes": 801,
+      "bggRank": 4548,
+      "is_expansion": false,
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -6640,6 +7242,8 @@ const PIPELINE_DATA = {
       "year": 2011,
       "rating": 5.80281,
       "votes": 1505,
+      "bggRank": 4552,
+      "is_expansion": false,
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -6662,6 +7266,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 5.79698,
       "votes": 677,
+      "bggRank": 4608,
+      "is_expansion": false,
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -6684,6 +7290,8 @@ const PIPELINE_DATA = {
       "year": 1996,
       "rating": 5.79352,
       "votes": 474,
+      "bggRank": 4647,
+      "is_expansion": false,
       "location": {
         "city": "Volgograd",
         "country": "Россия",
@@ -6706,6 +7314,8 @@ const PIPELINE_DATA = {
       "year": 2008,
       "rating": 5.79318,
       "votes": 1219,
+      "bggRank": 4649,
+      "is_expansion": false,
       "location": {
         "city": "Jakarta",
         "country": "Indonesia",
@@ -6728,6 +7338,8 @@ const PIPELINE_DATA = {
       "year": 2010,
       "rating": 5.79245,
       "votes": 797,
+      "bggRank": 4662,
+      "is_expansion": false,
       "location": {
         "city": "Jerusalem",
         "country": "ישראל",
@@ -6750,6 +7362,8 @@ const PIPELINE_DATA = {
       "year": 2019,
       "rating": 5.7908,
       "votes": 444,
+      "bggRank": 4677,
+      "is_expansion": false,
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -6772,6 +7386,8 @@ const PIPELINE_DATA = {
       "year": 2001,
       "rating": 5.78815,
       "votes": 318,
+      "bggRank": 4707,
+      "is_expansion": false,
       "location": {
         "city": "Moscow",
         "country": "Россия",
@@ -6794,6 +7410,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 5.78768,
       "votes": 949,
+      "bggRank": 4713,
+      "is_expansion": false,
       "location": {
         "city": "Cartagena",
         "country": "Colombia",
@@ -6816,6 +7434,8 @@ const PIPELINE_DATA = {
       "year": 2009,
       "rating": 5.78762,
       "votes": 531,
+      "bggRank": 4715,
+      "is_expansion": false,
       "location": {
         "city": "Granada",
         "country": "España",
@@ -6838,6 +7458,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 5.78598,
       "votes": 333,
+      "bggRank": 4733,
+      "is_expansion": false,
       "location": {
         "city": "Manila",
         "country": "Philippines",
@@ -6860,6 +7482,8 @@ const PIPELINE_DATA = {
       "year": 2009,
       "rating": 5.78504,
       "votes": 416,
+      "bggRank": 4744,
+      "is_expansion": false,
       "location": {
         "city": "Bastogne",
         "country": "België / Belgique / Belgien",
@@ -6882,6 +7506,8 @@ const PIPELINE_DATA = {
       "year": 2024,
       "rating": 5.78433,
       "votes": 358,
+      "bggRank": 4762,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -6904,6 +7530,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 5.78318,
       "votes": 286,
+      "bggRank": 4778,
+      "is_expansion": false,
       "location": {
         "city": "Austerlitz",
         "country": "Česko",
@@ -6926,6 +7554,8 @@ const PIPELINE_DATA = {
       "year": 2012,
       "rating": 5.78281,
       "votes": 349,
+      "bggRank": 4784,
+      "is_expansion": false,
       "location": {
         "city": "Jerusalem",
         "country": "ישראל",
@@ -6948,6 +7578,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 5.77997,
       "votes": 790,
+      "bggRank": 4813,
+      "is_expansion": false,
       "location": {
         "city": "Trieste",
         "country": "Italia",
@@ -6970,6 +7602,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 5.77836,
       "votes": 409,
+      "bggRank": 4840,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -6992,6 +7626,8 @@ const PIPELINE_DATA = {
       "year": 2014,
       "rating": 5.77591,
       "votes": 891,
+      "bggRank": 4871,
+      "is_expansion": false,
       "location": {
         "city": "Versailles",
         "country": "France",
@@ -7014,6 +7650,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 5.77378,
       "votes": 698,
+      "bggRank": 4892,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -7036,6 +7674,8 @@ const PIPELINE_DATA = {
       "year": 2000,
       "rating": 5.767,
       "votes": 800,
+      "bggRank": 4972,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -7058,6 +7698,8 @@ const PIPELINE_DATA = {
       "year": 2009,
       "rating": 5.76529,
       "votes": 431,
+      "bggRank": 4998,
+      "is_expansion": false,
       "location": {
         "city": "Smolensk",
         "country": "Россия",
@@ -7080,6 +7722,8 @@ const PIPELINE_DATA = {
       "year": 1980,
       "rating": 5.75986,
       "votes": 907,
+      "bggRank": 5060,
+      "is_expansion": false,
       "location": {
         "city": "Samarkand",
         "country": "Oʻzbekiston",
@@ -7102,6 +7746,8 @@ const PIPELINE_DATA = {
       "year": 2015,
       "rating": 5.75585,
       "votes": 737,
+      "bggRank": 5122,
+      "is_expansion": false,
       "location": {
         "city": "Vienna",
         "country": "Österreich",
@@ -7124,6 +7770,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 5.75421,
       "votes": 495,
+      "bggRank": 5140,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -7146,6 +7794,8 @@ const PIPELINE_DATA = {
       "year": 2011,
       "rating": 5.73073,
       "votes": 575,
+      "bggRank": 5467,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -7168,6 +7818,8 @@ const PIPELINE_DATA = {
       "year": 2023,
       "rating": 5.72396,
       "votes": 304,
+      "bggRank": 5571,
+      "is_expansion": false,
       "location": {
         "city": "Vienna",
         "country": "Österreich",
@@ -7190,6 +7842,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 5.72085,
       "votes": 623,
+      "bggRank": 5622,
+      "is_expansion": false,
       "location": {
         "city": "Bremerhaven",
         "country": "Deutschland",
@@ -7212,6 +7866,8 @@ const PIPELINE_DATA = {
       "year": 2021,
       "rating": 5.70444,
       "votes": 646,
+      "bggRank": 5912,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -7234,6 +7890,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 5.67999,
       "votes": 601,
+      "bggRank": 6415,
+      "is_expansion": false,
       "location": {
         "city": "Los Angeles",
         "country": "United States",
@@ -7256,6 +7914,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 5.66634,
       "votes": 425,
+      "bggRank": 6716,
+      "is_expansion": false,
       "location": {
         "city": "Rhodes",
         "country": "Ελλάς",
@@ -7278,6 +7938,8 @@ const PIPELINE_DATA = {
       "year": 2015,
       "rating": 5.6597,
       "votes": 616,
+      "bggRank": 6867,
+      "is_expansion": false,
       "location": {
         "city": "Samara",
         "country": "Россия",
@@ -7300,6 +7962,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 5.65537,
       "votes": 272,
+      "bggRank": 6969,
+      "is_expansion": false,
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -7322,6 +7986,8 @@ const PIPELINE_DATA = {
       "year": 2014,
       "rating": 5.64872,
       "votes": 280,
+      "bggRank": 7149,
+      "is_expansion": false,
       "location": {
         "city": "Brest",
         "country": "France",
@@ -7344,6 +8010,8 @@ const PIPELINE_DATA = {
       "year": 2005,
       "rating": 5.64615,
       "votes": 733,
+      "bggRank": 7211,
+      "is_expansion": false,
       "location": {
         "city": "Siena",
         "country": "Italia",
@@ -7366,6 +8034,8 @@ const PIPELINE_DATA = {
       "year": 2012,
       "rating": 5.6379,
       "votes": 385,
+      "bggRank": 7454,
+      "is_expansion": false,
       "location": {
         "city": "Cairo",
         "country": "مصر",
@@ -7388,6 +8058,8 @@ const PIPELINE_DATA = {
       "year": 1979,
       "rating": 5.63611,
       "votes": 295,
+      "bggRank": 7501,
+      "is_expansion": false,
       "location": {
         "city": "Saint Petersburg",
         "country": "Россия",
@@ -7410,6 +8082,8 @@ const PIPELINE_DATA = {
       "year": 2024,
       "rating": 5.62302,
       "votes": 160,
+      "bggRank": 7927,
+      "is_expansion": false,
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -7432,6 +8106,8 @@ const PIPELINE_DATA = {
       "year": 2007,
       "rating": 5.60705,
       "votes": 367,
+      "bggRank": 8589,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -7454,6 +8130,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 5.60448,
       "votes": 321,
+      "bggRank": 8694,
+      "is_expansion": false,
       "location": {
         "city": "Marrakech",
         "country": "Maroc ⵍⵎⵖⵔⵉⴱ المغرب",
@@ -7476,6 +8154,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 5.60382,
       "votes": 279,
+      "bggRank": 8732,
+      "is_expansion": false,
       "location": {
         "city": "Sydney",
         "country": "Australia",
@@ -7498,6 +8178,8 @@ const PIPELINE_DATA = {
       "year": 2022,
       "rating": 5.59544,
       "votes": 156,
+      "bggRank": 9141,
+      "is_expansion": false,
       "location": {
         "city": "Buenos Aires",
         "country": "Argentina",
@@ -7520,6 +8202,8 @@ const PIPELINE_DATA = {
       "year": 2011,
       "rating": 5.59468,
       "votes": 410,
+      "bggRank": 9189,
+      "is_expansion": false,
       "location": {
         "city": "Singapore",
         "country": "Singapore",
@@ -7542,6 +8226,8 @@ const PIPELINE_DATA = {
       "year": 2005,
       "rating": 5.59242,
       "votes": 156,
+      "bggRank": 9313,
+      "is_expansion": false,
       "location": {
         "city": "Savannah",
         "country": "United States",
@@ -7564,6 +8250,8 @@ const PIPELINE_DATA = {
       "year": 1976,
       "rating": 5.5895,
       "votes": 227,
+      "bggRank": 9482,
+      "is_expansion": false,
       "location": {
         "city": "Leipzig",
         "country": "Deutschland",
@@ -7586,6 +8274,8 @@ const PIPELINE_DATA = {
       "year": 2000,
       "rating": 5.58751,
       "votes": 327,
+      "bggRank": 9594,
+      "is_expansion": false,
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -7608,6 +8298,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 5.58408,
       "votes": 336,
+      "bggRank": 9802,
+      "is_expansion": false,
       "location": {
         "city": "Salamanca",
         "country": "España",
@@ -7630,6 +8322,8 @@ const PIPELINE_DATA = {
       "year": 2013,
       "rating": 5.57875,
       "votes": 309,
+      "bggRank": 10125,
+      "is_expansion": false,
       "location": {
         "city": "Palmyra",
         "country": "سوريا",
@@ -7652,6 +8346,8 @@ const PIPELINE_DATA = {
       "year": 1995,
       "rating": 5.57592,
       "votes": 141,
+      "bggRank": 10292,
+      "is_expansion": false,
       "location": {
         "city": "Marengo",
         "country": "Italia",
@@ -7674,6 +8370,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 5.57354,
       "votes": 194,
+      "bggRank": 10454,
+      "is_expansion": false,
       "location": {
         "city": "Guadalajara",
         "country": "España",
@@ -7696,6 +8394,8 @@ const PIPELINE_DATA = {
       "year": 2001,
       "rating": 5.57124,
       "votes": 315,
+      "bggRank": 10617,
+      "is_expansion": false,
       "location": {
         "city": "Luxor",
         "country": "مصر",
@@ -7718,6 +8418,8 @@ const PIPELINE_DATA = {
       "year": 1963,
       "rating": 5.57016,
       "votes": 513,
+      "bggRank": 10717,
+      "is_expansion": false,
       "location": {
         "city": "Volgograd",
         "country": "Россия",
@@ -7740,6 +8442,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 5.56752,
       "votes": 107,
+      "bggRank": 10916,
+      "is_expansion": false,
       "location": {
         "city": "Palmyra",
         "country": "سوريا",
@@ -7762,6 +8466,8 @@ const PIPELINE_DATA = {
       "year": 1996,
       "rating": 5.56464,
       "votes": 124,
+      "bggRank": 11158,
+      "is_expansion": false,
       "location": {
         "city": "Jena",
         "country": "Deutschland",
@@ -7784,6 +8490,8 @@ const PIPELINE_DATA = {
       "year": 2020,
       "rating": 5.56433,
       "votes": 155,
+      "bggRank": 11183,
+      "is_expansion": false,
       "location": {
         "city": "Amalfi",
         "country": "Italia",
@@ -7806,6 +8514,8 @@ const PIPELINE_DATA = {
       "year": 2002,
       "rating": 5.5631,
       "votes": 196,
+      "bggRank": 11294,
+      "is_expansion": false,
       "location": {
         "city": "Marrakech",
         "country": "Maroc ⵍⵎⵖⵔⵉⴱ المغرب",
@@ -7828,6 +8538,8 @@ const PIPELINE_DATA = {
       "year": 2015,
       "rating": 5.55906,
       "votes": 102,
+      "bggRank": 11623,
+      "is_expansion": false,
       "location": {
         "city": "Versailles",
         "country": "France",
@@ -7850,6 +8562,8 @@ const PIPELINE_DATA = {
       "year": 1993,
       "rating": 5.55776,
       "votes": 141,
+      "bggRank": 11754,
+      "is_expansion": false,
       "location": {
         "city": "Austerlitz",
         "country": "Česko",
@@ -7872,6 +8586,8 @@ const PIPELINE_DATA = {
       "year": 2015,
       "rating": 5.55748,
       "votes": 330,
+      "bggRank": 11780,
+      "is_expansion": false,
       "location": {
         "city": "Agra",
         "country": "India",
@@ -7894,6 +8610,8 @@ const PIPELINE_DATA = {
       "year": 1999,
       "rating": 5.54935,
       "votes": 132,
+      "bggRank": 12632,
+      "is_expansion": false,
       "location": {
         "city": "Pisa",
         "country": "Italia",
@@ -7916,6 +8634,8 @@ const PIPELINE_DATA = {
       "year": 2006,
       "rating": 5.54768,
       "votes": 320,
+      "bggRank": 12841,
+      "is_expansion": false,
       "location": {
         "city": "Hameln",
         "country": "Deutschland",
@@ -7938,6 +8658,8 @@ const PIPELINE_DATA = {
       "year": 2005,
       "rating": 5.54426,
       "votes": 362,
+      "bggRank": 13272,
+      "is_expansion": false,
       "location": {
         "city": "Giza",
         "country": "مصر",
@@ -7960,6 +8682,8 @@ const PIPELINE_DATA = {
       "year": 2002,
       "rating": 5.54153,
       "votes": 279,
+      "bggRank": 13666,
+      "is_expansion": false,
       "location": {
         "city": "Cairo",
         "country": "مصر",
@@ -7982,6 +8706,8 @@ const PIPELINE_DATA = {
       "year": 1981,
       "rating": 5.53935,
       "votes": 148,
+      "bggRank": 13993,
+      "is_expansion": false,
       "location": {
         "city": "San Antonio",
         "country": "United States",
@@ -8004,6 +8730,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 5.53701,
       "votes": 139,
+      "bggRank": 14388,
+      "is_expansion": false,
       "location": {
         "city": "Riga",
         "country": "Latvija",
@@ -8026,6 +8754,8 @@ const PIPELINE_DATA = {
       "year": 1984,
       "rating": 5.531,
       "votes": 107,
+      "bggRank": 15513,
+      "is_expansion": false,
       "location": {
         "city": "Singapore",
         "country": "Singapore",
@@ -8048,6 +8778,8 @@ const PIPELINE_DATA = {
       "year": 2001,
       "rating": 5.52434,
       "votes": 232,
+      "bggRank": 17083,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -8070,6 +8802,8 @@ const PIPELINE_DATA = {
       "year": 2007,
       "rating": 5.51935,
       "votes": 257,
+      "bggRank": 18431,
+      "is_expansion": false,
       "location": {
         "city": "Rotterdam",
         "country": "Nederland",
@@ -8092,6 +8826,8 @@ const PIPELINE_DATA = {
       "year": 2016,
       "rating": 5.51902,
       "votes": 128,
+      "bggRank": 18517,
+      "is_expansion": false,
       "location": {
         "city": "Tallinn",
         "country": "Eesti",
@@ -8114,6 +8850,8 @@ const PIPELINE_DATA = {
       "year": 2007,
       "rating": 5.51515,
       "votes": 255,
+      "bggRank": 19659,
+      "is_expansion": false,
       "location": {
         "city": "New York",
         "country": "United States",
@@ -8136,6 +8874,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 5.51155,
       "votes": 309,
+      "bggRank": 20724,
+      "is_expansion": false,
       "location": {
         "city": "Alexandria",
         "country": "مصر",
@@ -8158,6 +8898,8 @@ const PIPELINE_DATA = {
       "year": 1984,
       "rating": 5.50956,
       "votes": 129,
+      "bggRank": 21293,
+      "is_expansion": false,
       "location": {
         "city": "Warsaw",
         "country": "Polska",
@@ -8180,6 +8922,8 @@ const PIPELINE_DATA = {
       "year": 2002,
       "rating": 5.50325,
       "votes": 152,
+      "bggRank": 23107,
+      "is_expansion": false,
       "location": {
         "city": "San Gimignano",
         "country": "Italia",
@@ -8202,6 +8946,8 @@ const PIPELINE_DATA = {
       "year": 2017,
       "rating": 5.49309,
       "votes": 111,
+      "bggRank": 25371,
+      "is_expansion": false,
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -8224,6 +8970,8 @@ const PIPELINE_DATA = {
       "year": 1986,
       "rating": 5.49224,
       "votes": 225,
+      "bggRank": 25510,
+      "is_expansion": false,
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -8246,6 +8994,8 @@ const PIPELINE_DATA = {
       "year": 1997,
       "rating": 5.49093,
       "votes": 151,
+      "bggRank": 25708,
+      "is_expansion": false,
       "location": {
         "city": "Shanghai",
         "country": "中国",
@@ -8268,6 +9018,8 @@ const PIPELINE_DATA = {
       "year": 2014,
       "rating": 5.48775,
       "votes": 228,
+      "bggRank": 26144,
+      "is_expansion": false,
       "location": {
         "city": "Marseille",
         "country": "France",
@@ -8290,6 +9042,8 @@ const PIPELINE_DATA = {
       "year": 1996,
       "rating": 5.47514,
       "votes": 119,
+      "bggRank": 27242,
+      "is_expansion": false,
       "location": {
         "city": "Las Vegas",
         "country": "United States",
@@ -8312,6 +9066,8 @@ const PIPELINE_DATA = {
       "year": 0,
       "rating": 4.08067,
       "votes": 1786,
+      "bggRank": 28596,
+      "is_expansion": false,
       "location": {
         "city": "Nice",
         "country": "France",

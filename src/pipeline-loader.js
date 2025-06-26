@@ -85,6 +85,7 @@ class PipelineLoader {
         return {
             id: pipelineGame.id, // Use actual BGG ID from pipeline data
             bggId: pipelineGame.id, // Also store as bggId for clarity
+            bggRank: pipelineGame.bggRank, // Preserve BGG ranking
             name: pipelineGame.name,
             yearPublished: pipelineGame.year,
             description: null, // Pipeline doesn't include description in JSON export

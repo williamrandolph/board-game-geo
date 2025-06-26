@@ -88,6 +88,31 @@
             cursor: not-allowed;
         }
         
+        .filter-section {
+            margin: 10px 0;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .filter-section label {
+            font-size: 12px;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .filter-section select {
+            width: 100%;
+            padding: 4px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        
+        .filter-section input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        
         .stats {
             font-size: 12px;
             color: #666;
@@ -159,7 +184,19 @@
     
     <div id="controls" class="controls">
         <h4>Board Game Geography</h4>
-        <button id="load-pipeline" onclick="loadPipelineData()">Load Games</button>
+        
+        <div class="filter-section">
+            <label for="top-n-select">BGG Ranking:</label>
+            <select id="top-n-select" onchange="updateFilters()">
+                <option value="all">All Games</option>
+                <option value="100">Top 100</option>
+                <option value="500">Top 500</option>
+                <option value="1000">Top 1000</option>
+                <option value="5000">Top 5000</option>
+            </select>
+        </div>
+        
+        <button id="load-pipeline" onclick="loadPipelineData()">Reload Games</button>
         <button id="clear-data" onclick="clearAllData()">Clear All Data</button>
         
         <div id="stats" class="stats">

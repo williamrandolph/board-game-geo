@@ -3,6 +3,24 @@ let database;
 let pipelineLoader;
 let isImporting = false;
 
+// Filter state
+let currentFilters = {
+    topN: 'all', // 'all', '50', '100', '250'
+    categories: []
+};
+
+// Update filters from UI controls
+function updateFilters() {
+    const topNSelect = document.getElementById('top-n-select');
+    
+    currentFilters.topN = topNSelect.value;
+    
+    console.log('🔄 Filters updated:', currentFilters);
+    
+    // Reload the map with new filters
+    loadGamesFromDatabase();
+}
+
 // Initialize map
 let map;
 let markers = [];
@@ -58,6 +76,30 @@ function initMap() {
     });
     
     map.addLayer(markerClusterGroup);
+}
+
+// Apply filters to games list
+function applyFilters(games) {
+    let filteredGames = [...games];
+    
+    // Apply BGG ranking filter first
+    if (currentFilters.topN !== 'all') {
+        const rankLimit = parseInt(currentFilters.topN);
+        filteredGames = filteredGames.filter(game => {
+            // Check if game has BGG rank data (from CSV)
+            const bggRank = game.bggRank || game.rank;
+            return bggRank && bggRank <= rankLimit;
+        });
+    }
+    
+    // Sort by BGG rank ascending (lower rank number = higher position)
+    filteredGames.sort((a, b) => {
+        const rankA = a.bggRank || a.rank || 999999;
+        const rankB = b.bggRank || b.rank || 999999;
+        return rankA - rankB;
+    });
+    
+    return filteredGames;
 }
 
 // Add marker to map from database game
@@ -121,6 +163,28 @@ function addGameMarker(game, location) {
     markerClusterGroup.addLayer(marker);
 }
 
+// Update stats display with filter information
+function updateFilterStats(totalGames, filteredGames, totalLocations) {
+    const statsDiv = document.getElementById('stats');
+    
+    let statsText = `Games: ${filteredGames}`;
+    if (filteredGames !== totalGames) {
+        statsText += ` of ${totalGames}`;
+    }
+    statsText += `<br>Locations: ${totalLocations}`;
+    
+    const filters = [];
+    if (currentFilters.topN !== 'all') {
+        filters.push(`BGG Top ${currentFilters.topN}`);
+    }
+    
+    if (filters.length > 0) {
+        statsText += `<br>Filter: ${filters.join(', ')}`;
+    }
+    
+    statsDiv.innerHTML = statsText;
+}
+
 // Load games from database and display on map
 async function loadGamesFromDatabase() {
     const loading = document.getElementById('loading');
@@ -129,21 +193,24 @@ async function loadGamesFromDatabase() {
     try {
         loadingDetails.textContent = 'Loading games from database...';
         
-        const games = await database.getAllGamesWithLocations();
+        const allGames = await database.getAllGamesWithLocations();
         
-        if (games.length === 0) {
-            loadingDetails.textContent = 'No games found. Import some games to get started!';
+        if (allGames.length === 0) {
+            loadingDetails.textContent = 'No games found. Loading pipeline data...';
             setTimeout(() => {
                 loading.style.display = 'none';
             }, 2000);
             return;
         }
         
+        // Apply current filters
+        const filteredGames = applyFilters(allGames);
+        
         // Clear existing markers
         clearMarkers();
         
         let totalLocations = 0;
-        games.forEach(game => {
+        filteredGames.forEach(game => {
             game.locations.forEach(location => {
                 addGameMarker(game, location);
                 totalLocations++;
@@ -156,7 +223,10 @@ async function loadGamesFromDatabase() {
             map.fitBounds(group.getBounds().pad(0.1));
         }
         
-        console.log(`✅ Loaded ${games.length} games with ${totalLocations} locations`);
+        console.log(`✅ Loaded ${filteredGames.length}/${allGames.length} games with ${totalLocations} locations`);
+        
+        // Update stats to show filtered results
+        updateFilterStats(allGames.length, filteredGames.length, totalLocations);
         
     } catch (error) {
         console.error('Error loading games:', error);
@@ -276,9 +346,26 @@ async function loadPipelineData() {
 }
 
 
+// Auto-load pipeline data on first visit
+async function autoLoadPipelineData() {
+    try {
+        const stats = await database.getStats();
+        
+        // If no games in database, auto-load pipeline data
+        if (stats.games === 0) {
+            console.log('🔄 Auto-loading pipeline data on first visit...');
+            const result = await pipelineLoader.loadDefaultData();
+            console.log('📊 Auto-load completed:', result);
+        }
+    } catch (error) {
+        console.error('Auto-load failed:', error);
+    }
+}
+
 // Initialize everything when page loads
 document.addEventListener('DOMContentLoaded', async function() {
     initMap();
     await initSystems();
+    await autoLoadPipelineData();
     await loadGamesFromDatabase();
 });

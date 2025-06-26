@@ -17,8 +17,9 @@ An interactive map showing the real-world locations associated with board games.
 ### Option 1: Use Pre-processed Data (Recommended)
 1. Clone the repository
 2. Open `index.html` directly in your web browser
-3. Click "Load Games" to load 280+ games from the embedded dataset
-4. Explore the map with clustered markers and clickable game links
+3. Games automatically load from the embedded dataset on first visit
+4. Use BGG ranking filter to show Top 100/500/1000/5000 games
+5. Explore the map with clustered markers and clickable game links
 
 ### Option 2: Run Simple Pipeline
 1. **Download Required Data**:
@@ -122,9 +123,10 @@ python bin/bgg_cache.py stats
 - **Direct Links**: Each game links to its BoardGameGeek page
 
 ### Static Web Interface
-- **No Dependencies**: Works offline with embedded data
+- **Auto-Loading**: Games load automatically on first visit
+- **BGG Ranking Filter**: Filter by Top 100/500/1000/5000 BGG ranked games
 - **Marker Clustering**: Automatically groups overlapping city markers
-- **Simple Controls**: Just "Load Games" and "Clear Data"
+- **No Dependencies**: Works offline with embedded data
 
 ### Smart Geocoding
 - **5-Tier Fallback**: Multiple Nominatim query strategies
@@ -162,10 +164,9 @@ python bin/bgg_cache.py stats
 ## 🚧 TODO: Planned Enhancements
 
 ### Auto-Loading & Filtering
-- [ ] **Auto-load pipeline data** on page load (remove manual "Load Games" button)
-- [ ] **Top N games filter**: Slider/dropdown for "Show top 50/100/250/All games by BGG rating"
+- [x] **Auto-load pipeline data** on page load (remove manual "Load Games" button)
+- [x] **BGG ranking filter**: Dropdown for "Show BGG Top 100/500/1000/5000/All games"
 - [ ] **Category filtering**: Multi-select dropdown with game categories (Economic, Strategy, etc.)
-- [ ] **Expansion support**: Checkbox to include/exclude game expansions
 
 ### Visual Enhancements
 - [ ] **Color-coded markers** by primary game category:
