@@ -12,8 +12,13 @@ let currentFilters = {
 // Update filters from UI controls
 function updateFilters() {
     const topNSelect = document.getElementById('top-n-select');
+    const categorySelect = document.getElementById('category-select');
     
     currentFilters.topN = topNSelect.value;
+    
+    // Get selected categories
+    const selectedCategories = Array.from(categorySelect.selectedOptions).map(option => option.value);
+    currentFilters.categories = selectedCategories;
     
     console.log('🔄 Filters updated:', currentFilters);
     
@@ -89,6 +94,17 @@ function applyFilters(games) {
             // Check if game has BGG rank data (from CSV)
             const bggRank = game.bggRank || game.rank;
             return bggRank && bggRank <= rankLimit;
+        });
+    }
+    
+    // Apply category filter
+    if (currentFilters.categories.length > 0) {
+        filteredGames = filteredGames.filter(game => {
+            const gameCategories = game.categories || [];
+            // Show game if it has ANY of the selected categories
+            return currentFilters.categories.some(selectedCategory => 
+                gameCategories.includes(selectedCategory)
+            );
         });
     }
     
@@ -177,9 +193,15 @@ function updateFilterStats(totalGames, filteredGames, totalLocations) {
     if (currentFilters.topN !== 'all') {
         filters.push(`BGG Top ${currentFilters.topN}`);
     }
+    if (currentFilters.categories.length > 0) {
+        const categoryText = currentFilters.categories.length === 1 
+            ? currentFilters.categories[0] 
+            : `${currentFilters.categories.length} categories`;
+        filters.push(categoryText);
+    }
     
     if (filters.length > 0) {
-        statsText += `<br>Filter: ${filters.join(', ')}`;
+        statsText += `<br>Filters: ${filters.join(', ')}`;
     }
     
     statsDiv.innerHTML = statsText;
@@ -228,6 +250,12 @@ async function loadGamesFromDatabase() {
         // Update stats to show filtered results
         updateFilterStats(allGames.length, filteredGames.length, totalLocations);
         
+        // Populate category filter dropdown (only if not already populated)
+        const categorySelect = document.getElementById('category-select');
+        if (categorySelect.options.length === 0) {
+            populateCategoryFilter(allGames);
+        }
+        
     } catch (error) {
         console.error('Error loading games:', error);
         loadingDetails.textContent = 'Error loading games: ' + error.message;
@@ -244,6 +272,39 @@ function clearMarkers() {
         markerClusterGroup.clearLayers();
     }
     markers = [];
+}
+
+// Populate category filter dropdown with available categories
+function populateCategoryFilter(games) {
+    const categorySelect = document.getElementById('category-select');
+    
+    // Count category occurrences
+    const categoryCount = {};
+    games.forEach(game => {
+        if (game.categories) {
+            game.categories.forEach(category => {
+                categoryCount[category] = (categoryCount[category] || 0) + 1;
+            });
+        }
+    });
+    
+    // Filter categories with at least 20 games and sort by count (descending)
+    const significantCategories = Object.entries(categoryCount)
+        .filter(([category, count]) => count >= 20)
+        .sort((a, b) => b[1] - a[1]); // Sort by count descending
+    
+    // Clear existing options
+    categorySelect.innerHTML = '';
+    
+    // Add options for each significant category with counts
+    significantCategories.forEach(([category, count]) => {
+        const option = document.createElement('option');
+        option.value = category;
+        option.textContent = `${category} (${count})`;
+        categorySelect.appendChild(option);
+    });
+    
+    console.log(`📋 Populated ${significantCategories.length} categories (20+ games) in filter dropdown`);
 }
 
 // Update stats display

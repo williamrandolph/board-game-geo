@@ -18,7 +18,7 @@ An interactive map showing the real-world locations associated with board games.
 1. Clone the repository
 2. Open `index.html` directly in your web browser
 3. Games automatically load from the embedded dataset on first visit
-4. Use BGG ranking filter to show Top 100/500/1000/5000 games
+4. Use BGG ranking filter (Top 100/500/1000/5000) and category filters
 5. Explore the map with clustered markers and clickable game links
 
 ### Option 2: Run Simple Pipeline
@@ -124,7 +124,7 @@ python bin/bgg_cache.py stats
 
 ### Static Web Interface
 - **Auto-Loading**: Games load automatically on first visit
-- **BGG Ranking Filter**: Filter by Top 100/500/1000/5000 BGG ranked games
+- **Smart Filtering**: BGG ranking filter + category filter with game counts
 - **Marker Clustering**: Automatically groups overlapping city markers
 - **No Dependencies**: Works offline with embedded data
 
@@ -166,7 +166,7 @@ python bin/bgg_cache.py stats
 ### Auto-Loading & Filtering
 - [x] **Auto-load pipeline data** on page load (remove manual "Load Games" button)
 - [x] **BGG ranking filter**: Dropdown for "Show BGG Top 100/500/1000/5000/All games"
-- [ ] **Category filtering**: Multi-select dropdown with game categories (Economic, Strategy, etc.)
+- [x] **Category filtering**: Multi-select dropdown with major game categories (20+ games)
 
 ### Visual Enhancements
 - [ ] **Color-coded markers** by primary game category:

@@ -127,6 +127,7 @@ def validate_and_geotag(filtered_csv: str, output_json_path: str = "data/exports
                 "votes": votes,
                 "bggRank": bgg_rank,
                 "is_expansion": is_expansion,
+                "categories": match.get("categories", []),
                 "location": {
                     "city": geocoding_result["city"],
                     "country": geocoding_result.get("address", {}).get("country") or geocoding_result["country"],

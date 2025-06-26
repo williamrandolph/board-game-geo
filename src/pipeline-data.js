@@ -1,9 +1,9 @@
 // Pipeline data export - 378 BGG family games
-// Generated: 2025-06-26T15:05:52.129234
+// Generated: 2025-06-26T15:37:13.559933
 
 const PIPELINE_DATA = {
   "metadata": {
-    "generated_at": "2025-06-26T15:05:52.129234",
+    "generated_at": "2025-06-26T15:37:13.559933",
     "total_games": 378,
     "filters_applied": {
       "confidence": null,
@@ -20,6 +20,14 @@ const PIPELINE_DATA = {
       "votes": 52461,
       "bggRank": 1,
       "is_expansion": false,
+      "categories": [
+        "Age of Reason",
+        "Economic",
+        "Industry / Manufacturing",
+        "Post-Napoleonic",
+        "Trains",
+        "Transportation"
+      ],
       "location": {
         "city": "Birmingham",
         "country": "United Kingdom",
@@ -44,6 +52,11 @@ const PIPELINE_DATA = {
       "votes": 42582,
       "bggRank": 17,
       "is_expansion": false,
+      "categories": [
+        "American West",
+        "Animals",
+        "Economic"
+      ],
       "location": {
         "city": "Kansas City",
         "country": "United States",
@@ -68,6 +81,13 @@ const PIPELINE_DATA = {
       "votes": 26191,
       "bggRank": 21,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Educational",
+        "Industry / Manufacturing",
+        "Post-Napoleonic",
+        "Transportation"
+      ],
       "location": {
         "city": "Manchester",
         "country": "United Kingdom",
@@ -92,6 +112,11 @@ const PIPELINE_DATA = {
       "votes": 15618,
       "bggRank": 27,
       "is_expansion": false,
+      "categories": [
+        "American West",
+        "Animals",
+        "Economic"
+      ],
       "location": {
         "city": "Kansas City",
         "country": "United States",
@@ -116,6 +141,11 @@ const PIPELINE_DATA = {
       "votes": 33760,
       "bggRank": 34,
       "is_expansion": false,
+      "categories": [
+        "Medieval",
+        "Religious",
+        "Travel"
+      ],
       "location": {
         "city": "Orléans",
         "country": "France",
@@ -140,6 +170,12 @@ const PIPELINE_DATA = {
       "votes": 12079,
       "bggRank": 64,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Economic",
+        "Industry / Manufacturing",
+        "Political"
+      ],
       "location": {
         "city": "Lisbon",
         "country": "Portugal",
@@ -164,6 +200,9 @@ const PIPELINE_DATA = {
       "votes": 23154,
       "bggRank": 67,
       "is_expansion": false,
+      "categories": [
+        "Economic"
+      ],
       "location": {
         "city": "Vienna",
         "country": "Österreich",
@@ -188,6 +227,12 @@ const PIPELINE_DATA = {
       "votes": 32911,
       "bggRank": 74,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Economic",
+        "Industry / Manufacturing",
+        "Nautical"
+      ],
       "location": {
         "city": "Le Havre",
         "country": "France",
@@ -212,6 +257,12 @@ const PIPELINE_DATA = {
       "votes": 17755,
       "bggRank": 77,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Exploration",
+        "Nautical",
+        "Pirates"
+      ],
       "location": {
         "city": "Maracaibo",
         "country": "Venezuela",
@@ -236,6 +287,11 @@ const PIPELINE_DATA = {
       "votes": 24362,
       "bggRank": 131,
       "is_expansion": false,
+      "categories": [
+        "Dice",
+        "Economic",
+        "Medieval"
+      ],
       "location": {
         "city": "Troyes",
         "country": "France",
@@ -260,6 +316,9 @@ const PIPELINE_DATA = {
       "votes": 14658,
       "bggRank": 132,
       "is_expansion": false,
+      "categories": [
+        "Renaissance"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -284,6 +343,9 @@ const PIPELINE_DATA = {
       "votes": 12885,
       "bggRank": 149,
       "is_expansion": false,
+      "categories": [
+        "Economic"
+      ],
       "location": {
         "city": "Yokohama",
         "country": "日本",
@@ -308,6 +370,11 @@ const PIPELINE_DATA = {
       "votes": 9751,
       "bggRank": 180,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Medieval",
+        "Puzzle"
+      ],
       "location": {
         "city": "Prague",
         "country": "Česko",
@@ -332,6 +399,13 @@ const PIPELINE_DATA = {
       "votes": 22198,
       "bggRank": 185,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Murder / Mystery",
+        "Novel-based",
+        "Post-Napoleonic",
+        "Spies / Secret Agents"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -356,6 +430,9 @@ const PIPELINE_DATA = {
       "votes": 32708,
       "bggRank": 186,
       "is_expansion": false,
+      "categories": [
+        "Economic"
+      ],
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -380,6 +457,10 @@ const PIPELINE_DATA = {
       "votes": 14172,
       "bggRank": 210,
       "is_expansion": false,
+      "categories": [
+        "Dice",
+        "Economic"
+      ],
       "location": {
         "city": "Moscow",
         "country": "Россия",
@@ -404,6 +485,10 @@ const PIPELINE_DATA = {
       "votes": 44791,
       "bggRank": 213,
       "is_expansion": false,
+      "categories": [
+        "Dice",
+        "Puzzle"
+      ],
       "location": {
         "city": "Barcelona",
         "country": "España",
@@ -428,6 +513,10 @@ const PIPELINE_DATA = {
       "votes": 133793,
       "bggRank": 233,
       "is_expansion": false,
+      "categories": [
+        "Medieval",
+        "Territory Building"
+      ],
       "location": {
         "city": "Carcassonne",
         "country": "France",
@@ -452,6 +541,10 @@ const PIPELINE_DATA = {
       "votes": 20078,
       "bggRank": 267,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Medieval"
+      ],
       "location": {
         "city": "Kyoto",
         "country": "日本",
@@ -476,6 +569,12 @@ const PIPELINE_DATA = {
       "votes": 14630,
       "bggRank": 278,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Card Game",
+        "City Building",
+        "Economic"
+      ],
       "location": {
         "city": "Rome",
         "country": "Italia",
@@ -500,6 +599,10 @@ const PIPELINE_DATA = {
       "votes": 15833,
       "bggRank": 279,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Renaissance"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -524,6 +627,11 @@ const PIPELINE_DATA = {
       "votes": 4643,
       "bggRank": 317,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "City Building",
+        "Economic"
+      ],
       "location": {
         "city": "Rome",
         "country": "Italia",
@@ -548,6 +656,11 @@ const PIPELINE_DATA = {
       "votes": 5804,
       "bggRank": 354,
       "is_expansion": false,
+      "categories": [
+        "Arabian",
+        "Exploration",
+        "Medieval"
+      ],
       "location": {
         "city": "Baghdad",
         "country": "العراق",
@@ -572,6 +685,11 @@ const PIPELINE_DATA = {
       "votes": 11990,
       "bggRank": 366,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Economic",
+        "Negotiation"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -596,6 +714,12 @@ const PIPELINE_DATA = {
       "votes": 12041,
       "bggRank": 368,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "City Building",
+        "Economic",
+        "Renaissance"
+      ],
       "location": {
         "city": "Bruges",
         "country": "België / Belgique / Belgien",
@@ -620,6 +744,9 @@ const PIPELINE_DATA = {
       "votes": 3565,
       "bggRank": 395,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "Marrakech",
         "country": "Maroc ⵍⵎⵖⵔⵉⴱ المغرب",
@@ -644,6 +771,12 @@ const PIPELINE_DATA = {
       "votes": 16640,
       "bggRank": 410,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Deduction",
+        "Murder / Mystery",
+        "Post-Napoleonic"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -668,6 +801,10 @@ const PIPELINE_DATA = {
       "votes": 4544,
       "bggRank": 411,
       "is_expansion": false,
+      "categories": [
+        "Medical",
+        "Post-Napoleonic"
+      ],
       "location": {
         "city": "Vienna",
         "country": "Österreich",
@@ -692,6 +829,11 @@ const PIPELINE_DATA = {
       "votes": 6253,
       "bggRank": 414,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Dice",
+        "Mythology"
+      ],
       "location": {
         "city": "Luxor",
         "country": "مصر",
@@ -716,6 +858,11 @@ const PIPELINE_DATA = {
       "votes": 8156,
       "bggRank": 436,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Mafia",
+        "Movies / TV / Radio theme"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -740,6 +887,10 @@ const PIPELINE_DATA = {
       "votes": 13601,
       "bggRank": 442,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Renaissance"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -764,6 +915,9 @@ const PIPELINE_DATA = {
       "votes": 6658,
       "bggRank": 444,
       "is_expansion": false,
+      "categories": [
+        "Ancient"
+      ],
       "location": {
         "city": "Rome",
         "country": "Italia",
@@ -788,6 +942,12 @@ const PIPELINE_DATA = {
       "votes": 16329,
       "bggRank": 449,
       "is_expansion": false,
+      "categories": [
+        "Age of Reason",
+        "Card Game",
+        "City Building",
+        "Economic"
+      ],
       "location": {
         "city": "Saint Petersburg",
         "country": "Россия",
@@ -812,6 +972,12 @@ const PIPELINE_DATA = {
       "votes": 73587,
       "bggRank": 456,
       "is_expansion": false,
+      "categories": [
+        "Dice",
+        "Fighting",
+        "Movies / TV / Radio theme",
+        "Science Fiction"
+      ],
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -836,6 +1002,10 @@ const PIPELINE_DATA = {
       "votes": 7515,
       "bggRank": 464,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "City Building"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -860,6 +1030,9 @@ const PIPELINE_DATA = {
       "votes": 5751,
       "bggRank": 479,
       "is_expansion": false,
+      "categories": [
+        "Economic"
+      ],
       "location": {
         "city": "Brussels",
         "country": "België / Belgique / Belgien",
@@ -884,6 +1057,12 @@ const PIPELINE_DATA = {
       "votes": 5766,
       "bggRank": 480,
       "is_expansion": false,
+      "categories": [
+        "Dice",
+        "Fighting",
+        "Movies / TV / Radio theme",
+        "Science Fiction"
+      ],
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -908,6 +1087,14 @@ const PIPELINE_DATA = {
       "votes": 6308,
       "bggRank": 506,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Murder / Mystery",
+        "Novel-based",
+        "Post-Napoleonic",
+        "Puzzle",
+        "Spies / Secret Agents"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -932,6 +1119,10 @@ const PIPELINE_DATA = {
       "votes": 6965,
       "bggRank": 518,
       "is_expansion": false,
+      "categories": [
+        "Spies / Secret Agents",
+        "World War II"
+      ],
       "location": {
         "city": "Berlin",
         "country": "Deutschland",
@@ -956,6 +1147,12 @@ const PIPELINE_DATA = {
       "votes": 7899,
       "bggRank": 564,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Dice",
+        "Economic",
+        "Negotiation"
+      ],
       "location": {
         "city": "Las Vegas",
         "country": "United States",
@@ -980,6 +1177,15 @@ const PIPELINE_DATA = {
       "votes": 36959,
       "bggRank": 577,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Card Game",
+        "Humor",
+        "Medieval",
+        "Negotiation",
+        "Novel-based",
+        "Party Game"
+      ],
       "location": {
         "city": "Nottingham",
         "country": "United Kingdom",
@@ -1004,6 +1210,10 @@ const PIPELINE_DATA = {
       "votes": 2918,
       "bggRank": 584,
       "is_expansion": false,
+      "categories": [
+        "Arabian",
+        "Medieval"
+      ],
       "location": {
         "city": "Baghdad",
         "country": "العراق",
@@ -1028,6 +1238,10 @@ const PIPELINE_DATA = {
       "votes": 6248,
       "bggRank": 591,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Trains"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -1052,6 +1266,10 @@ const PIPELINE_DATA = {
       "votes": 34664,
       "bggRank": 596,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Medieval"
+      ],
       "location": {
         "city": "Granada",
         "country": "España",
@@ -1076,6 +1294,9 @@ const PIPELINE_DATA = {
       "votes": 11938,
       "bggRank": 613,
       "is_expansion": false,
+      "categories": [
+        "Dice"
+      ],
       "location": {
         "city": "Las Vegas",
         "country": "United States",
@@ -1100,6 +1321,12 @@ const PIPELINE_DATA = {
       "votes": 8538,
       "bggRank": 629,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Post-Napoleonic",
+        "Trains",
+        "Transportation"
+      ],
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -1124,6 +1351,11 @@ const PIPELINE_DATA = {
       "votes": 2458,
       "bggRank": 631,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "City Building",
+        "Religious"
+      ],
       "location": {
         "city": "Jerusalem",
         "country": "ישראל",
@@ -1148,6 +1380,9 @@ const PIPELINE_DATA = {
       "votes": 3208,
       "bggRank": 637,
       "is_expansion": false,
+      "categories": [
+        "Murder / Mystery"
+      ],
       "location": {
         "city": "Los Angeles",
         "country": "United States",
@@ -1172,6 +1407,10 @@ const PIPELINE_DATA = {
       "votes": 6638,
       "bggRank": 645,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Economic"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -1196,6 +1435,9 @@ const PIPELINE_DATA = {
       "votes": 3687,
       "bggRank": 647,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "Barcelona",
         "country": "España",
@@ -1220,6 +1462,10 @@ const PIPELINE_DATA = {
       "votes": 8044,
       "bggRank": 658,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Political"
+      ],
       "location": {
         "city": "Agra",
         "country": "India",
@@ -1244,6 +1490,12 @@ const PIPELINE_DATA = {
       "votes": 2774,
       "bggRank": 691,
       "is_expansion": false,
+      "categories": [
+        "Adventure",
+        "Exploration",
+        "Nautical",
+        "Pirates"
+      ],
       "location": {
         "city": "Maracaibo",
         "country": "Venezuela",
@@ -1268,6 +1520,9 @@ const PIPELINE_DATA = {
       "votes": 8724,
       "bggRank": 695,
       "is_expansion": false,
+      "categories": [
+        "Renaissance"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -1292,6 +1547,13 @@ const PIPELINE_DATA = {
       "votes": 4432,
       "bggRank": 707,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Deduction",
+        "Memory",
+        "Murder / Mystery",
+        "Post-Napoleonic"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -1316,6 +1578,10 @@ const PIPELINE_DATA = {
       "votes": 4901,
       "bggRank": 708,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Industry / Manufacturing"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -1340,6 +1606,11 @@ const PIPELINE_DATA = {
       "votes": 4321,
       "bggRank": 716,
       "is_expansion": false,
+      "categories": [
+        "Fantasy",
+        "Novel-based",
+        "Renaissance"
+      ],
       "location": {
         "city": "Prague",
         "country": "Česko",
@@ -1364,6 +1635,11 @@ const PIPELINE_DATA = {
       "votes": 7418,
       "bggRank": 718,
       "is_expansion": false,
+      "categories": [
+        "American West",
+        "City Building",
+        "Economic"
+      ],
       "location": {
         "city": "Carson City",
         "country": "United States",
@@ -1388,6 +1664,11 @@ const PIPELINE_DATA = {
       "votes": 9625,
       "bggRank": 731,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Deduction",
+        "Party Game"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -1412,6 +1693,9 @@ const PIPELINE_DATA = {
       "votes": 8564,
       "bggRank": 732,
       "is_expansion": false,
+      "categories": [
+        "Ancient"
+      ],
       "location": {
         "city": "Naples",
         "country": "Italia",
@@ -1436,6 +1720,9 @@ const PIPELINE_DATA = {
       "votes": 4677,
       "bggRank": 761,
       "is_expansion": false,
+      "categories": [
+        "Medieval"
+      ],
       "location": {
         "city": "Nottingham",
         "country": "United Kingdom",
@@ -1460,6 +1747,10 @@ const PIPELINE_DATA = {
       "votes": 18615,
       "bggRank": 765,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Murder / Mystery"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -1484,6 +1775,12 @@ const PIPELINE_DATA = {
       "votes": 2506,
       "bggRank": 779,
       "is_expansion": false,
+      "categories": [
+        "Educational",
+        "Pike and Shot",
+        "Religious",
+        "Renaissance"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -1508,6 +1805,13 @@ const PIPELINE_DATA = {
       "votes": 2905,
       "bggRank": 780,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Exploration",
+        "Novel-based",
+        "Puzzle",
+        "Real-time"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -1532,6 +1836,10 @@ const PIPELINE_DATA = {
       "votes": 1700,
       "bggRank": 799,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Volgograd",
         "country": "Россия",
@@ -1556,6 +1864,10 @@ const PIPELINE_DATA = {
       "votes": 8549,
       "bggRank": 815,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Medieval"
+      ],
       "location": {
         "city": "Carcassonne",
         "country": "France",
@@ -1580,6 +1892,10 @@ const PIPELINE_DATA = {
       "votes": 2698,
       "bggRank": 830,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Political"
+      ],
       "location": {
         "city": "Berlin",
         "country": "Deutschland",
@@ -1604,6 +1920,11 @@ const PIPELINE_DATA = {
       "votes": 2790,
       "bggRank": 831,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Educational",
+        "Industry / Manufacturing"
+      ],
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -1628,6 +1949,10 @@ const PIPELINE_DATA = {
       "votes": 3640,
       "bggRank": 833,
       "is_expansion": false,
+      "categories": [
+        "Dice",
+        "Economic"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -1652,6 +1977,9 @@ const PIPELINE_DATA = {
       "votes": 6473,
       "bggRank": 867,
       "is_expansion": false,
+      "categories": [
+        "Economic"
+      ],
       "location": {
         "city": "Las Vegas",
         "country": "United States",
@@ -1676,6 +2004,11 @@ const PIPELINE_DATA = {
       "votes": 5646,
       "bggRank": 875,
       "is_expansion": false,
+      "categories": [
+        "Abstract Strategy",
+        "Puzzle",
+        "Territory Building"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -1700,6 +2033,10 @@ const PIPELINE_DATA = {
       "votes": 8226,
       "bggRank": 878,
       "is_expansion": false,
+      "categories": [
+        "Dice",
+        "Economic"
+      ],
       "location": {
         "city": "Isfahan",
         "country": "ایران",
@@ -1724,6 +2061,12 @@ const PIPELINE_DATA = {
       "votes": 3686,
       "bggRank": 892,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Pike and Shot",
+        "Territory Building",
+        "Wargame"
+      ],
       "location": {
         "city": "Berlin",
         "country": "Deutschland",
@@ -1748,6 +2091,12 @@ const PIPELINE_DATA = {
       "votes": 3496,
       "bggRank": 908,
       "is_expansion": false,
+      "categories": [
+        "Age of Reason",
+        "Card Game",
+        "City Building",
+        "Economic"
+      ],
       "location": {
         "city": "Saint Petersburg",
         "country": "Россия",
@@ -1772,6 +2121,11 @@ const PIPELINE_DATA = {
       "votes": 4512,
       "bggRank": 930,
       "is_expansion": false,
+      "categories": [
+        "Negotiation",
+        "Political",
+        "Territory Building"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -1796,6 +2150,11 @@ const PIPELINE_DATA = {
       "votes": 4144,
       "bggRank": 936,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Nautical",
+        "Transportation"
+      ],
       "location": {
         "city": "Panama City",
         "country": "Panamá",
@@ -1820,6 +2179,12 @@ const PIPELINE_DATA = {
       "votes": 17027,
       "bggRank": 945,
       "is_expansion": false,
+      "categories": [
+        "Dice",
+        "Fighting",
+        "Movies / TV / Radio theme",
+        "Science Fiction"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -1844,6 +2209,12 @@ const PIPELINE_DATA = {
       "votes": 2408,
       "bggRank": 946,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Industry / Manufacturing",
+        "Post-Napoleonic",
+        "Trains"
+      ],
       "location": {
         "city": "Trieste",
         "country": "Italia",
@@ -1868,6 +2239,10 @@ const PIPELINE_DATA = {
       "votes": 4984,
       "bggRank": 989,
       "is_expansion": false,
+      "categories": [
+        "Adventure",
+        "Ancient"
+      ],
       "location": {
         "city": "Luxor",
         "country": "مصر",
@@ -1892,6 +2267,10 @@ const PIPELINE_DATA = {
       "votes": 4546,
       "bggRank": 1006,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Medieval"
+      ],
       "location": {
         "city": "Carcassonne",
         "country": "France",
@@ -1916,6 +2295,9 @@ const PIPELINE_DATA = {
       "votes": 3087,
       "bggRank": 1008,
       "is_expansion": false,
+      "categories": [
+        "Dice"
+      ],
       "location": {
         "city": "Las Vegas",
         "country": "United States",
@@ -1940,6 +2322,9 @@ const PIPELINE_DATA = {
       "votes": 5108,
       "bggRank": 1011,
       "is_expansion": false,
+      "categories": [
+        "Dice"
+      ],
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -1964,6 +2349,10 @@ const PIPELINE_DATA = {
       "votes": 4624,
       "bggRank": 1015,
       "is_expansion": false,
+      "categories": [
+        "Medieval",
+        "Political"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -1988,6 +2377,10 @@ const PIPELINE_DATA = {
       "votes": 7969,
       "bggRank": 1016,
       "is_expansion": false,
+      "categories": [
+        "Racing",
+        "Sports"
+      ],
       "location": {
         "city": "Monte Carlo",
         "country": "Monaco",
@@ -2012,6 +2405,12 @@ const PIPELINE_DATA = {
       "votes": 10561,
       "bggRank": 1017,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Card Game",
+        "Medieval",
+        "Negotiation"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -2036,6 +2435,10 @@ const PIPELINE_DATA = {
       "votes": 6249,
       "bggRank": 1034,
       "is_expansion": false,
+      "categories": [
+        "Negotiation",
+        "Renaissance"
+      ],
       "location": {
         "city": "Genoa",
         "country": "Italia",
@@ -2060,6 +2463,10 @@ const PIPELINE_DATA = {
       "votes": 1848,
       "bggRank": 1043,
       "is_expansion": false,
+      "categories": [
+        "Napoleonic",
+        "Wargame"
+      ],
       "location": {
         "city": "Austerlitz",
         "country": "Česko",
@@ -2084,6 +2491,11 @@ const PIPELINE_DATA = {
       "votes": 6661,
       "bggRank": 1066,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "City Building",
+        "Territory Building"
+      ],
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -2108,6 +2520,9 @@ const PIPELINE_DATA = {
       "votes": 5346,
       "bggRank": 1102,
       "is_expansion": false,
+      "categories": [
+        "Trains"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -2132,6 +2547,9 @@ const PIPELINE_DATA = {
       "votes": 2845,
       "bggRank": 1107,
       "is_expansion": false,
+      "categories": [
+        "Farming"
+      ],
       "location": {
         "city": "New Orleans",
         "country": "United States",
@@ -2156,6 +2574,11 @@ const PIPELINE_DATA = {
       "votes": 6253,
       "bggRank": 1110,
       "is_expansion": false,
+      "categories": [
+        "Nautical",
+        "Pirates",
+        "Transportation"
+      ],
       "location": {
         "city": "Manila",
         "country": "Philippines",
@@ -2180,6 +2603,11 @@ const PIPELINE_DATA = {
       "votes": 4445,
       "bggRank": 1117,
       "is_expansion": false,
+      "categories": [
+        "Age of Reason",
+        "Card Game",
+        "Economic"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -2204,6 +2632,9 @@ const PIPELINE_DATA = {
       "votes": 2208,
       "bggRank": 1118,
       "is_expansion": false,
+      "categories": [
+        "Medieval"
+      ],
       "location": {
         "city": "Granada",
         "country": "España",
@@ -2228,6 +2659,10 @@ const PIPELINE_DATA = {
       "votes": 2055,
       "bggRank": 1139,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Mafia"
+      ],
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -2252,6 +2687,9 @@ const PIPELINE_DATA = {
       "votes": 4187,
       "bggRank": 1140,
       "is_expansion": false,
+      "categories": [
+        "Post-Napoleonic"
+      ],
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -2276,6 +2714,12 @@ const PIPELINE_DATA = {
       "votes": 8951,
       "bggRank": 1149,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Deduction",
+        "Murder / Mystery",
+        "Post-Napoleonic"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -2300,6 +2744,9 @@ const PIPELINE_DATA = {
       "votes": 5202,
       "bggRank": 1150,
       "is_expansion": false,
+      "categories": [
+        "Economic"
+      ],
       "location": {
         "city": "Hamburg",
         "country": "Deutschland",
@@ -2324,6 +2771,11 @@ const PIPELINE_DATA = {
       "votes": 2888,
       "bggRank": 1183,
       "is_expansion": false,
+      "categories": [
+        "Civilization",
+        "Economic",
+        "Renaissance"
+      ],
       "location": {
         "city": "Cusco",
         "country": "Perú",
@@ -2348,6 +2800,9 @@ const PIPELINE_DATA = {
       "votes": 7369,
       "bggRank": 1184,
       "is_expansion": false,
+      "categories": [
+        "Trains"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -2372,6 +2827,12 @@ const PIPELINE_DATA = {
       "votes": 4953,
       "bggRank": 1191,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Card Game",
+        "Mythology",
+        "Religious"
+      ],
       "location": {
         "city": "Luxor",
         "country": "مصر",
@@ -2396,6 +2857,10 @@ const PIPELINE_DATA = {
       "votes": 3342,
       "bggRank": 1197,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Renaissance"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -2420,6 +2885,10 @@ const PIPELINE_DATA = {
       "votes": 3625,
       "bggRank": 1244,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Murder / Mystery"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -2444,6 +2913,13 @@ const PIPELINE_DATA = {
       "votes": 2412,
       "bggRank": 1245,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Civilization",
+        "Economic",
+        "Territory Building",
+        "Wargame"
+      ],
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -2468,6 +2944,11 @@ const PIPELINE_DATA = {
       "votes": 3013,
       "bggRank": 1328,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Economic",
+        "Post-Napoleonic"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -2492,6 +2973,9 @@ const PIPELINE_DATA = {
       "votes": 6483,
       "bggRank": 1408,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -2516,6 +3000,10 @@ const PIPELINE_DATA = {
       "votes": 1581,
       "bggRank": 1416,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Volgograd",
         "country": "Россия",
@@ -2540,6 +3028,10 @@ const PIPELINE_DATA = {
       "votes": 4245,
       "bggRank": 1419,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Puzzle"
+      ],
       "location": {
         "city": "Copenhagen",
         "country": "Danmark",
@@ -2564,6 +3056,11 @@ const PIPELINE_DATA = {
       "votes": 2816,
       "bggRank": 1421,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Economic",
+        "Medieval"
+      ],
       "location": {
         "city": "Strasbourg",
         "country": "France",
@@ -2588,6 +3085,14 @@ const PIPELINE_DATA = {
       "votes": 2600,
       "bggRank": 1435,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Industry / Manufacturing",
+        "Medieval",
+        "Renaissance",
+        "Transportation",
+        "Travel"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -2612,6 +3117,9 @@ const PIPELINE_DATA = {
       "votes": 2520,
       "bggRank": 1444,
       "is_expansion": false,
+      "categories": [
+        "Industry / Manufacturing"
+      ],
       "location": {
         "city": "Agra",
         "country": "India",
@@ -2636,6 +3144,11 @@ const PIPELINE_DATA = {
       "votes": 3300,
       "bggRank": 1445,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Economic",
+        "Pike and Shot"
+      ],
       "location": {
         "city": "Hamburg",
         "country": "Deutschland",
@@ -2660,6 +3173,9 @@ const PIPELINE_DATA = {
       "votes": 4669,
       "bggRank": 1460,
       "is_expansion": false,
+      "categories": [
+        "Economic"
+      ],
       "location": {
         "city": "Santiago",
         "country": "Cuba",
@@ -2684,6 +3200,10 @@ const PIPELINE_DATA = {
       "votes": 8074,
       "bggRank": 1496,
       "is_expansion": false,
+      "categories": [
+        "Nautical",
+        "Pirates"
+      ],
       "location": {
         "city": "Cartagena",
         "country": "Colombia",
@@ -2708,6 +3228,10 @@ const PIPELINE_DATA = {
       "votes": 3440,
       "bggRank": 1498,
       "is_expansion": false,
+      "categories": [
+        "Medieval",
+        "Renaissance"
+      ],
       "location": {
         "city": "Ulm",
         "country": "Deutschland",
@@ -2732,6 +3256,13 @@ const PIPELINE_DATA = {
       "votes": 2054,
       "bggRank": 1499,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "City Building",
+        "Deduction",
+        "Miniatures",
+        "Post-Napoleonic"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -2756,6 +3287,9 @@ const PIPELINE_DATA = {
       "votes": 2384,
       "bggRank": 1503,
       "is_expansion": false,
+      "categories": [
+        "Medieval"
+      ],
       "location": {
         "city": "Carcassonne",
         "country": "France",
@@ -2780,6 +3314,10 @@ const PIPELINE_DATA = {
       "votes": 4109,
       "bggRank": 1507,
       "is_expansion": false,
+      "categories": [
+        "Political",
+        "Renaissance"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -2804,6 +3342,14 @@ const PIPELINE_DATA = {
       "votes": 1499,
       "bggRank": 1536,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Murder / Mystery",
+        "Novel-based",
+        "Post-Napoleonic",
+        "Puzzle",
+        "Spies / Secret Agents"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -2828,6 +3374,11 @@ const PIPELINE_DATA = {
       "votes": 2993,
       "bggRank": 1541,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "City Building",
+        "Travel"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -2852,6 +3403,15 @@ const PIPELINE_DATA = {
       "votes": 1521,
       "bggRank": 1542,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Fantasy",
+        "Horror",
+        "Medieval",
+        "Miniatures",
+        "Mythology",
+        "Novel-based"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -2876,6 +3436,9 @@ const PIPELINE_DATA = {
       "votes": 5962,
       "bggRank": 1556,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -2900,6 +3463,14 @@ const PIPELINE_DATA = {
       "votes": 20590,
       "bggRank": 1572,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Children's Game",
+        "Educational",
+        "Party Game",
+        "Real-time",
+        "Sports"
+      ],
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -2924,6 +3495,10 @@ const PIPELINE_DATA = {
       "votes": 2159,
       "bggRank": 1573,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Economic"
+      ],
       "location": {
         "city": "Warsaw",
         "country": "Polska",
@@ -2948,6 +3523,10 @@ const PIPELINE_DATA = {
       "votes": 2398,
       "bggRank": 1608,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "City Building"
+      ],
       "location": {
         "city": "Trier",
         "country": "Deutschland",
@@ -2972,6 +3551,10 @@ const PIPELINE_DATA = {
       "votes": 2322,
       "bggRank": 1627,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Economic"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -2996,6 +3579,10 @@ const PIPELINE_DATA = {
       "votes": 17601,
       "bggRank": 1647,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Travel"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -3020,6 +3607,10 @@ const PIPELINE_DATA = {
       "votes": 2766,
       "bggRank": 1656,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Pike and Shot"
+      ],
       "location": {
         "city": "Hamburg",
         "country": "Deutschland",
@@ -3044,6 +3635,10 @@ const PIPELINE_DATA = {
       "votes": 1496,
       "bggRank": 1661,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Kursk",
         "country": "Россия",
@@ -3068,6 +3663,9 @@ const PIPELINE_DATA = {
       "votes": 5729,
       "bggRank": 1692,
       "is_expansion": false,
+      "categories": [
+        "Arabian"
+      ],
       "location": {
         "city": "Marrakech",
         "country": "Maroc ⵍⵎⵖⵔⵉⴱ المغرب",
@@ -3092,6 +3690,10 @@ const PIPELINE_DATA = {
       "votes": 1962,
       "bggRank": 1695,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Miniatures"
+      ],
       "location": {
         "city": "Xi'an",
         "country": "中国",
@@ -3116,6 +3718,10 @@ const PIPELINE_DATA = {
       "votes": 1807,
       "bggRank": 1697,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Religious"
+      ],
       "location": {
         "city": "Jerusalem",
         "country": "ישראל",
@@ -3140,6 +3746,11 @@ const PIPELINE_DATA = {
       "votes": 4753,
       "bggRank": 1708,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Card Game",
+        "Dice"
+      ],
       "location": {
         "city": "Rome",
         "country": "Italia",
@@ -3164,6 +3775,12 @@ const PIPELINE_DATA = {
       "votes": 2020,
       "bggRank": 1725,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Card Game",
+        "Mythology",
+        "Religious"
+      ],
       "location": {
         "city": "Luxor",
         "country": "مصر",
@@ -3188,6 +3805,10 @@ const PIPELINE_DATA = {
       "votes": 3723,
       "bggRank": 1729,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Industry / Manufacturing"
+      ],
       "location": {
         "city": "Le Havre",
         "country": "France",
@@ -3212,6 +3833,9 @@ const PIPELINE_DATA = {
       "votes": 2286,
       "bggRank": 1731,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "Glasgow",
         "country": "United Kingdom",
@@ -3236,6 +3860,10 @@ const PIPELINE_DATA = {
       "votes": 2990,
       "bggRank": 1739,
       "is_expansion": false,
+      "categories": [
+        "Negotiation",
+        "Political"
+      ],
       "location": {
         "city": "Moscow",
         "country": "Россия",
@@ -3260,6 +3888,10 @@ const PIPELINE_DATA = {
       "votes": 2675,
       "bggRank": 1757,
       "is_expansion": false,
+      "categories": [
+        "Dice",
+        "Medieval"
+      ],
       "location": {
         "city": "Troyes",
         "country": "France",
@@ -3284,6 +3916,12 @@ const PIPELINE_DATA = {
       "votes": 3568,
       "bggRank": 1771,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Card Game",
+        "Economic",
+        "Nautical"
+      ],
       "location": {
         "city": "Osaka",
         "country": "日本",
@@ -3308,6 +3946,11 @@ const PIPELINE_DATA = {
       "votes": 2268,
       "bggRank": 1795,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Economic",
+        "Renaissance"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -3332,6 +3975,10 @@ const PIPELINE_DATA = {
       "votes": 2001,
       "bggRank": 1812,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Trains"
+      ],
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -3356,6 +4003,10 @@ const PIPELINE_DATA = {
       "votes": 3255,
       "bggRank": 1818,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Card Game"
+      ],
       "location": {
         "city": "Havana",
         "country": "Cuba",
@@ -3380,6 +4031,9 @@ const PIPELINE_DATA = {
       "votes": 2152,
       "bggRank": 1826,
       "is_expansion": false,
+      "categories": [
+        "Card Game"
+      ],
       "location": {
         "city": "Brussels",
         "country": "België / Belgique / Belgien",
@@ -3404,6 +4058,13 @@ const PIPELINE_DATA = {
       "votes": 1271,
       "bggRank": 1856,
       "is_expansion": false,
+      "categories": [
+        "Exploration",
+        "Fighting",
+        "Miniatures",
+        "Renaissance",
+        "Video Game Theme"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -3428,6 +4089,9 @@ const PIPELINE_DATA = {
       "votes": 1190,
       "bggRank": 1887,
       "is_expansion": false,
+      "categories": [
+        "Dice"
+      ],
       "location": {
         "city": "Amsterdam",
         "country": "Nederland",
@@ -3452,6 +4116,11 @@ const PIPELINE_DATA = {
       "votes": 953,
       "bggRank": 1953,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Economic",
+        "Wargame"
+      ],
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -3476,6 +4145,11 @@ const PIPELINE_DATA = {
       "votes": 1014,
       "bggRank": 1962,
       "is_expansion": false,
+      "categories": [
+        "Arabian",
+        "Dice",
+        "Medieval"
+      ],
       "location": {
         "city": "Baghdad",
         "country": "العراق",
@@ -3500,6 +4174,10 @@ const PIPELINE_DATA = {
       "votes": 2541,
       "bggRank": 1986,
       "is_expansion": false,
+      "categories": [
+        "Trains",
+        "Transportation"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -3524,6 +4202,10 @@ const PIPELINE_DATA = {
       "votes": 4609,
       "bggRank": 2033,
       "is_expansion": false,
+      "categories": [
+        "Children's Game",
+        "Medieval"
+      ],
       "location": {
         "city": "Carcassonne",
         "country": "France",
@@ -3548,6 +4230,10 @@ const PIPELINE_DATA = {
       "votes": 3457,
       "bggRank": 2036,
       "is_expansion": false,
+      "categories": [
+        "Industry / Manufacturing",
+        "Renaissance"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -3572,6 +4258,11 @@ const PIPELINE_DATA = {
       "votes": 2264,
       "bggRank": 2059,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Trains",
+        "Transportation"
+      ],
       "location": {
         "city": "Munich",
         "country": "Deutschland",
@@ -3596,6 +4287,12 @@ const PIPELINE_DATA = {
       "votes": 1064,
       "bggRank": 2092,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "City Building",
+        "Economic",
+        "Racing"
+      ],
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -3620,6 +4317,10 @@ const PIPELINE_DATA = {
       "votes": 2158,
       "bggRank": 2126,
       "is_expansion": false,
+      "categories": [
+        "Abstract Strategy",
+        "Electronic"
+      ],
       "location": {
         "city": "Buenos Aires",
         "country": "Argentina",
@@ -3644,6 +4345,11 @@ const PIPELINE_DATA = {
       "votes": 920,
       "bggRank": 2127,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "City Building",
+        "Nautical"
+      ],
       "location": {
         "city": "Rome",
         "country": "Italia",
@@ -3668,6 +4374,9 @@ const PIPELINE_DATA = {
       "votes": 1693,
       "bggRank": 2129,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "Quebec",
         "country": "Canada",
@@ -3692,6 +4401,10 @@ const PIPELINE_DATA = {
       "votes": 3177,
       "bggRank": 2200,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Trains"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -3716,6 +4429,9 @@ const PIPELINE_DATA = {
       "votes": 2254,
       "bggRank": 2202,
       "is_expansion": false,
+      "categories": [
+        "Age of Reason"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -3740,6 +4456,11 @@ const PIPELINE_DATA = {
       "votes": 1733,
       "bggRank": 2207,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Industry / Manufacturing",
+        "Trains"
+      ],
       "location": {
         "city": "Essen",
         "country": "Deutschland",
@@ -3764,6 +4485,9 @@ const PIPELINE_DATA = {
       "votes": 848,
       "bggRank": 2243,
       "is_expansion": false,
+      "categories": [
+        "Economic"
+      ],
       "location": {
         "city": "Brussels",
         "country": "België / Belgique / Belgien",
@@ -3788,6 +4512,11 @@ const PIPELINE_DATA = {
       "votes": 1144,
       "bggRank": 2251,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Murder / Mystery",
+        "Puzzle"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -3812,6 +4541,9 @@ const PIPELINE_DATA = {
       "votes": 1450,
       "bggRank": 2254,
       "is_expansion": false,
+      "categories": [
+        "Medieval"
+      ],
       "location": {
         "city": "Orléans",
         "country": "France",
@@ -3836,6 +4568,12 @@ const PIPELINE_DATA = {
       "votes": 2286,
       "bggRank": 2258,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Dice",
+        "Medieval",
+        "Party Game"
+      ],
       "location": {
         "city": "Bristol",
         "country": "United Kingdom",
@@ -3860,6 +4598,11 @@ const PIPELINE_DATA = {
       "votes": 2852,
       "bggRank": 2260,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Medieval",
+        "Movies / TV / Radio theme"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -3884,6 +4627,9 @@ const PIPELINE_DATA = {
       "votes": 1054,
       "bggRank": 2270,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -3908,6 +4654,12 @@ const PIPELINE_DATA = {
       "votes": 4505,
       "bggRank": 2278,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Deduction",
+        "Mafia",
+        "Party Game"
+      ],
       "location": {
         "city": "Havana",
         "country": "Cuba",
@@ -3932,6 +4684,13 @@ const PIPELINE_DATA = {
       "votes": 2260,
       "bggRank": 2295,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Murder / Mystery",
+        "Novel-based",
+        "Post-Napoleonic",
+        "Print & Play"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -3956,6 +4715,11 @@ const PIPELINE_DATA = {
       "votes": 1097,
       "bggRank": 2300,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "City Building",
+        "Economic"
+      ],
       "location": {
         "city": "Hamburg",
         "country": "Deutschland",
@@ -3980,6 +4744,10 @@ const PIPELINE_DATA = {
       "votes": 3526,
       "bggRank": 2302,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Spies / Secret Agents"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -4004,6 +4772,10 @@ const PIPELINE_DATA = {
       "votes": 1199,
       "bggRank": 2307,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Trains"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -4028,6 +4800,12 @@ const PIPELINE_DATA = {
       "votes": 1030,
       "bggRank": 2310,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Exploration",
+        "Nautical",
+        "Renaissance"
+      ],
       "location": {
         "city": "Amalfi",
         "country": "Italia",
@@ -4052,6 +4830,10 @@ const PIPELINE_DATA = {
       "votes": 1765,
       "bggRank": 2314,
       "is_expansion": false,
+      "categories": [
+        "Spies / Secret Agents",
+        "World War II"
+      ],
       "location": {
         "city": "Estoril",
         "country": "Portugal",
@@ -4076,6 +4858,10 @@ const PIPELINE_DATA = {
       "votes": 3498,
       "bggRank": 2338,
       "is_expansion": false,
+      "categories": [
+        "Adventure",
+        "World War II"
+      ],
       "location": {
         "city": "Colditz",
         "country": "Deutschland",
@@ -4100,6 +4886,9 @@ const PIPELINE_DATA = {
       "votes": 991,
       "bggRank": 2345,
       "is_expansion": false,
+      "categories": [
+        "Science Fiction"
+      ],
       "location": {
         "city": "Moscow",
         "country": "Россия",
@@ -4124,6 +4913,9 @@ const PIPELINE_DATA = {
       "votes": 2394,
       "bggRank": 2346,
       "is_expansion": false,
+      "categories": [
+        "Economic"
+      ],
       "location": {
         "city": "York",
         "country": "United Kingdom",
@@ -4148,6 +4940,10 @@ const PIPELINE_DATA = {
       "votes": 2000,
       "bggRank": 2349,
       "is_expansion": false,
+      "categories": [
+        "Napoleonic",
+        "Wargame"
+      ],
       "location": {
         "city": "Madrid",
         "country": "España",
@@ -4172,6 +4968,9 @@ const PIPELINE_DATA = {
       "votes": 2358,
       "bggRank": 2375,
       "is_expansion": false,
+      "categories": [
+        "Medieval"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -4196,6 +4995,10 @@ const PIPELINE_DATA = {
       "votes": 1187,
       "bggRank": 2382,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Wargame"
+      ],
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -4220,6 +5023,12 @@ const PIPELINE_DATA = {
       "votes": 2690,
       "bggRank": 2393,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Exploration",
+        "Nautical",
+        "Renaissance"
+      ],
       "location": {
         "city": "Lisbon",
         "country": "Portugal",
@@ -4244,6 +5053,9 @@ const PIPELINE_DATA = {
       "votes": 1130,
       "bggRank": 2406,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "Cusco",
         "country": "Perú",
@@ -4268,6 +5080,11 @@ const PIPELINE_DATA = {
       "votes": 1923,
       "bggRank": 2412,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Fighting",
+        "Political"
+      ],
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -4292,6 +5109,10 @@ const PIPELINE_DATA = {
       "votes": 1900,
       "bggRank": 2414,
       "is_expansion": false,
+      "categories": [
+        "Action / Dexterity",
+        "Sports"
+      ],
       "location": {
         "city": "Bergamo",
         "country": "Italia",
@@ -4316,6 +5137,11 @@ const PIPELINE_DATA = {
       "votes": 1730,
       "bggRank": 2429,
       "is_expansion": false,
+      "categories": [
+        "Civilization",
+        "Economic",
+        "Religious"
+      ],
       "location": {
         "city": "Cusco",
         "country": "Perú",
@@ -4340,6 +5166,10 @@ const PIPELINE_DATA = {
       "votes": 1326,
       "bggRank": 2431,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Berlin",
         "country": "Deutschland",
@@ -4364,6 +5194,9 @@ const PIPELINE_DATA = {
       "votes": 1331,
       "bggRank": 2433,
       "is_expansion": false,
+      "categories": [
+        "Card Game"
+      ],
       "location": {
         "city": "Bern",
         "country": "Schweiz/Suisse/Svizzera/Svizra",
@@ -4388,6 +5221,13 @@ const PIPELINE_DATA = {
       "votes": 2804,
       "bggRank": 2441,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Card Game",
+        "Nautical",
+        "Negotiation",
+        "Pirates"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -4412,6 +5252,9 @@ const PIPELINE_DATA = {
       "votes": 6568,
       "bggRank": 2451,
       "is_expansion": false,
+      "categories": [
+        "Trains"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -4436,6 +5279,11 @@ const PIPELINE_DATA = {
       "votes": 895,
       "bggRank": 2504,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Political",
+        "Wargame"
+      ],
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -4460,6 +5308,11 @@ const PIPELINE_DATA = {
       "votes": 1021,
       "bggRank": 2507,
       "is_expansion": false,
+      "categories": [
+        "Negotiation",
+        "Political",
+        "World War I"
+      ],
       "location": {
         "city": "Versailles",
         "country": "France",
@@ -4484,6 +5337,12 @@ const PIPELINE_DATA = {
       "votes": 1429,
       "bggRank": 2524,
       "is_expansion": false,
+      "categories": [
+        "Dice",
+        "Fighting",
+        "Movies / TV / Radio theme",
+        "Science Fiction"
+      ],
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -4508,6 +5367,10 @@ const PIPELINE_DATA = {
       "votes": 1710,
       "bggRank": 2526,
       "is_expansion": false,
+      "categories": [
+        "Religious",
+        "Renaissance"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -4532,6 +5395,12 @@ const PIPELINE_DATA = {
       "votes": 1197,
       "bggRank": 2531,
       "is_expansion": false,
+      "categories": [
+        "Civil War",
+        "Modern Warfare",
+        "Political",
+        "Wargame"
+      ],
       "location": {
         "city": "Budapest",
         "country": "Magyarország",
@@ -4556,6 +5425,11 @@ const PIPELINE_DATA = {
       "votes": 1086,
       "bggRank": 2540,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Economic",
+        "Renaissance"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -4580,6 +5454,10 @@ const PIPELINE_DATA = {
       "votes": 1776,
       "bggRank": 2576,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Transportation"
+      ],
       "location": {
         "city": "Samarkand",
         "country": "Oʻzbekiston",
@@ -4604,6 +5482,12 @@ const PIPELINE_DATA = {
       "votes": 1059,
       "bggRank": 2580,
       "is_expansion": false,
+      "categories": [
+        "Civil War",
+        "Deduction",
+        "Political",
+        "Wargame"
+      ],
       "location": {
         "city": "Saint Petersburg",
         "country": "Россия",
@@ -4628,6 +5512,10 @@ const PIPELINE_DATA = {
       "votes": 12141,
       "bggRank": 2616,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Economic"
+      ],
       "location": {
         "city": "Atlantic City",
         "country": "United States",
@@ -4652,6 +5540,9 @@ const PIPELINE_DATA = {
       "votes": 1697,
       "bggRank": 2626,
       "is_expansion": false,
+      "categories": [
+        "Trains"
+      ],
       "location": {
         "city": "Amsterdam",
         "country": "Nederland",
@@ -4676,6 +5567,9 @@ const PIPELINE_DATA = {
       "votes": 2148,
       "bggRank": 2639,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "Las Vegas",
         "country": "United States",
@@ -4700,6 +5594,9 @@ const PIPELINE_DATA = {
       "votes": 1255,
       "bggRank": 2651,
       "is_expansion": false,
+      "categories": [
+        "Trains"
+      ],
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -4724,6 +5621,9 @@ const PIPELINE_DATA = {
       "votes": 2497,
       "bggRank": 2657,
       "is_expansion": false,
+      "categories": [
+        "Action / Dexterity"
+      ],
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -4748,6 +5648,11 @@ const PIPELINE_DATA = {
       "votes": 1521,
       "bggRank": 2664,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Exploration",
+        "Medieval"
+      ],
       "location": {
         "city": "Cracow",
         "country": "Polska",
@@ -4772,6 +5677,10 @@ const PIPELINE_DATA = {
       "votes": 1365,
       "bggRank": 2680,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Renaissance"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -4796,6 +5705,11 @@ const PIPELINE_DATA = {
       "votes": 1351,
       "bggRank": 2730,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Economic",
+        "Territory Building"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -4820,6 +5734,11 @@ const PIPELINE_DATA = {
       "votes": 2026,
       "bggRank": 2745,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Murder / Mystery",
+        "Spies / Secret Agents"
+      ],
       "location": {
         "city": "Warsaw",
         "country": "Polska",
@@ -4844,6 +5763,10 @@ const PIPELINE_DATA = {
       "votes": 2849,
       "bggRank": 2753,
       "is_expansion": false,
+      "categories": [
+        "Abstract Strategy",
+        "Economic"
+      ],
       "location": {
         "city": "Lisbon",
         "country": "Portugal",
@@ -4868,6 +5791,14 @@ const PIPELINE_DATA = {
       "votes": 1605,
       "bggRank": 2773,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "City Building",
+        "Economic",
+        "Industry / Manufacturing",
+        "Nautical",
+        "Transportation"
+      ],
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -4892,6 +5823,11 @@ const PIPELINE_DATA = {
       "votes": 2005,
       "bggRank": 2789,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Puzzle",
+        "Real-time"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -4916,6 +5852,12 @@ const PIPELINE_DATA = {
       "votes": 995,
       "bggRank": 2792,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Comic Book / Strip",
+        "Economic",
+        "Industry / Manufacturing"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -4940,6 +5882,9 @@ const PIPELINE_DATA = {
       "votes": 1013,
       "bggRank": 2807,
       "is_expansion": false,
+      "categories": [
+        "Transportation"
+      ],
       "location": {
         "city": "Kyoto",
         "country": "日本",
@@ -4964,6 +5909,12 @@ const PIPELINE_DATA = {
       "votes": 655,
       "bggRank": 2821,
       "is_expansion": false,
+      "categories": [
+        "Civil War",
+        "Modern Warfare",
+        "Political",
+        "Wargame"
+      ],
       "location": {
         "city": "Sarajevo",
         "country": "Bosna i Hercegovina / Босна и Херцеговина",
@@ -4988,6 +5939,10 @@ const PIPELINE_DATA = {
       "votes": 887,
       "bggRank": 2842,
       "is_expansion": false,
+      "categories": [
+        "Napoleonic",
+        "Wargame"
+      ],
       "location": {
         "city": "Marengo",
         "country": "Italia",
@@ -5012,6 +5967,11 @@ const PIPELINE_DATA = {
       "votes": 1149,
       "bggRank": 2865,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Card Game",
+        "Horror"
+      ],
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -5036,6 +5996,10 @@ const PIPELINE_DATA = {
       "votes": 602,
       "bggRank": 2869,
       "is_expansion": false,
+      "categories": [
+        "Medieval",
+        "Wargame"
+      ],
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -5060,6 +6024,11 @@ const PIPELINE_DATA = {
       "votes": 1159,
       "bggRank": 2928,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Trains",
+        "Transportation"
+      ],
       "location": {
         "city": "Nuremberg",
         "country": "Deutschland",
@@ -5084,6 +6053,10 @@ const PIPELINE_DATA = {
       "votes": 1511,
       "bggRank": 2931,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "City Building"
+      ],
       "location": {
         "city": "Rome",
         "country": "Italia",
@@ -5108,6 +6081,9 @@ const PIPELINE_DATA = {
       "votes": 1198,
       "bggRank": 2937,
       "is_expansion": false,
+      "categories": [
+        "Economic"
+      ],
       "location": {
         "city": "Marrakech",
         "country": "Maroc ⵍⵎⵖⵔⵉⴱ المغرب",
@@ -5132,6 +6108,7 @@ const PIPELINE_DATA = {
       "votes": 1460,
       "bggRank": 2949,
       "is_expansion": false,
+      "categories": [],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -5156,6 +6133,10 @@ const PIPELINE_DATA = {
       "votes": 600,
       "bggRank": 2966,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Trains"
+      ],
       "location": {
         "city": "Beijing",
         "country": "中国",
@@ -5180,6 +6161,11 @@ const PIPELINE_DATA = {
       "votes": 1681,
       "bggRank": 3011,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Real-time",
+        "Renaissance"
+      ],
       "location": {
         "city": "Amsterdam",
         "country": "Nederland",
@@ -5204,6 +6190,11 @@ const PIPELINE_DATA = {
       "votes": 1137,
       "bggRank": 3041,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Music",
+        "Novel-based"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -5228,6 +6219,9 @@ const PIPELINE_DATA = {
       "votes": 2230,
       "bggRank": 3072,
       "is_expansion": false,
+      "categories": [
+        "Dice"
+      ],
       "location": {
         "city": "Rio de Janeiro",
         "country": "Brasil",
@@ -5252,6 +6246,12 @@ const PIPELINE_DATA = {
       "votes": 2168,
       "bggRank": 3085,
       "is_expansion": false,
+      "categories": [
+        "Animals",
+        "Deduction",
+        "Murder / Mystery",
+        "Party Game"
+      ],
       "location": {
         "city": "Amsterdam",
         "country": "Nederland",
@@ -5276,6 +6276,10 @@ const PIPELINE_DATA = {
       "votes": 2416,
       "bggRank": 3095,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Dice"
+      ],
       "location": {
         "city": "Saint Malo",
         "country": "France",
@@ -5300,6 +6304,12 @@ const PIPELINE_DATA = {
       "votes": 772,
       "bggRank": 3100,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Card Game",
+        "Mythology",
+        "Religious"
+      ],
       "location": {
         "city": "Luxor",
         "country": "مصر",
@@ -5324,6 +6334,9 @@ const PIPELINE_DATA = {
       "votes": 2707,
       "bggRank": 3102,
       "is_expansion": false,
+      "categories": [
+        "Abstract Strategy"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -5348,6 +6361,11 @@ const PIPELINE_DATA = {
       "votes": 778,
       "bggRank": 3128,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Economic",
+        "Music"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -5372,6 +6390,12 @@ const PIPELINE_DATA = {
       "votes": 960,
       "bggRank": 3182,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Murder / Mystery",
+        "Spies / Secret Agents",
+        "Travel"
+      ],
       "location": {
         "city": "Vienna",
         "country": "Österreich",
@@ -5396,6 +6420,10 @@ const PIPELINE_DATA = {
       "votes": 934,
       "bggRank": 3196,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Arnhem",
         "country": "Nederland",
@@ -5420,6 +6448,10 @@ const PIPELINE_DATA = {
       "votes": 504,
       "bggRank": 3222,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Volgograd",
         "country": "Россия",
@@ -5444,6 +6476,12 @@ const PIPELINE_DATA = {
       "votes": 1403,
       "bggRank": 3227,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Medieval",
+        "Negotiation",
+        "Transportation"
+      ],
       "location": {
         "city": "Bruges",
         "country": "België / Belgique / Belgien",
@@ -5468,6 +6506,11 @@ const PIPELINE_DATA = {
       "votes": 1275,
       "bggRank": 3249,
       "is_expansion": false,
+      "categories": [
+        "Medieval",
+        "Political",
+        "Wargame"
+      ],
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -5492,6 +6535,10 @@ const PIPELINE_DATA = {
       "votes": 1368,
       "bggRank": 3275,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Renaissance"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -5516,6 +6563,10 @@ const PIPELINE_DATA = {
       "votes": 868,
       "bggRank": 3294,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Saint-Nazaire",
         "country": "France",
@@ -5540,6 +6591,11 @@ const PIPELINE_DATA = {
       "votes": 771,
       "bggRank": 3320,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Trains",
+        "Transportation"
+      ],
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -5564,6 +6620,12 @@ const PIPELINE_DATA = {
       "votes": 1101,
       "bggRank": 3326,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Fighting",
+        "Horror",
+        "Zombies"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -5588,6 +6650,10 @@ const PIPELINE_DATA = {
       "votes": 1304,
       "bggRank": 3355,
       "is_expansion": false,
+      "categories": [
+        "Nautical",
+        "Renaissance"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -5612,6 +6678,10 @@ const PIPELINE_DATA = {
       "votes": 1734,
       "bggRank": 3357,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Renaissance"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -5636,6 +6706,11 @@ const PIPELINE_DATA = {
       "votes": 1543,
       "bggRank": 3370,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Economic",
+        "Nautical"
+      ],
       "location": {
         "city": "Amsterdam",
         "country": "Nederland",
@@ -5660,6 +6735,11 @@ const PIPELINE_DATA = {
       "votes": 847,
       "bggRank": 3380,
       "is_expansion": false,
+      "categories": [
+        "Comic Book / Strip",
+        "Miniatures",
+        "Science Fiction"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -5684,6 +6764,11 @@ const PIPELINE_DATA = {
       "votes": 1199,
       "bggRank": 3410,
       "is_expansion": false,
+      "categories": [
+        "Abstract Strategy",
+        "Bluffing",
+        "Deduction"
+      ],
       "location": {
         "city": "Kyoto",
         "country": "日本",
@@ -5708,6 +6793,10 @@ const PIPELINE_DATA = {
       "votes": 1422,
       "bggRank": 3417,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Economic"
+      ],
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -5732,6 +6821,10 @@ const PIPELINE_DATA = {
       "votes": 733,
       "bggRank": 3433,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War I"
+      ],
       "location": {
         "city": "Istanbul",
         "country": "Türkiye",
@@ -5756,6 +6849,12 @@ const PIPELINE_DATA = {
       "votes": 1083,
       "bggRank": 3455,
       "is_expansion": false,
+      "categories": [
+        "Humor",
+        "Medieval",
+        "Novel-based",
+        "Religious"
+      ],
       "location": {
         "city": "Canterbury",
         "country": "United Kingdom",
@@ -5780,6 +6879,10 @@ const PIPELINE_DATA = {
       "votes": 770,
       "bggRank": 3488,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Volgograd",
         "country": "Россия",
@@ -5804,6 +6907,10 @@ const PIPELINE_DATA = {
       "votes": 1109,
       "bggRank": 3506,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Medieval"
+      ],
       "location": {
         "city": "Nuremberg",
         "country": "Deutschland",
@@ -5828,6 +6935,9 @@ const PIPELINE_DATA = {
       "votes": 1283,
       "bggRank": 3518,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -5852,6 +6962,9 @@ const PIPELINE_DATA = {
       "votes": 807,
       "bggRank": 3523,
       "is_expansion": false,
+      "categories": [
+        "Ancient"
+      ],
       "location": {
         "city": "Xi'an",
         "country": "中国",
@@ -5876,6 +6989,9 @@ const PIPELINE_DATA = {
       "votes": 1319,
       "bggRank": 3525,
       "is_expansion": false,
+      "categories": [
+        "Trains"
+      ],
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -5900,6 +7016,12 @@ const PIPELINE_DATA = {
       "votes": 717,
       "bggRank": 3532,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Political",
+        "Post-Napoleonic",
+        "Wargame"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -5924,6 +7046,10 @@ const PIPELINE_DATA = {
       "votes": 502,
       "bggRank": 3558,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Salerno",
         "country": "Italia",
@@ -5948,6 +7074,11 @@ const PIPELINE_DATA = {
       "votes": 651,
       "bggRank": 3559,
       "is_expansion": false,
+      "categories": [
+        "Animals",
+        "Economic",
+        "Industry / Manufacturing"
+      ],
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -5972,6 +7103,11 @@ const PIPELINE_DATA = {
       "votes": 1005,
       "bggRank": 3600,
       "is_expansion": false,
+      "categories": [
+        "American West",
+        "Card Game",
+        "City Building"
+      ],
       "location": {
         "city": "Carson City",
         "country": "United States",
@@ -5996,6 +7132,10 @@ const PIPELINE_DATA = {
       "votes": 947,
       "bggRank": 3639,
       "is_expansion": false,
+      "categories": [
+        "Medieval",
+        "Negotiation"
+      ],
       "location": {
         "city": "Nuremberg",
         "country": "Deutschland",
@@ -6020,6 +7160,9 @@ const PIPELINE_DATA = {
       "votes": 566,
       "bggRank": 3663,
       "is_expansion": false,
+      "categories": [
+        "Economic"
+      ],
       "location": {
         "city": "Yokohama",
         "country": "日本",
@@ -6044,6 +7187,9 @@ const PIPELINE_DATA = {
       "votes": 911,
       "bggRank": 3696,
       "is_expansion": false,
+      "categories": [
+        "Abstract Strategy"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -6068,6 +7214,7 @@ const PIPELINE_DATA = {
       "votes": 1618,
       "bggRank": 3698,
       "is_expansion": false,
+      "categories": [],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -6092,6 +7239,10 @@ const PIPELINE_DATA = {
       "votes": 857,
       "bggRank": 3718,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Medieval"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -6116,6 +7267,10 @@ const PIPELINE_DATA = {
       "votes": 1453,
       "bggRank": 3745,
       "is_expansion": false,
+      "categories": [
+        "Exploration",
+        "Renaissance"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -6140,6 +7295,10 @@ const PIPELINE_DATA = {
       "votes": 408,
       "bggRank": 3746,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Kursk",
         "country": "Россия",
@@ -6164,6 +7323,12 @@ const PIPELINE_DATA = {
       "votes": 823,
       "bggRank": 3748,
       "is_expansion": false,
+      "categories": [
+        "Action / Dexterity",
+        "Horror",
+        "Renaissance",
+        "Zombies"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -6188,6 +7353,10 @@ const PIPELINE_DATA = {
       "votes": 1077,
       "bggRank": 3749,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Territory Building"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -6212,6 +7381,11 @@ const PIPELINE_DATA = {
       "votes": 592,
       "bggRank": 3751,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Farming",
+        "Nautical"
+      ],
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -6236,6 +7410,14 @@ const PIPELINE_DATA = {
       "votes": 770,
       "bggRank": 3760,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Economic",
+        "Industry / Manufacturing",
+        "Napoleonic",
+        "Post-Napoleonic",
+        "Trains"
+      ],
       "location": {
         "city": "Bremen",
         "country": "Deutschland",
@@ -6260,6 +7442,10 @@ const PIPELINE_DATA = {
       "votes": 1253,
       "bggRank": 3787,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Medieval"
+      ],
       "location": {
         "city": "Cologne",
         "country": "Deutschland",
@@ -6284,6 +7470,10 @@ const PIPELINE_DATA = {
       "votes": 1392,
       "bggRank": 3810,
       "is_expansion": false,
+      "categories": [
+        "Dice",
+        "Pirates"
+      ],
       "location": {
         "city": "Shanghai",
         "country": "中国",
@@ -6308,6 +7498,9 @@ const PIPELINE_DATA = {
       "votes": 1687,
       "bggRank": 3880,
       "is_expansion": false,
+      "categories": [
+        "Arabian"
+      ],
       "location": {
         "city": "Baghdad",
         "country": "العراق",
@@ -6332,6 +7525,9 @@ const PIPELINE_DATA = {
       "votes": 695,
       "bggRank": 3910,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "Porto",
         "country": "Portugal",
@@ -6356,6 +7552,10 @@ const PIPELINE_DATA = {
       "votes": 654,
       "bggRank": 3937,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Volgograd",
         "country": "Россия",
@@ -6380,6 +7580,11 @@ const PIPELINE_DATA = {
       "votes": 1507,
       "bggRank": 3945,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Political",
+        "Renaissance"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -6404,6 +7609,10 @@ const PIPELINE_DATA = {
       "votes": 878,
       "bggRank": 3957,
       "is_expansion": false,
+      "categories": [
+        "Adventure",
+        "Novel-based"
+      ],
       "location": {
         "city": "La Rochelle",
         "country": "France",
@@ -6428,6 +7637,9 @@ const PIPELINE_DATA = {
       "votes": 878,
       "bggRank": 3969,
       "is_expansion": false,
+      "categories": [
+        "Trains"
+      ],
       "location": {
         "city": "Santa Fe",
         "country": "United States",
@@ -6452,6 +7664,9 @@ const PIPELINE_DATA = {
       "votes": 1057,
       "bggRank": 3977,
       "is_expansion": false,
+      "categories": [
+        "Pirates"
+      ],
       "location": {
         "city": "Cartagena",
         "country": "Colombia",
@@ -6476,6 +7691,12 @@ const PIPELINE_DATA = {
       "votes": 444,
       "bggRank": 3980,
       "is_expansion": false,
+      "categories": [
+        "Aviation / Flight",
+        "Modern Warfare",
+        "Vietnam War",
+        "Wargame"
+      ],
       "location": {
         "city": "Hanoi",
         "country": "Việt Nam",
@@ -6500,6 +7721,9 @@ const PIPELINE_DATA = {
       "votes": 477,
       "bggRank": 3984,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "Seattle",
         "country": "United States",
@@ -6524,6 +7748,10 @@ const PIPELINE_DATA = {
       "votes": 838,
       "bggRank": 3994,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Mafia"
+      ],
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -6548,6 +7776,9 @@ const PIPELINE_DATA = {
       "votes": 630,
       "bggRank": 4023,
       "is_expansion": false,
+      "categories": [
+        "Territory Building"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -6572,6 +7803,10 @@ const PIPELINE_DATA = {
       "votes": 370,
       "bggRank": 4029,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War I"
+      ],
       "location": {
         "city": "Verdun",
         "country": "France",
@@ -6596,6 +7831,13 @@ const PIPELINE_DATA = {
       "votes": 363,
       "bggRank": 4059,
       "is_expansion": false,
+      "categories": [
+        "Adventure",
+        "Deduction",
+        "Fantasy",
+        "Murder / Mystery",
+        "Puzzle"
+      ],
       "location": {
         "city": "Prague",
         "country": "Česko",
@@ -6620,6 +7862,11 @@ const PIPELINE_DATA = {
       "votes": 638,
       "bggRank": 4069,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Horror",
+        "Murder / Mystery"
+      ],
       "location": {
         "city": "Boston",
         "country": "United States",
@@ -6644,6 +7891,13 @@ const PIPELINE_DATA = {
       "votes": 1920,
       "bggRank": 4079,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Card Game",
+        "Deduction",
+        "Novel-based",
+        "Renaissance"
+      ],
       "location": {
         "city": "Verona",
         "country": "Italia",
@@ -6668,6 +7922,11 @@ const PIPELINE_DATA = {
       "votes": 769,
       "bggRank": 4081,
       "is_expansion": false,
+      "categories": [
+        "Age of Reason",
+        "American Indian Wars",
+        "Wargame"
+      ],
       "location": {
         "city": "Quebec",
         "country": "Canada",
@@ -6692,6 +7951,9 @@ const PIPELINE_DATA = {
       "votes": 573,
       "bggRank": 4146,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -6716,6 +7978,10 @@ const PIPELINE_DATA = {
       "votes": 528,
       "bggRank": 4152,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Wargame"
+      ],
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -6740,6 +8006,10 @@ const PIPELINE_DATA = {
       "votes": 4306,
       "bggRank": 4174,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Mafia"
+      ],
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -6764,6 +8034,9 @@ const PIPELINE_DATA = {
       "votes": 517,
       "bggRank": 4184,
       "is_expansion": false,
+      "categories": [
+        "Dice"
+      ],
       "location": {
         "city": "New Orleans",
         "country": "United States",
@@ -6788,6 +8061,10 @@ const PIPELINE_DATA = {
       "votes": 1702,
       "bggRank": 4195,
       "is_expansion": false,
+      "categories": [
+        "Abstract Strategy",
+        "Ancient"
+      ],
       "location": {
         "city": "Rome",
         "country": "Italia",
@@ -6812,6 +8089,11 @@ const PIPELINE_DATA = {
       "votes": 800,
       "bggRank": 4197,
       "is_expansion": false,
+      "categories": [
+        "Animals",
+        "Card Game",
+        "Mafia"
+      ],
       "location": {
         "city": "Miami",
         "country": "United States",
@@ -6836,6 +8118,10 @@ const PIPELINE_DATA = {
       "votes": 1261,
       "bggRank": 4224,
       "is_expansion": false,
+      "categories": [
+        "Abstract Strategy",
+        "Territory Building"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -6860,6 +8146,10 @@ const PIPELINE_DATA = {
       "votes": 453,
       "bggRank": 4237,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Industry / Manufacturing"
+      ],
       "location": {
         "city": "Versailles",
         "country": "France",
@@ -6884,6 +8174,10 @@ const PIPELINE_DATA = {
       "votes": 1283,
       "bggRank": 4239,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Medieval"
+      ],
       "location": {
         "city": "Augsburg",
         "country": "Deutschland",
@@ -6908,6 +8202,10 @@ const PIPELINE_DATA = {
       "votes": 604,
       "bggRank": 4254,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Wargame"
+      ],
       "location": {
         "city": "Jerusalem",
         "country": "ישראל",
@@ -6932,6 +8230,10 @@ const PIPELINE_DATA = {
       "votes": 547,
       "bggRank": 4277,
       "is_expansion": false,
+      "categories": [
+        "American West",
+        "City Building"
+      ],
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -6956,6 +8258,9 @@ const PIPELINE_DATA = {
       "votes": 540,
       "bggRank": 4283,
       "is_expansion": false,
+      "categories": [
+        "Trains"
+      ],
       "location": {
         "city": "Berlin",
         "country": "Deutschland",
@@ -6980,6 +8285,11 @@ const PIPELINE_DATA = {
       "votes": 821,
       "bggRank": 4319,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Dice",
+        "Science Fiction"
+      ],
       "location": {
         "city": "Paris",
         "country": "France",
@@ -7004,6 +8314,11 @@ const PIPELINE_DATA = {
       "votes": 2184,
       "bggRank": 4323,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Puzzle",
+        "Real-time"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -7028,6 +8343,10 @@ const PIPELINE_DATA = {
       "votes": 652,
       "bggRank": 4328,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Medieval"
+      ],
       "location": {
         "city": "Canterbury",
         "country": "United Kingdom",
@@ -7052,6 +8371,11 @@ const PIPELINE_DATA = {
       "votes": 912,
       "bggRank": 4366,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Political",
+        "Renaissance"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -7076,6 +8400,9 @@ const PIPELINE_DATA = {
       "votes": 411,
       "bggRank": 4448,
       "is_expansion": false,
+      "categories": [
+        "Action / Dexterity"
+      ],
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -7100,6 +8427,11 @@ const PIPELINE_DATA = {
       "votes": 1015,
       "bggRank": 4458,
       "is_expansion": false,
+      "categories": [
+        "Horror",
+        "Murder / Mystery",
+        "Real-time"
+      ],
       "location": {
         "city": "London",
         "country": "United Kingdom",
@@ -7124,6 +8456,9 @@ const PIPELINE_DATA = {
       "votes": 1558,
       "bggRank": 4459,
       "is_expansion": false,
+      "categories": [
+        "Card Game"
+      ],
       "location": {
         "city": "Nottingham",
         "country": "United Kingdom",
@@ -7148,6 +8483,11 @@ const PIPELINE_DATA = {
       "votes": 454,
       "bggRank": 4502,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Puzzle",
+        "Real-time"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -7172,6 +8512,10 @@ const PIPELINE_DATA = {
       "votes": 1887,
       "bggRank": 4509,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Transportation"
+      ],
       "location": {
         "city": "Mumbai",
         "country": "India",
@@ -7196,6 +8540,9 @@ const PIPELINE_DATA = {
       "votes": 942,
       "bggRank": 4513,
       "is_expansion": false,
+      "categories": [
+        "Puzzle"
+      ],
       "location": {
         "city": "Copenhagen",
         "country": "Danmark",
@@ -7220,6 +8567,10 @@ const PIPELINE_DATA = {
       "votes": 801,
       "bggRank": 4548,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Trains"
+      ],
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -7244,6 +8595,10 @@ const PIPELINE_DATA = {
       "votes": 1505,
       "bggRank": 4552,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Negotiation"
+      ],
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -7268,6 +8623,11 @@ const PIPELINE_DATA = {
       "votes": 677,
       "bggRank": 4608,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Puzzle",
+        "Real-time"
+      ],
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -7292,6 +8652,10 @@ const PIPELINE_DATA = {
       "votes": 474,
       "bggRank": 4647,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Volgograd",
         "country": "Россия",
@@ -7316,6 +8680,11 @@ const PIPELINE_DATA = {
       "votes": 1219,
       "bggRank": 4649,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Nautical",
+        "Renaissance"
+      ],
       "location": {
         "city": "Jakarta",
         "country": "Indonesia",
@@ -7340,6 +8709,9 @@ const PIPELINE_DATA = {
       "votes": 797,
       "bggRank": 4662,
       "is_expansion": false,
+      "categories": [
+        "Medieval"
+      ],
       "location": {
         "city": "Jerusalem",
         "country": "ישראל",
@@ -7364,6 +8736,10 @@ const PIPELINE_DATA = {
       "votes": 444,
       "bggRank": 4677,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Wargame"
+      ],
       "location": {
         "city": "Athens",
         "country": "Ελλάς",
@@ -7388,6 +8764,10 @@ const PIPELINE_DATA = {
       "votes": 318,
       "bggRank": 4707,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Moscow",
         "country": "Россия",
@@ -7412,6 +8792,10 @@ const PIPELINE_DATA = {
       "votes": 949,
       "bggRank": 4713,
       "is_expansion": false,
+      "categories": [
+        "Nautical",
+        "Pirates"
+      ],
       "location": {
         "city": "Cartagena",
         "country": "Colombia",
@@ -7436,6 +8820,10 @@ const PIPELINE_DATA = {
       "votes": 531,
       "bggRank": 4715,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Renaissance"
+      ],
       "location": {
         "city": "Granada",
         "country": "España",
@@ -7460,6 +8848,11 @@ const PIPELINE_DATA = {
       "votes": 333,
       "bggRank": 4733,
       "is_expansion": false,
+      "categories": [
+        "Modern Warfare",
+        "Political",
+        "Wargame"
+      ],
       "location": {
         "city": "Manila",
         "country": "Philippines",
@@ -7484,6 +8877,10 @@ const PIPELINE_DATA = {
       "votes": 416,
       "bggRank": 4744,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Bastogne",
         "country": "België / Belgique / Belgien",
@@ -7508,6 +8905,11 @@ const PIPELINE_DATA = {
       "votes": 358,
       "bggRank": 4762,
       "is_expansion": false,
+      "categories": [
+        "Deduction",
+        "Medical",
+        "Murder / Mystery"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -7532,6 +8934,10 @@ const PIPELINE_DATA = {
       "votes": 286,
       "bggRank": 4778,
       "is_expansion": false,
+      "categories": [
+        "Napoleonic",
+        "Wargame"
+      ],
       "location": {
         "city": "Austerlitz",
         "country": "Česko",
@@ -7556,6 +8962,11 @@ const PIPELINE_DATA = {
       "votes": 349,
       "bggRank": 4784,
       "is_expansion": false,
+      "categories": [
+        "Medieval",
+        "Religious",
+        "Wargame"
+      ],
       "location": {
         "city": "Jerusalem",
         "country": "ישראל",
@@ -7580,6 +8991,11 @@ const PIPELINE_DATA = {
       "votes": 790,
       "bggRank": 4813,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Card Game",
+        "Renaissance"
+      ],
       "location": {
         "city": "Trieste",
         "country": "Italia",
@@ -7604,6 +9020,10 @@ const PIPELINE_DATA = {
       "votes": 409,
       "bggRank": 4840,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "City Building"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -7628,6 +9048,9 @@ const PIPELINE_DATA = {
       "votes": 891,
       "bggRank": 4871,
       "is_expansion": false,
+      "categories": [
+        "Territory Building"
+      ],
       "location": {
         "city": "Versailles",
         "country": "France",
@@ -7652,6 +9075,10 @@ const PIPELINE_DATA = {
       "votes": 698,
       "bggRank": 4892,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Economic"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -7676,6 +9103,10 @@ const PIPELINE_DATA = {
       "votes": 800,
       "bggRank": 4972,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Political"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -7700,6 +9131,10 @@ const PIPELINE_DATA = {
       "votes": 431,
       "bggRank": 4998,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Smolensk",
         "country": "Россия",
@@ -7724,6 +9159,9 @@ const PIPELINE_DATA = {
       "votes": 907,
       "bggRank": 5060,
       "is_expansion": false,
+      "categories": [
+        "Economic"
+      ],
       "location": {
         "city": "Samarkand",
         "country": "Oʻzbekiston",
@@ -7748,6 +9186,10 @@ const PIPELINE_DATA = {
       "votes": 737,
       "bggRank": 5122,
       "is_expansion": false,
+      "categories": [
+        "Dice",
+        "Post-Napoleonic"
+      ],
       "location": {
         "city": "Vienna",
         "country": "Österreich",
@@ -7772,6 +9214,11 @@ const PIPELINE_DATA = {
       "votes": 495,
       "bggRank": 5140,
       "is_expansion": false,
+      "categories": [
+        "Civilization",
+        "Medieval",
+        "Renaissance"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -7796,6 +9243,9 @@ const PIPELINE_DATA = {
       "votes": 575,
       "bggRank": 5467,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -7820,6 +9270,7 @@ const PIPELINE_DATA = {
       "votes": 304,
       "bggRank": 5571,
       "is_expansion": false,
+      "categories": [],
       "location": {
         "city": "Vienna",
         "country": "Österreich",
@@ -7844,6 +9295,10 @@ const PIPELINE_DATA = {
       "votes": 623,
       "bggRank": 5622,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Nautical"
+      ],
       "location": {
         "city": "Bremerhaven",
         "country": "Deutschland",
@@ -7868,6 +9323,13 @@ const PIPELINE_DATA = {
       "votes": 646,
       "bggRank": 5912,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Political",
+        "Religious",
+        "Renaissance",
+        "Spies / Secret Agents"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -7892,6 +9354,11 @@ const PIPELINE_DATA = {
       "votes": 601,
       "bggRank": 6415,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Industry / Manufacturing",
+        "Movies / TV / Radio theme"
+      ],
       "location": {
         "city": "Los Angeles",
         "country": "United States",
@@ -7916,6 +9383,13 @@ const PIPELINE_DATA = {
       "votes": 425,
       "bggRank": 6716,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "City Building",
+        "Economic",
+        "Nautical",
+        "Transportation"
+      ],
       "location": {
         "city": "Rhodes",
         "country": "Ελλάς",
@@ -7940,6 +9414,10 @@ const PIPELINE_DATA = {
       "votes": 616,
       "bggRank": 6867,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Medieval"
+      ],
       "location": {
         "city": "Samara",
         "country": "Россия",
@@ -7964,6 +9442,11 @@ const PIPELINE_DATA = {
       "votes": 272,
       "bggRank": 6969,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Political",
+        "Renaissance"
+      ],
       "location": {
         "city": "Florence",
         "country": "Italia",
@@ -7988,6 +9471,9 @@ const PIPELINE_DATA = {
       "votes": 280,
       "bggRank": 7149,
       "is_expansion": false,
+      "categories": [
+        "Abstract Strategy"
+      ],
       "location": {
         "city": "Brest",
         "country": "France",
@@ -8012,6 +9498,11 @@ const PIPELINE_DATA = {
       "votes": 733,
       "bggRank": 7211,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Farming",
+        "Medieval"
+      ],
       "location": {
         "city": "Siena",
         "country": "Italia",
@@ -8036,6 +9527,10 @@ const PIPELINE_DATA = {
       "votes": 385,
       "bggRank": 7454,
       "is_expansion": false,
+      "categories": [
+        "Arabian",
+        "Economic"
+      ],
       "location": {
         "city": "Cairo",
         "country": "مصر",
@@ -8060,6 +9555,10 @@ const PIPELINE_DATA = {
       "votes": 295,
       "bggRank": 7501,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Saint Petersburg",
         "country": "Россия",
@@ -8084,6 +9583,11 @@ const PIPELINE_DATA = {
       "votes": 160,
       "bggRank": 7927,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Trains",
+        "Transportation"
+      ],
       "location": {
         "city": "Tokyo",
         "country": "日本",
@@ -8108,6 +9612,9 @@ const PIPELINE_DATA = {
       "votes": 367,
       "bggRank": 8589,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -8132,6 +9639,10 @@ const PIPELINE_DATA = {
       "votes": 321,
       "bggRank": 8694,
       "is_expansion": false,
+      "categories": [
+        "Arabian",
+        "Territory Building"
+      ],
       "location": {
         "city": "Marrakech",
         "country": "Maroc ⵍⵎⵖⵔⵉⴱ المغرب",
@@ -8156,6 +9667,9 @@ const PIPELINE_DATA = {
       "votes": 279,
       "bggRank": 8732,
       "is_expansion": false,
+      "categories": [
+        "Card Game"
+      ],
       "location": {
         "city": "Sydney",
         "country": "Australia",
@@ -8180,6 +9694,13 @@ const PIPELINE_DATA = {
       "votes": 156,
       "bggRank": 9141,
       "is_expansion": false,
+      "categories": [
+        "City Building",
+        "Civilization",
+        "Economic",
+        "Pirates",
+        "Renaissance"
+      ],
       "location": {
         "city": "Buenos Aires",
         "country": "Argentina",
@@ -8204,6 +9725,9 @@ const PIPELINE_DATA = {
       "votes": 410,
       "bggRank": 9189,
       "is_expansion": false,
+      "categories": [
+        "Economic"
+      ],
       "location": {
         "city": "Singapore",
         "country": "Singapore",
@@ -8228,6 +9752,12 @@ const PIPELINE_DATA = {
       "votes": 156,
       "bggRank": 9313,
       "is_expansion": false,
+      "categories": [
+        "Age of Reason",
+        "American Indian Wars",
+        "American Revolutionary War",
+        "Wargame"
+      ],
       "location": {
         "city": "Savannah",
         "country": "United States",
@@ -8252,6 +9782,10 @@ const PIPELINE_DATA = {
       "votes": 227,
       "bggRank": 9482,
       "is_expansion": false,
+      "categories": [
+        "Pike and Shot",
+        "Wargame"
+      ],
       "location": {
         "city": "Leipzig",
         "country": "Deutschland",
@@ -8276,6 +9810,9 @@ const PIPELINE_DATA = {
       "votes": 327,
       "bggRank": 9594,
       "is_expansion": false,
+      "categories": [
+        "City Building"
+      ],
       "location": {
         "city": "San Francisco",
         "country": "United States",
@@ -8300,6 +9837,9 @@ const PIPELINE_DATA = {
       "votes": 336,
       "bggRank": 9802,
       "is_expansion": false,
+      "categories": [
+        "Renaissance"
+      ],
       "location": {
         "city": "Salamanca",
         "country": "España",
@@ -8324,6 +9864,10 @@ const PIPELINE_DATA = {
       "votes": 309,
       "bggRank": 10125,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Territory Building"
+      ],
       "location": {
         "city": "Palmyra",
         "country": "سوريا",
@@ -8348,6 +9892,10 @@ const PIPELINE_DATA = {
       "votes": 141,
       "bggRank": 10292,
       "is_expansion": false,
+      "categories": [
+        "Napoleonic",
+        "Wargame"
+      ],
       "location": {
         "city": "Marengo",
         "country": "Italia",
@@ -8372,6 +9920,10 @@ const PIPELINE_DATA = {
       "votes": 194,
       "bggRank": 10454,
       "is_expansion": false,
+      "categories": [
+        "Civil War",
+        "Wargame"
+      ],
       "location": {
         "city": "Guadalajara",
         "country": "España",
@@ -8396,6 +9948,9 @@ const PIPELINE_DATA = {
       "votes": 315,
       "bggRank": 10617,
       "is_expansion": false,
+      "categories": [
+        "Ancient"
+      ],
       "location": {
         "city": "Luxor",
         "country": "مصر",
@@ -8420,6 +9975,10 @@ const PIPELINE_DATA = {
       "votes": 513,
       "bggRank": 10717,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Volgograd",
         "country": "Россия",
@@ -8444,6 +10003,10 @@ const PIPELINE_DATA = {
       "votes": 107,
       "bggRank": 10916,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Arabian"
+      ],
       "location": {
         "city": "Palmyra",
         "country": "سوريا",
@@ -8468,6 +10031,10 @@ const PIPELINE_DATA = {
       "votes": 124,
       "bggRank": 11158,
       "is_expansion": false,
+      "categories": [
+        "Napoleonic",
+        "Wargame"
+      ],
       "location": {
         "city": "Jena",
         "country": "Deutschland",
@@ -8492,6 +10059,9 @@ const PIPELINE_DATA = {
       "votes": 155,
       "bggRank": 11183,
       "is_expansion": false,
+      "categories": [
+        "Renaissance"
+      ],
       "location": {
         "city": "Amalfi",
         "country": "Italia",
@@ -8516,6 +10086,10 @@ const PIPELINE_DATA = {
       "votes": 196,
       "bggRank": 11294,
       "is_expansion": false,
+      "categories": [
+        "Children's Game",
+        "Racing"
+      ],
       "location": {
         "city": "Marrakech",
         "country": "Maroc ⵍⵎⵖⵔⵉⴱ المغرب",
@@ -8540,6 +10114,10 @@ const PIPELINE_DATA = {
       "votes": 102,
       "bggRank": 11623,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Card Game"
+      ],
       "location": {
         "city": "Versailles",
         "country": "France",
@@ -8564,6 +10142,10 @@ const PIPELINE_DATA = {
       "votes": 141,
       "bggRank": 11754,
       "is_expansion": false,
+      "categories": [
+        "Napoleonic",
+        "Wargame"
+      ],
       "location": {
         "city": "Austerlitz",
         "country": "Česko",
@@ -8588,6 +10170,9 @@ const PIPELINE_DATA = {
       "votes": 330,
       "bggRank": 11780,
       "is_expansion": false,
+      "categories": [
+        "Negotiation"
+      ],
       "location": {
         "city": "Agra",
         "country": "India",
@@ -8612,6 +10197,9 @@ const PIPELINE_DATA = {
       "votes": 132,
       "bggRank": 12632,
       "is_expansion": false,
+      "categories": [
+        "Card Game"
+      ],
       "location": {
         "city": "Pisa",
         "country": "Italia",
@@ -8636,6 +10224,11 @@ const PIPELINE_DATA = {
       "votes": 320,
       "bggRank": 12841,
       "is_expansion": false,
+      "categories": [
+        "Animals",
+        "City Building",
+        "Humor"
+      ],
       "location": {
         "city": "Hameln",
         "country": "Deutschland",
@@ -8660,6 +10253,10 @@ const PIPELINE_DATA = {
       "votes": 362,
       "bggRank": 13272,
       "is_expansion": false,
+      "categories": [
+        "Ancient",
+        "Card Game"
+      ],
       "location": {
         "city": "Giza",
         "country": "مصر",
@@ -8684,6 +10281,10 @@ const PIPELINE_DATA = {
       "votes": 279,
       "bggRank": 13666,
       "is_expansion": false,
+      "categories": [
+        "Action / Dexterity",
+        "Dice"
+      ],
       "location": {
         "city": "Cairo",
         "country": "مصر",
@@ -8708,6 +10309,10 @@ const PIPELINE_DATA = {
       "votes": 148,
       "bggRank": 13993,
       "is_expansion": false,
+      "categories": [
+        "Post-Napoleonic",
+        "Wargame"
+      ],
       "location": {
         "city": "San Antonio",
         "country": "United States",
@@ -8732,6 +10337,11 @@ const PIPELINE_DATA = {
       "votes": 139,
       "bggRank": 14388,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Economic",
+        "Medieval"
+      ],
       "location": {
         "city": "Riga",
         "country": "Latvija",
@@ -8756,6 +10366,10 @@ const PIPELINE_DATA = {
       "votes": 107,
       "bggRank": 15513,
       "is_expansion": false,
+      "categories": [
+        "Wargame",
+        "World War II"
+      ],
       "location": {
         "city": "Singapore",
         "country": "Singapore",
@@ -8780,6 +10394,10 @@ const PIPELINE_DATA = {
       "votes": 232,
       "bggRank": 17083,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Travel"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -8804,6 +10422,11 @@ const PIPELINE_DATA = {
       "votes": 257,
       "bggRank": 18431,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Nautical",
+        "Transportation"
+      ],
       "location": {
         "city": "Rotterdam",
         "country": "Nederland",
@@ -8828,6 +10451,11 @@ const PIPELINE_DATA = {
       "votes": 128,
       "bggRank": 18517,
       "is_expansion": false,
+      "categories": [
+        "Bluffing",
+        "Card Game",
+        "Medieval"
+      ],
       "location": {
         "city": "Tallinn",
         "country": "Eesti",
@@ -8852,6 +10480,9 @@ const PIPELINE_DATA = {
       "votes": 255,
       "bggRank": 19659,
       "is_expansion": false,
+      "categories": [
+        "Mafia"
+      ],
       "location": {
         "city": "New York",
         "country": "United States",
@@ -8876,6 +10507,11 @@ const PIPELINE_DATA = {
       "votes": 309,
       "bggRank": 20724,
       "is_expansion": false,
+      "categories": [
+        "Adventure",
+        "Ancient",
+        "Exploration"
+      ],
       "location": {
         "city": "Alexandria",
         "country": "مصر",
@@ -8900,6 +10536,11 @@ const PIPELINE_DATA = {
       "votes": 129,
       "bggRank": 21293,
       "is_expansion": false,
+      "categories": [
+        "Economic",
+        "Negotiation",
+        "Post-Napoleonic"
+      ],
       "location": {
         "city": "Warsaw",
         "country": "Polska",
@@ -8924,6 +10565,9 @@ const PIPELINE_DATA = {
       "votes": 152,
       "bggRank": 23107,
       "is_expansion": false,
+      "categories": [
+        "Abstract Strategy"
+      ],
       "location": {
         "city": "San Gimignano",
         "country": "Italia",
@@ -8948,6 +10592,11 @@ const PIPELINE_DATA = {
       "votes": 111,
       "bggRank": 25371,
       "is_expansion": false,
+      "categories": [
+        "Nautical",
+        "Racing",
+        "Sports"
+      ],
       "location": {
         "city": "Venice",
         "country": "Italia",
@@ -8972,6 +10621,10 @@ const PIPELINE_DATA = {
       "votes": 225,
       "bggRank": 25510,
       "is_expansion": false,
+      "categories": [
+        "Fighting",
+        "Mafia"
+      ],
       "location": {
         "city": "Chicago",
         "country": "United States",
@@ -8996,6 +10649,9 @@ const PIPELINE_DATA = {
       "votes": 151,
       "bggRank": 25708,
       "is_expansion": false,
+      "categories": [
+        "Bluffing"
+      ],
       "location": {
         "city": "Shanghai",
         "country": "中国",
@@ -9020,6 +10676,9 @@ const PIPELINE_DATA = {
       "votes": 228,
       "bggRank": 26144,
       "is_expansion": false,
+      "categories": [
+        "Economic"
+      ],
       "location": {
         "city": "Marseille",
         "country": "France",
@@ -9044,6 +10703,7 @@ const PIPELINE_DATA = {
       "votes": 119,
       "bggRank": 27242,
       "is_expansion": false,
+      "categories": [],
       "location": {
         "city": "Las Vegas",
         "country": "United States",
@@ -9068,6 +10728,10 @@ const PIPELINE_DATA = {
       "votes": 1786,
       "bggRank": 28596,
       "is_expansion": false,
+      "categories": [
+        "Card Game",
+        "Children's Game"
+      ],
       "location": {
         "city": "Nice",
         "country": "France",

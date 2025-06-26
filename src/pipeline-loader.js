@@ -93,7 +93,7 @@ class PipelineLoader {
             maxPlayers: null,
             playingTime: null,
             families: [],
-            categories: [],
+            categories: pipelineGame.categories || [],
             mechanics: [],
             rating: {
                 average: pipelineGame.rating,

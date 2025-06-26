@@ -109,8 +109,21 @@
             font-size: 12px;
         }
         
+        .filter-section select[multiple] {
+            height: auto;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+        
         .filter-section input[type="checkbox"] {
             margin-right: 5px;
+        }
+        
+        .category-info {
+            font-size: 10px;
+            color: #888;
+            margin-top: 2px;
+            font-style: italic;
         }
         
         .stats {
@@ -194,6 +207,14 @@
                 <option value="1000">Top 1000</option>
                 <option value="5000">Top 5000</option>
             </select>
+        </div>
+        
+        <div class="filter-section">
+            <label for="category-select">Categories:</label>
+            <select id="category-select" multiple size="5" onchange="updateFilters()">
+                <!-- Categories will be populated dynamically -->
+            </select>
+            <div class="category-info">Hold Ctrl/Cmd to select multiple</div>
         </div>
         
         <button id="load-pipeline" onclick="loadPipelineData()">Reload Games</button>
